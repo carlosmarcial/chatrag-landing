@@ -25,6 +25,53 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ChatRAG",
+    "description": "The Next.js & AI SDK boilerplate for turning data into profit with RAG (Retrieval Augmented Generation). Build, launch, and monetize custom chatbot-based SaaS products.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "url": "https://chatrag.ai",
+    "screenshot": "https://chatrag.ai/images/heroChatRag.png",
+    "softwareVersion": "1.0",
+    "offers": {
+      "@type": "Offer",
+      "price": "269",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2025-01-27",
+      "priceValidUntil": "2025-12-31"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Carlos Marcial",
+      "url": "https://x.com/carlosmarcialt"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ChatRAG",
+      "url": "https://chatrag.ai"
+    },
+    "featureList": [
+      "Next.js full-stack framework",
+      "Vercel AI SDK",
+      "RAG implementation with LlamaCloud",
+      "OpenAI embeddings",
+      "Supabase Vector Database",
+      "Stripe/Polar payments",
+      "MCP Tools integration",
+      "Multi-language support",
+      "Mobile responsive design"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "ratingCount": "250"
+    }
+  };
+
   // Refs for scroll trigger sections
   const chatWidgetsSectionRef = useRef<HTMLDivElement>(null);
   const benefitsSectionRef = useRef<HTMLDivElement>(null);
@@ -36,7 +83,14 @@ export default function Home() {
   );
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      
+      <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="relative">
         <div className="container mx-auto px-4 h-20 flex items-center pt-1">
@@ -149,35 +203,35 @@ export default function Home() {
               <div className="flex -space-x-4">
                 <Image
                   src="/images/chatrag_customer1.jpg"
-                  alt="Customer avatar"
+                  alt="AI developer satisfied with ChatRAG boilerplate"
                   width={48}
                   height={48}
                   className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-10"
                 />
                 <Image
                   src="/images/chatrag_customer2.jpg"
-                  alt="Customer avatar"
+                  alt="Entrepreneur using ChatRAG for chatbot development"
                   width={48}
                   height={48}
                   className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-20"
                 />
                 <Image
                   src="/images/chatrag_customer3.jpg"
-                  alt="Customer avatar"
+                  alt="SaaS founder building AI chatbots with ChatRAG"
                   width={48}
                   height={48}
                   className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-30"
                 />
                 <Image
                   src="/images/chatrag_customer4.jpg"
-                  alt="Customer avatar"
+                  alt="Developer creating RAG-powered applications"
                   width={48}
                   height={48}
                   className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-40"
                 />
                 <Image
                   src="/images/chatrag_customer5.jpg"
-                  alt="Customer avatar"
+                  alt="AI agency owner scaling chatbot solutions"
                   width={48}
                   height={48}
                   className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-50"
@@ -918,5 +972,6 @@ export default function Home() {
         animationState={animationState}
       />
     </div>
+    </>
   );
 }
