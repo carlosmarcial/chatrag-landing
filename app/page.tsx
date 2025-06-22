@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Bot, Menu, X, Database, CreditCard, Cpu, Settings, Code, Palette, FileText, Zap, Users, Workflow, Star, Gift, Globe, Video, Share, Mic, Smartphone, FileDown, History, Languages, Type, Code2, Crown } from "lucide-react";
+import { Bot, Menu, X, Database, CreditCard, Cpu, Settings, Code, Palette, FileText, Zap, Users, Workflow, Star, Gift, Globe, Video, Share, Mic, Smartphone, FileDown, History, Languages, Type, Code2, Crown, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -492,7 +492,7 @@ export default function Home() {
               </div>
               <div className="p-8">
                 <h3 className="text-2xl font-bold mb-3">Developer Dashboard</h3>
-                <span className="text-muted-foreground text-lg">Complete configuration control without coding. If you can copy and paste API keys into an intuitive dashboard, you can deploy your own chatbots.</span>
+                <span className="text-muted-foreground text-lg">Complete configuration control without coding. If you can copy and paste API keys into an intuitive dashboard, you can deploy your own chatbots. For instance, modify the System Prompt directly to completely transform your AI's personality—from a professional assistant to a witty conversationalist—and fine-tune exactly how it responds to your data without ever touching the codebase.</span>
               </div>
             </Card>
             
@@ -509,7 +509,7 @@ export default function Home() {
               </div>
               <div className="p-8">
                 <h3 className="text-2xl font-bold mb-3">Document Dashboard</h3>
-                <span className="text-muted-foreground text-lg">Effortless RAG system management. Simply drop your documents and ChatRAG handles all the processing automatically in the background.</span>
+                <span className="text-muted-foreground text-lg">Effortless RAG system management. Simply drop your documents and ChatRAG handles all the processing automatically in the background. Once you've configured your LlamaCloud, OpenAI, and Supabase API keys, you never have to think about document parsing, intelligent chunking, embeddings generation, or vector database storage—it all happens seamlessly behind the scenes.</span>
               </div>
             </Card>
           </div>
@@ -809,11 +809,11 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
             <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Users className="w-8 h-8 gradient-icon" />
+                <GraduationCap className="w-8 h-8 gradient-icon" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Customer Support Automation</h3>
+              <h3 className="text-xl font-bold mb-3">Educational Knowledge Scaling</h3>
               <p className="text-muted-foreground">
-                Upload your help docs, policies, and FAQs. Let customers get instant answers 24/7 while reducing your support ticket volume by 60-80%.
+                Transform your courses, lesson plans, and educational materials into intelligent tutoring bots. Serve thousands of students simultaneously while providing personalized learning support 24/7.
               </p>
             </Card>
 

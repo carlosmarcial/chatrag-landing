@@ -30,6 +30,7 @@ export function ChatInputRealDemo({ className }: ChatInputRealDemoProps) {
   const [isMcpToolsActive, setIsMcpToolsActive] = useState(false);
   const [sourceImage, setSourceImage] = useState<File | undefined>();
   const [isProcessingDoc, setIsProcessingDoc] = useState(false);
+  const [isTextareaFocused, setIsTextareaFocused] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // Modal states for enhanced interaction
@@ -41,36 +42,7 @@ export function ChatInputRealDemo({ className }: ChatInputRealDemoProps) {
   const hasDocumentContext = false; // Mock for demo
   const parentIsLoading = isLoading || isProcessingDoc;
 
-  // Auto-focus the textarea only when it's visible in viewport to show the blinking cursor
-  useEffect(() => {
-    if (!textareaRef.current || parentIsLoading) return;
-
-    const textarea = textareaRef.current;
-    
-    // Check if the element is in viewport before focusing
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Add a small delay to ensure smooth scrolling experience
-          setTimeout(() => {
-            if (textarea && !parentIsLoading) {
-              textarea.focus();
-            }
-          }, 500);
-          // Disconnect observer after first focus
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.5, // Focus when 50% of the element is visible
-        rootMargin: '0px 0px -50px 0px' // Focus a bit before it's fully visible
-      }
-    );
-
-    observer.observe(textarea);
-
-    return () => observer.disconnect();
-  }, [parentIsLoading]);
+  // Removed auto-focus behavior to prevent unwanted scrolling
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -283,6 +255,15 @@ export function ChatInputRealDemo({ className }: ChatInputRealDemoProps) {
 
   return (
     <div className={cn("chat-input-container", className)}>
+      {/* Add CSS animation for blinking caret */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes chatrag-blink {
+            0%, 60% { opacity: 1; }
+            61%, 100% { opacity: 0; }
+          }
+        `
+      }} />
       <div style={{ background: 'transparent' }}>
         <div className="flex justify-center pt-0 pb-0 md:px-4">
           <form
@@ -292,16 +273,31 @@ export function ChatInputRealDemo({ className }: ChatInputRealDemoProps) {
             <div className="relative px-2 md:px-1 sm:px-1.5">
               <div className="flex flex-col">
                 <div className="flex items-start gap-2 mb-2 md:mb-16 md:items-center">
-                  <div className="flex-1 max-h-[350px] min-h-[48px] md:min-h-auto">
-                  <TextareaAutosize
-                    ref={textareaRef}
+                  <div className="flex-1 max-h-[350px] min-h-[48px] md:min-h-auto relative">
+                    <TextareaAutosize
+                      ref={textareaRef}
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       onKeyDown={handleKeyDown}
+                      onFocus={() => setIsTextareaFocused(true)}
+                      onBlur={() => setIsTextareaFocused(false)}
                       placeholder="Ask anything"
                       rows={1}
-                    className="w-full resize-none bg-transparent px-3 md:px-3 focus:outline-none text-gray-900 dark:text-gray-100 max-h-[350px] overflow-y-auto scrollbar scrollbar-w-3 py-3 md:py-2 leading-relaxed md:leading-6 text-base md:text-sm placeholder-gray-900 dark:placeholder-gray-400"
+                      className="w-full resize-none bg-transparent px-3 md:px-3 focus:outline-none text-gray-900 dark:text-gray-100 max-h-[350px] overflow-y-auto scrollbar scrollbar-w-3 py-3 md:py-2 leading-relaxed md:leading-6 text-base md:text-sm placeholder-gray-900 dark:placeholder-gray-400"
                     />
+                    {/* Blinking caret when textarea is empty and not focused */}
+                    {!message.trim() && !isTextareaFocused && (
+                      <div 
+                        className="absolute left-3 md:left-3 pointer-events-none"
+                        style={{
+                          top: '0.75rem', // Fine-tuned to match text baseline position
+                          height: '1rem', // Match actual font size (16px base, 14px md)
+                          width: '1px', // Match browser caret width
+                          backgroundColor: 'white',
+                          animation: 'chatrag-blink 1.2s infinite',
+                        }}
+                      />
+                    )}
                   </div>
                 </div>
               </div>
