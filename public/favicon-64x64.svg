@@ -1,0 +1,21 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="faviconGrad64" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4080FF" />
+      <stop offset="50%" stop-color="#FFB001" />
+      <stop offset="100%" stop-color="#F44335" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Extra large chat bubble with detailed tail -->
+  <path 
+    d="M6,12 h42 a8,8 0 0 1 8,8 v22 a8,8 0 0 1 -8,8 h-16 l-9,9 l-9,-9 h-8 a8,8 0 0 1 -8,-8 v-22 a8,8 0 0 1 8,-8 z" 
+    fill="#4080FF"
+    style="fill: url(#faviconGrad64)"
+  />
+  
+  <!-- High-detail chat lines -->
+  <rect x="14" y="23" width="28" height="3" rx="1.5" fill="#333333" opacity="0.9"/>
+  <rect x="14" y="30" width="20" height="3" rx="1.5" fill="#333333" opacity="0.9"/>
+  <rect x="14" y="37" width="24" height="3" rx="1.5" fill="#333333" opacity="0.9"/>
+</svg> 

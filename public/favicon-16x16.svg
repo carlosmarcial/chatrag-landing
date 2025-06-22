@@ -1,0 +1,23 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="faviconGrad16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4080FF" />
+      <stop offset="50%" stop-color="#FFB001" />
+      <stop offset="100%" stop-color="#F44335" />
+    </linearGradient>
+  </defs>
+  
+  <!-- The <g> element with the 'transform' attribute prevents clipping -->
+  <g transform="translate(1.2, 1.2) scale(0.85)">
+    <path 
+      d="M1,2 h12 a2,2 0 0 1 2,2 v7 a2,2 0 0 1 -2,2 h-5 l-2.5,2.5 l-2.5,-2.5 h-2 a2,2 0 0 1 -2,-2 v-7 a2,2 0 0 1 2,-2 z" 
+      fill="#4080FF"
+      style="fill: url(#faviconGrad16)"
+    />
+    
+    <!-- Lines are scaled with the group -->
+    <rect x="3" y="5" width="8" height="1.2" rx="0.6" fill="#333333" opacity="0.9"/>
+    <rect x="3" y="7.5" width="6" height="1.2" rx="0.6" fill="#333333" opacity="0.9"/>
+    <rect x="3" y="10" width="7" height="1.2" rx="0.6" fill="#333333" opacity="0.9"/>
+  </g>
+</svg> 
