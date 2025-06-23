@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ArrowUp, X, FileText, Paperclip, Globe, Palette, Video, Box, Mic, AudioLines } from 'lucide-react';
+import { ArrowUp, X, FileText, Paperclip, Globe, Palette, Video, Box, Mic, AudioLines, Settings2 } from 'lucide-react';
+import { useMobileDetection } from '@/hooks/use-mobile-detection';
 
 // Import demo modals
 import { ImageGenModalDemo } from './modals/image-gen-modal-demo';
 import { VideoGenModalDemo } from './modals/video-gen-modal-demo';
 import { ThreeDGenModalDemo } from './modals/three-d-modal-demo';
+import { MobileToolsModalDemo } from './modals/mobile-tools-modal-demo';
 
 interface ChatInputDemoProps {
   className?: string;
@@ -17,6 +19,9 @@ export function ChatInputDemo({ className }: ChatInputDemoProps) {
   const [showImageModal, setShowImageModal] = useState(false);
   const [showVideoModal, setShowVideoModal] = useState(false);
   const [show3DModal, setShow3DModal] = useState(false);
+  const [showMobileToolsModal, setShowMobileToolsModal] = useState(false);
+  
+  const { isMobile } = useMobileDetection();
 
   const renderButton = (icon: React.ReactNode, label: string, onClick: () => void, isActive = false) => {
     return (
@@ -33,6 +38,22 @@ export function ChatInputDemo({ className }: ChatInputDemoProps) {
         {icon}
         <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+4px)] px-2 py-1 text-xs font-medium text-white dark:text-[#E6E6E6] bg-[#FF6417] dark:bg-[#1A1A1A] rounded-md opacity-0 group-hover:opacity-100 transition-opacity delay-150 duration-200">
           {label}
+        </div>
+      </button>
+    );
+  };
+
+  const renderMobileToolsButton = () => {
+    return (
+      <button
+        type="button"
+        onClick={() => setShowMobileToolsModal(true)}
+        className="inline-flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-200 group relative bg-transparent border border-[#D4C0B6] dark:border-gray-600 hover:bg-[#FFE0D0] dark:hover:bg-[#424242]"
+        aria-label="Other Tools"
+      >
+        <Settings2 className="h-5 w-5 text-gray-700 dark:text-[#9E9E9E]" />
+        <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+4px)] px-2 py-1 text-xs font-medium text-white dark:text-[#E6E6E6] bg-[#FF6417] dark:bg-[#1A1A1A] rounded-md opacity-0 group-hover:opacity-100 transition-opacity delay-150 duration-200">
+          Other Tools
         </div>
       </button>
     );
@@ -86,6 +107,7 @@ export function ChatInputDemo({ className }: ChatInputDemoProps) {
               
               {/* Tool buttons */}
               <div className="flex items-center gap-1">
+                {/* Always show file upload and voice input */}
                 {renderButton(
                   <FileText className="h-5 w-5 text-white dark:text-[#1A1A1A]" />,
                   "Upload file",
@@ -98,28 +120,35 @@ export function ChatInputDemo({ className }: ChatInputDemoProps) {
                   () => {}
                 )}
                 
-                {renderButton(
-                  <Globe className="h-5 w-5 text-white dark:text-[#1A1A1A]" />,
-                  "Web search",
-                  () => {}
-                )}
-                
-                {renderButton(
-                  <Palette className="h-5 w-5 text-white dark:text-[#1A1A1A]" />,
-                  "Generate image",
-                  () => setShowImageModal(true)
-                )}
-                
-                {renderButton(
-                  <Video className="h-5 w-5 text-white dark:text-[#1A1A1A]" />,
-                  "Generate video",
-                  () => setShowVideoModal(true)
-                )}
-                
-                {renderButton(
-                  <Box className="h-5 w-5 text-white dark:text-[#1A1A1A]" />,
-                  "Generate 3D",
-                  () => setShow3DModal(true)
+                {/* Show individual tool buttons on desktop or collapsed tools button on mobile */}
+                {!isMobile ? (
+                  <>
+                    {renderButton(
+                      <Globe className="h-5 w-5 text-white dark:text-[#1A1A1A]" />,
+                      "Web search",
+                      () => {}
+                    )}
+                    
+                    {renderButton(
+                      <Palette className="h-5 w-5 text-white dark:text-[#1A1A1A]" />,
+                      "Generate image",
+                      () => setShowImageModal(true)
+                    )}
+                    
+                    {renderButton(
+                      <Video className="h-5 w-5 text-white dark:text-[#1A1A1A]" />,
+                      "Generate video",
+                      () => setShowVideoModal(true)
+                    )}
+                    
+                    {renderButton(
+                      <Box className="h-5 w-5 text-white dark:text-[#1A1A1A]" />,
+                      "Generate 3D",
+                      () => setShow3DModal(true)
+                    )}
+                  </>
+                ) : (
+                  renderMobileToolsButton()
                 )}
                 
                 {renderSubmitButton()}
@@ -141,6 +170,17 @@ export function ChatInputDemo({ className }: ChatInputDemoProps) {
       <ThreeDGenModalDemo 
         isOpen={show3DModal} 
         onClose={() => setShow3DModal(false)} 
+      />
+      <MobileToolsModalDemo
+        isOpen={showMobileToolsModal}
+        onClose={() => setShowMobileToolsModal(false)}
+        onToolSelect={(toolId) => {
+          // Handle tool selection (just close for demo)
+          setShowMobileToolsModal(false);
+        }}
+        onImageGenerate={() => setShowImageModal(true)}
+        onVideoGenerate={() => setShowVideoModal(true)}
+        on3DGenerate={() => setShow3DModal(true)}
       />
     </div>
   );
