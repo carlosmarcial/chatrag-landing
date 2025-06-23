@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/images/heroChatRag.png',
-        width: 1200,
-        height: 630,
+        width: 2166,
+        height: 2017,
         alt: 'ChatRAG - AI Chatbot Builder Platform with RAG Technology',
       },
     ],
