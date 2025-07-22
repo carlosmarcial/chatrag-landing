@@ -82,6 +82,7 @@ export default function Home() {
       />
       
       <div className="min-h-screen bg-background">
+        <div className="w-full bg-background">
       {/* Navigation */}
       <nav className="relative">
         <div className="container mx-auto pr-4 pl-0 h-20 pt-1">
@@ -154,7 +155,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero-section" className="container mx-auto px-4 pt-6 pb-8 md:pt-8 md:pb-16 lg:pt-10 xl:pt-12 lg:pb-20">
+      <section id="hero-section" className="container mx-auto px-4 pt-6 pb-8 md:pt-8 md:pb-16 lg:pt-10 xl:pt-12 lg:pb-20 bg-background">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className={`${spaceGrotesk.className} text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-relaxed md:leading-loose lg:leading-loose xl:leading-[1.4] mb-6 md:mb-8`}>
             Ship AI chatbots in <span className="slanted-gradient-box">hours</span>, not months
@@ -243,7 +244,7 @@ export default function Home() {
       </section>
 
       {/* Video Section */}
-      <section className="container mx-auto px-4 -mt-16 pb-12 md:-mt-20 md:pb-16">
+      <section className="container mx-auto px-4 -mt-16 pb-12 md:-mt-20 md:pb-16 bg-background">
         <div className="max-w-4xl mx-auto">
           <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
             <iframe
@@ -259,7 +260,7 @@ export default function Home() {
       </section>
 
       {/* Logo Stripe Section */}
-      <section className="py-12 md:py-16 overflow-hidden">
+      <section className="py-12 md:py-16 overflow-hidden bg-background">
         <div className="container mx-auto px-4 text-center mb-8">
           <p className="text-muted-foreground text-sm md:text-base">
             Trusted by innovative companies worldwide
@@ -297,7 +298,7 @@ export default function Home() {
       </section>
 
       {/* Turn Your Data Into Revenue Section */}
-      <section id="monetize-data" className="py-12 md:py-24">
+      <section id="monetize-data" className="py-12 md:py-24 bg-background">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">ChatRAG is your <span className="animate-pulse-glow-light">AI business in a box</span></h2>
           <p className="text-lg text-muted-foreground mb-12 max-w-4xl mx-auto">
@@ -305,7 +306,7 @@ export default function Home() {
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <GraduationCap className="w-8 h-8 gradient-icon" />
               </div>
@@ -315,7 +316,7 @@ export default function Home() {
               </p>
             </Card>
 
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <FileText className="w-8 h-8 gradient-icon" />
               </div>
@@ -325,7 +326,7 @@ export default function Home() {
               </p>
             </Card>
 
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Zap className="w-8 h-8 gradient-icon" />
               </div>
@@ -346,7 +347,7 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="pt-8 pb-12 md:pt-12 md:pb-24" ref={benefitsSectionRef}>
+      <section id="benefits" className="pt-8 pb-12 md:pt-12 md:pb-24 bg-background" ref={benefitsSectionRef}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Turn your AI chatbot idea into revenue in record time</h2>
@@ -357,7 +358,7 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* All-in-One RAG System */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Database className="w-8 h-8 gradient-icon" />
               </div>
@@ -368,7 +369,7 @@ export default function Home() {
             </Card>
 
             {/* Easy Documents */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <FileText className="w-8 h-8 gradient-icon" />
               </div>
@@ -379,7 +380,7 @@ export default function Home() {
             </Card>
 
             {/* Easy Monetization */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <CreditCard className="w-8 h-8 gradient-icon" />
               </div>
@@ -390,7 +391,7 @@ export default function Home() {
             </Card>
 
             {/* No Subscriptions */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Zap className="w-8 h-8 gradient-icon" />
               </div>
@@ -401,7 +402,7 @@ export default function Home() {
             </Card>
 
             {/* Vercel AI SDK */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Cpu className="w-8 h-8 gradient-icon" />
               </div>
@@ -412,7 +413,7 @@ export default function Home() {
             </Card>
 
             {/* MCP Tools */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Workflow className="w-8 h-8 gradient-icon" />
               </div>
@@ -423,7 +424,7 @@ export default function Home() {
             </Card>
 
             {/* Config Dashboard */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Settings className="w-8 h-8 gradient-icon" />
               </div>
@@ -434,7 +435,7 @@ export default function Home() {
             </Card>
 
             {/* Beyond RAG */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Video className="w-8 h-8 gradient-icon" />
               </div>
@@ -445,7 +446,7 @@ export default function Home() {
             </Card>
 
             {/* Cursor Rules Ready */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Code className="w-8 h-8 gradient-icon" />
               </div>
@@ -457,7 +458,7 @@ export default function Home() {
 
 
             {/* Artifact Sidebar */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Code className="w-8 h-8 gradient-icon" />
               </div>
@@ -468,7 +469,7 @@ export default function Home() {
             </Card>
 
             {/* Search & Sources */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Globe className="w-8 h-8 gradient-icon" />
               </div>
@@ -479,7 +480,7 @@ export default function Home() {
             </Card>
 
             {/* Chat Customization */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Type className="w-8 h-8 gradient-icon" />
               </div>
@@ -490,7 +491,7 @@ export default function Home() {
             </Card>
 
             {/* Shareable Links */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Share className="w-8 h-8 gradient-icon" />
               </div>
@@ -501,7 +502,7 @@ export default function Home() {
             </Card>
 
             {/* PDF Download */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <FileDown className="w-8 h-8 gradient-icon" />
               </div>
@@ -512,7 +513,7 @@ export default function Home() {
             </Card>
 
             {/* Recent Chats */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <History className="w-8 h-8 gradient-icon" />
               </div>
@@ -523,7 +524,7 @@ export default function Home() {
             </Card>
 
             {/* Multi-Language Support */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Languages className="w-8 h-8 gradient-icon" />
               </div>
@@ -534,7 +535,7 @@ export default function Home() {
             </Card>
 
             {/* Text-to-Speech Integration */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Mic className="w-8 h-8 gradient-icon" />
               </div>
@@ -545,7 +546,7 @@ export default function Home() {
             </Card>
 
             {/* Mobile Ready */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Smartphone className="w-8 h-8 gradient-icon" />
               </div>
@@ -556,7 +557,7 @@ export default function Home() {
             </Card>
 
             {/* Perfect for Developers */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Code2 className="w-8 h-8 gradient-icon" />
               </div>
@@ -567,7 +568,7 @@ export default function Home() {
             </Card>
 
             {/* Perfect for AI Agencies */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Users className="w-8 h-8 gradient-icon" />
               </div>
@@ -578,7 +579,7 @@ export default function Home() {
             </Card>
 
             {/* Perfect for Power Users */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Crown className="w-8 h-8 gradient-icon" />
               </div>
@@ -593,7 +594,7 @@ export default function Home() {
 
 
       {/* Dashboards Section */}
-      <section id="demo" className="pt-24 pb-12 md:pt-32 md:pb-24">
+      <section id="demo" className="pt-24 pb-12 md:pt-32 md:pb-24 bg-background">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">The <span className="animate-pulse-glow-light">true power</span> of ChatRAG lies in its user-friendly dashboards</h2>
           <p className="text-lg text-muted-foreground mb-12 max-w-4xl mx-auto">
@@ -602,7 +603,7 @@ export default function Home() {
           
           <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
             {/* Developer Dashboard */}
-            <Card className="group overflow-hidden rounded-xl shadow-lg bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-background/60 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <Card className="group overflow-hidden rounded-xl shadow-lg border hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
               <div className="aspect-[4/3] relative overflow-hidden">
                 <Image
                   src="/images/chatrag_developer_dashboard.png"
@@ -619,7 +620,7 @@ export default function Home() {
             </Card>
             
             {/* Document Dashboard */}
-            <Card className="group overflow-hidden rounded-xl shadow-lg bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-background/60 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+            <Card className="group overflow-hidden rounded-xl shadow-lg border hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
               <div className="aspect-[4/3] relative overflow-hidden">
                 <Image
                   src="/images/chatrag_document_dashboard01.png"
@@ -639,11 +640,11 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-12 md:py-24">
+      <section id="pricing" className="py-12 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">Don't get left behind in the AI revolution! 🤖</h2>
           <div className="pricing-section-grid">
-            <Card className="p-6 pricing-card-smooth bg-card">
+            <Card className="p-6 pricing-card-smooth border">
               <div className="mb-4">
                 <h3 className="text-2xl font-bold mb-2">ChatRAG Starter</h3>
                 <div className="flex items-baseline mb-6">
@@ -723,7 +724,7 @@ export default function Home() {
               </div>
             </Card>
 
-            <Card className="p-6 relative overflow-hidden gradient-card-border bg-card">
+            <Card className="p-6 relative overflow-hidden gradient-card-border border">
               <div className="absolute top-4 right-4 bg-[#FE6416] text-white px-3 py-1 rounded-full text-sm font-medium">
                 Most Popular
               </div>
@@ -864,7 +865,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-12 md:py-24">
+      <section id="faq" className="py-12 md:py-24 bg-background">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
           <Accordion type="single" collapsible className="w-full [&>div>h3>button]:text-lg [&>div>div>div]:text-base">
@@ -922,7 +923,7 @@ export default function Home() {
 
 
       {/* Footer */}
-      <footer className="border-t py-12 pb-16">
+      <footer className="border-t py-12 pb-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
@@ -991,7 +992,8 @@ export default function Home() {
         isVisible={true}
         animationState="visible"
       />
-    </div>
+        </div>
+      </div>
     </>
   );
 }
