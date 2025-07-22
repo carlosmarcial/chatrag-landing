@@ -111,7 +111,7 @@ export default function RootLayout({
         }} />
       </head>
       <body className="overflow-y-scroll" suppressHydrationWarning>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           {children}
         </ThemeProvider>
       </body>

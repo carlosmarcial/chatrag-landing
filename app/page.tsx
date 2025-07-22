@@ -14,7 +14,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ChatWidgetsSection } from "@/components/sections/chat-widgets-section";
 import { ChatWidgetDemo } from "@/components/demos/chat-widget-demo";
 import { useScrollTrigger } from "@/hooks/use-scroll-trigger";
 import { Space_Grotesk } from 'next/font/google';
@@ -73,12 +72,11 @@ export default function Home() {
   };
 
   // Refs for scroll trigger sections
-  const chatWidgetsSectionRef = useRef<HTMLDivElement>(null);
   const benefitsSectionRef = useRef<HTMLDivElement>(null);
 
   // Scroll trigger for chat widget visibility
   const { isVisible: isChatWidgetVisible, animationState } = useScrollTrigger(
-    chatWidgetsSectionRef,
+    benefitsSectionRef,
     benefitsSectionRef
   );
 
@@ -93,45 +91,43 @@ export default function Home() {
       <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="relative">
-        <div className="container mx-auto px-4 h-20 flex items-center pt-1">
-          <div className="flex items-center space-x-2">
-            <Logo />
-          </div>
-          
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 ml-8">
-            <Button variant="ghost" className="hover:text-foreground text-base" asChild>
-              <a href="#pricing">Pricing</a>
-            </Button>
-            <Button variant="ghost" className="hover:text-foreground text-base" asChild>
-              <a href="#ui">Chatbot UI's</a>
-            </Button>
-            <Button variant="ghost" className="hover:text-foreground text-base" asChild>
-              <a href="#demo">Dashboards</a>
-            </Button>
-            <Button variant="ghost" className="hover:text-foreground text-base hidden" asChild>
-              <a href="#testimonials">Testimonials</a>
-            </Button>
-          </div>
-          
-          {/* Desktop spacer */}
-          <div className="hidden md:block ml-auto">
-          </div>
+        <div className="container mx-auto pr-4 pl-0 h-20 pt-1">
+          <div className="flex items-center justify-between h-full">
+            {/* Logo and Navigation - Left */}
+            <div className="flex items-center -ml-8">
+              <div className="flex items-center">
+                <Logo />
+              </div>
+              
+              {/* Desktop Navigation - Next to Logo */}
+              <div className="hidden md:flex items-center space-x-1 ml-0 -mt-2">
+                <Button variant="ghost" className="hover:text-foreground text-base" asChild>
+                  <a href="#pricing">Pricing</a>
+                </Button>
+                <Button variant="ghost" className="hover:text-foreground text-base" asChild>
+                  <a href="#demo">Dashboards</a>
+                </Button>
+                <Button variant="ghost" className="hover:text-foreground text-base hidden" asChild>
+                  <a href="#testimonials">Testimonials</a>
+                </Button>
+              </div>
+            </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden ml-auto">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="relative z-50"
-            >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </Button>
+            {/* Mobile Menu Button - Right */}
+            <div className="md:hidden">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="relative z-50"
+              >
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -146,14 +142,6 @@ export default function Home() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <a href="#pricing">Pricing</a>
-              </Button>
-              <Button 
-                variant="ghost" 
-                className="text-2xl hover:text-foreground" 
-                asChild
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <a href="#ui">Chatbot UI's</a>
               </Button>
               <Button 
                 variant="ghost" 
@@ -177,97 +165,86 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero-section" className="container mx-auto px-4 pt-6 pb-8 md:pt-10 md:pb-16 lg:pt-14 xl:pt-18 lg:pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="lg:transform lg:-translate-y-8 xl:-translate-y-6 2xl:-translate-y-8">
-            <h1 className={`${spaceGrotesk.className} text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight mb-6 md:mb-8`}>
-              Ship AI chatbots in <span className="animate-pulse-glow">hours</span>, not months
-            </h1>
-            <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-12 max-w-2xl">
-              The Next.js & AI SDK boilerplate for turning data into profit with <strong className="text-gray-700">RAG</strong> (Retrieval Augmented Generation). Everything you need to build, launch, and monetize custom chatbot-based SaaS products for you or your customers.
-            </p>
-            <Button size="lg" className="mb-4 xl:mt-8 2xl:mt-12 px-14 py-6 text-lg font-semibold bg-black text-white hover:bg-black hover:scale-105 hover:shadow-lg transform transition-all duration-200 group chatrag-gradient-border" variant="default">
+      <section id="hero-section" className="container mx-auto px-4 pt-6 pb-8 md:pt-8 md:pb-16 lg:pt-10 xl:pt-12 lg:pb-20">
+        <div className="text-center max-w-4xl mx-auto">
+          <h1 className={`${spaceGrotesk.className} text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-relaxed md:leading-loose lg:leading-loose xl:leading-[1.4] mb-6 md:mb-8`}>
+            Ship AI chatbots in <span className="slanted-gradient-box">hours</span>, not months
+          </h1>
+          <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-12 max-w-3xl mx-auto">
+            The Next.js & AI SDK boilerplate for turning data into profit with <strong className="text-muted-foreground/80">RAG</strong> (Retrieval Augmented Generation). Everything you need to build, launch, and monetize custom chatbot-based SaaS products for you or your customers.
+          </p>
+          
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <Button size="lg" className="px-14 py-6 text-lg font-semibold bg-transparent border-2 border-muted-foreground/20 text-foreground hover:bg-muted-foreground/10 hover:scale-105 hover:shadow-lg transform transition-all duration-200 group" variant="outline">
               <div className="group-hover:-rotate-12 transition-transform duration-200">
                 <SmallLogo />
               </div>
               <span className="ml-2">Get ChatRAG</span>
             </Button>
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-16">
-              <Gift className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity duration-300" style={{ animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite', color: '#FE6416' }} />
-              <span>$100 off for the first 5,000 customers</span>
+            <Button size="lg" className="px-14 py-6 text-lg font-semibold bg-transparent border-2 border-muted-foreground/20 text-foreground hover:bg-muted-foreground/10 hover:scale-105 hover:shadow-lg transform transition-all duration-200" variant="outline">
+              <span>View Demo Chatbot</span>
+            </Button>
+          </div>
+          
+          <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground mb-16">
+            <Gift className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity duration-300" style={{ animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite', color: '#FE6416' }} />
+            <span>$100 off for the first 5,000 customers</span>
+          </div>
+          
+          {/* Social Proof - Hidden until we have actual clients */}
+          <div className="hidden flex items-center justify-center space-x-4">
+            {/* Avatar circles */}
+            <div className="flex -space-x-4">
+              <Image
+                src="/images/chatrag_customer1.jpg"
+                alt="AI developer satisfied with ChatRAG boilerplate"
+                width={48}
+                height={48}
+                className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-10"
+              />
+              <Image
+                src="/images/chatrag_customer2.jpg"
+                alt="Entrepreneur using ChatRAG for chatbot development"
+                width={48}
+                height={48}
+                className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-20"
+              />
+              <Image
+                src="/images/chatrag_customer3.jpg"
+                alt="SaaS founder building AI chatbots with ChatRAG"
+                width={48}
+                height={48}
+                className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-30"
+              />
+              <Image
+                src="/images/chatrag_customer4.jpg"
+                alt="Developer creating RAG-powered applications"
+                width={48}
+                height={48}
+                className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-40"
+              />
+              <Image
+                src="/images/chatrag_customer5.jpg"
+                alt="AI agency owner scaling chatbot solutions"
+                width={48}
+                height={48}
+                className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-50"
+              />
             </div>
             
-            {/* Social Proof - Hidden until we have actual clients */}
-            <div className="hidden flex items-center space-x-4">
-              {/* Avatar circles */}
-              <div className="flex -space-x-4">
-                <Image
-                  src="/images/chatrag_customer1.jpg"
-                  alt="AI developer satisfied with ChatRAG boilerplate"
-                  width={48}
-                  height={48}
-                  className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-10"
-                />
-                <Image
-                  src="/images/chatrag_customer2.jpg"
-                  alt="Entrepreneur using ChatRAG for chatbot development"
-                  width={48}
-                  height={48}
-                  className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-20"
-                />
-                <Image
-                  src="/images/chatrag_customer3.jpg"
-                  alt="SaaS founder building AI chatbots with ChatRAG"
-                  width={48}
-                  height={48}
-                  className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-30"
-                />
-                <Image
-                  src="/images/chatrag_customer4.jpg"
-                  alt="Developer creating RAG-powered applications"
-                  width={48}
-                  height={48}
-                  className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-40"
-                />
-                <Image
-                  src="/images/chatrag_customer5.jpg"
-                  alt="AI agency owner scaling chatbot solutions"
-                  width={48}
-                  height={48}
-                  className="w-12 h-12 rounded-full border-2 border-background object-cover hover:scale-110 transition-transform duration-200 cursor-pointer relative z-50"
-                />
+            {/* Stars and text */}
+            <div className="flex flex-col">
+              <div className="flex space-x-1 mb-1">
+                <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
               </div>
-              
-              {/* Stars and text */}
-              <div className="flex flex-col">
-                <div className="flex space-x-1 mb-1">
-                  <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                </div>
-                                  <span className="text-sm text-muted-foreground">
-                    <strong className="text-foreground">250+</strong> AI developers & entrepreneurs
-                  </span>
-              </div>
-            </div>
-          </div>
-          <div className="relative lg:transform lg:-translate-y-8 xl:-translate-y-6 2xl:translate-y-4">
-            <Image
-              src="/images/heroChatRag.png"
-              alt="ChatRAG Technology Stack - Integrated ecosystem showing Next.js, OpenRouter, LlamaCloud, Supabase, Stripe, Polar, OpenAI, MCP Tools, Tailwind, shadcn/ui, Resend, Fal.ai, and Replicate"
-              width={800}
-              height={800}
-              className="w-full h-auto -mt-4 scale-110"
-              priority
-            />
-            <div className="-mt-2 text-center">
-              <div className="flex items-center justify-center font-mono text-2xl text-muted-foreground">
-                <span>$</span>
-                <span className="ml-2 typewriter-text"></span>
-                <span className="cursor-blink">|</span>
-              </div>
+              <span className="text-sm text-muted-foreground">
+                <strong className="text-foreground">250+</strong> AI developers & entrepreneurs
+              </span>
             </div>
           </div>
         </div>
@@ -285,7 +262,7 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* All-in-One RAG System */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Database className="w-8 h-8 gradient-icon" />
               </div>
@@ -296,7 +273,7 @@ export default function Home() {
             </Card>
 
             {/* Easy Documents */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <FileText className="w-8 h-8 gradient-icon" />
               </div>
@@ -307,7 +284,7 @@ export default function Home() {
             </Card>
 
             {/* Easy Monetization */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <CreditCard className="w-8 h-8 gradient-icon" />
               </div>
@@ -318,7 +295,7 @@ export default function Home() {
             </Card>
 
             {/* No Subscriptions */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Zap className="w-8 h-8 gradient-icon" />
               </div>
@@ -329,7 +306,7 @@ export default function Home() {
             </Card>
 
             {/* Vercel AI SDK */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Cpu className="w-8 h-8 gradient-icon" />
               </div>
@@ -340,7 +317,7 @@ export default function Home() {
             </Card>
 
             {/* MCP Tools */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Workflow className="w-8 h-8 gradient-icon" />
               </div>
@@ -351,7 +328,7 @@ export default function Home() {
             </Card>
 
             {/* Config Dashboard */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Settings className="w-8 h-8 gradient-icon" />
               </div>
@@ -362,7 +339,7 @@ export default function Home() {
             </Card>
 
             {/* Beyond RAG */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Video className="w-8 h-8 gradient-icon" />
               </div>
@@ -373,7 +350,7 @@ export default function Home() {
             </Card>
 
             {/* Cursor Rules Ready */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Code className="w-8 h-8 gradient-icon" />
               </div>
@@ -385,7 +362,7 @@ export default function Home() {
 
 
             {/* Artifact Sidebar */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Code className="w-8 h-8 gradient-icon" />
               </div>
@@ -396,7 +373,7 @@ export default function Home() {
             </Card>
 
             {/* Search & Sources */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Globe className="w-8 h-8 gradient-icon" />
               </div>
@@ -407,7 +384,7 @@ export default function Home() {
             </Card>
 
             {/* Chat Customization */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Type className="w-8 h-8 gradient-icon" />
               </div>
@@ -418,7 +395,7 @@ export default function Home() {
             </Card>
 
             {/* Shareable Links */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Share className="w-8 h-8 gradient-icon" />
               </div>
@@ -429,7 +406,7 @@ export default function Home() {
             </Card>
 
             {/* PDF Download */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <FileDown className="w-8 h-8 gradient-icon" />
               </div>
@@ -440,7 +417,7 @@ export default function Home() {
             </Card>
 
             {/* Recent Chats */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <History className="w-8 h-8 gradient-icon" />
               </div>
@@ -451,7 +428,7 @@ export default function Home() {
             </Card>
 
             {/* Multi-Language Support */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Languages className="w-8 h-8 gradient-icon" />
               </div>
@@ -462,7 +439,7 @@ export default function Home() {
             </Card>
 
             {/* Text-to-Speech Integration */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Mic className="w-8 h-8 gradient-icon" />
               </div>
@@ -473,7 +450,7 @@ export default function Home() {
             </Card>
 
             {/* Mobile Ready */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Smartphone className="w-8 h-8 gradient-icon" />
               </div>
@@ -484,7 +461,7 @@ export default function Home() {
             </Card>
 
             {/* Perfect for Developers */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Code2 className="w-8 h-8 gradient-icon" />
               </div>
@@ -495,7 +472,7 @@ export default function Home() {
             </Card>
 
             {/* Perfect for AI Agencies */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Users className="w-8 h-8 gradient-icon" />
               </div>
@@ -506,7 +483,7 @@ export default function Home() {
             </Card>
 
             {/* Perfect for Power Users */}
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Crown className="w-8 h-8 gradient-icon" />
               </div>
@@ -519,10 +496,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Chat Widgets Section */}
-      <div ref={chatWidgetsSectionRef}>
-        <ChatWidgetsSection />
-      </div>
 
       {/* Dashboards Section */}
       <section id="demo" className="pt-24 pb-12 md:pt-32 md:pb-24 bg-muted/30">
@@ -575,7 +548,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">Don't get left behind in the AI revolution! 🤖</h2>
           <div className="pricing-section-grid">
-            <Card className="p-6 pricing-card-smooth bg-[#F8ECE1]">
+            <Card className="p-6 pricing-card-smooth bg-card">
               <div className="mb-4">
                 <h3 className="text-2xl font-bold mb-2">ChatRAG Starter</h3>
                 <div className="flex items-baseline mb-6">
@@ -655,7 +628,7 @@ export default function Home() {
               </div>
             </Card>
 
-            <Card className="p-6 relative overflow-hidden gradient-card-border bg-[#F8ECE1]">
+            <Card className="p-6 relative overflow-hidden gradient-card-border bg-card">
               <div className="absolute top-4 right-4 bg-[#FE6416] text-white px-3 py-1 rounded-full text-sm font-medium">
                 Most Popular
               </div>
@@ -861,7 +834,7 @@ export default function Home() {
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <GraduationCap className="w-8 h-8 gradient-icon" />
               </div>
@@ -871,7 +844,7 @@ export default function Home() {
               </p>
             </Card>
 
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <FileText className="w-8 h-8 gradient-icon" />
               </div>
@@ -881,7 +854,7 @@ export default function Home() {
               </p>
             </Card>
 
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-[#F8ECE1] border">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
               <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Zap className="w-8 h-8 gradient-icon" />
               </div>
