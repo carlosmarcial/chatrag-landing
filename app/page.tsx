@@ -94,23 +94,19 @@ export default function Home() {
         <div className="container mx-auto pr-4 pl-0 h-20 pt-1">
           <div className="flex items-center justify-between h-full">
             {/* Logo and Navigation - Left */}
-            <div className="flex items-center -ml-8">
-              <div className="flex items-center">
+            <div className="flex items-center -ml-10 space-x-0">
+              <div className="-mr-4">
                 <Logo />
               </div>
-              
-              {/* Desktop Navigation - Next to Logo */}
-              <div className="hidden md:flex items-center space-x-1 ml-0 -mt-2">
-                <Button variant="ghost" className="hover:text-foreground text-base" asChild>
-                  <a href="#pricing">Pricing</a>
-                </Button>
-                <Button variant="ghost" className="hover:text-foreground text-base" asChild>
-                  <a href="#demo">Dashboards</a>
-                </Button>
-                <Button variant="ghost" className="hover:text-foreground text-base hidden" asChild>
-                  <a href="#testimonials">Testimonials</a>
-                </Button>
-              </div>
+              <Button variant="ghost" className="hover:text-foreground text-base hidden md:flex -mt-2" asChild>
+                <a href="#pricing">Pricing</a>
+              </Button>
+              <Button variant="ghost" className="hover:text-foreground text-base hidden md:flex -mt-2" asChild>
+                <a href="#demo">Dashboards</a>
+              </Button>
+              <Button variant="ghost" className="hover:text-foreground text-base hidden" asChild>
+                <a href="#testimonials">Testimonials</a>
+              </Button>
             </div>
 
             {/* Mobile Menu Button - Right */}
@@ -170,24 +166,27 @@ export default function Home() {
           <h1 className={`${spaceGrotesk.className} text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-relaxed md:leading-loose lg:leading-loose xl:leading-[1.4] mb-6 md:mb-8`}>
             Ship AI chatbots in <span className="slanted-gradient-box">hours</span>, not months
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-12 max-w-3xl mx-auto">
-            The Next.js & AI SDK boilerplate for turning data into profit with <strong className="text-muted-foreground/80">RAG</strong> (Retrieval Augmented Generation). Everything you need to build, launch, and monetize custom chatbot-based SaaS products for you or your customers.
+          <p className="text-lg md:text-xl text-foreground/80 mb-8 md:mb-12 max-w-3xl mx-auto">
+            The complete Next.js & AI SDK boilerplate for turning data into profit with <strong>RAG</strong>. Build and monetize custom chatbot SaaS products for yourself or your clients.
           </p>
           
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button size="lg" className="px-14 py-6 text-lg font-semibold bg-transparent border-2 border-muted-foreground/20 text-foreground hover:bg-muted-foreground/10 hover:scale-105 hover:shadow-lg transform transition-all duration-200 group" variant="outline">
+            <Button size="lg" className="px-8 py-6 text-lg font-semibold group hero-button-width" variant="outline">
               <div className="group-hover:-rotate-12 transition-transform duration-200">
                 <SmallLogo />
               </div>
               <span className="ml-2">Get ChatRAG</span>
             </Button>
-            <Button size="lg" className="px-14 py-6 text-lg font-semibold bg-transparent border-2 border-muted-foreground/20 text-foreground hover:bg-muted-foreground/10 hover:scale-105 hover:shadow-lg transform transition-all duration-200" variant="outline">
-              <span>View Demo Chatbot</span>
+            <Button size="lg" className="px-8 py-6 text-lg font-semibold group hero-button-width" variant="outline">
+              <div className="group-hover:-rotate-12 transition-transform duration-200">
+                <span className="text-xl">👀</span>
+              </div>
+              <span className="ml-2">View Demo</span>
             </Button>
           </div>
           
-          <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground mb-16">
+          <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground mb-16 -mt-2">
             <Gift className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity duration-300" style={{ animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite', color: '#FE6416' }} />
             <span>$100 off for the first 5,000 customers</span>
           </div>

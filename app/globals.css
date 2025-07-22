@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: 222 84% 4.2%;
+  --background: 226 93% 4%;
   --foreground: 60 9.1% 97.8%;
   --card: 222 47% 11%;
   --card-foreground: 60 9.1% 97.8%;
@@ -645,5 +645,11 @@
   transform: rotate(-1deg);
   z-index: -1;
 }
+
+/* Hero buttons with matching width */
+.hero-button-width {
+  min-width: 200px;
+}
+
 
 
