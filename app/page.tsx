@@ -15,7 +15,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ChatWidgetDemo } from "@/components/demos/chat-widget-demo";
-import { useScrollTrigger } from "@/hooks/use-scroll-trigger";
 import { Space_Grotesk } from 'next/font/google';
 import { useState, useRef } from 'react';
 
@@ -73,12 +72,6 @@ export default function Home() {
 
   // Refs for scroll trigger sections
   const benefitsSectionRef = useRef<HTMLDivElement>(null);
-
-  // Scroll trigger for chat widget visibility
-  const { isVisible: isChatWidgetVisible, animationState } = useScrollTrigger(
-    benefitsSectionRef,
-    benefitsSectionRef
-  );
 
   return (
     <>
@@ -262,6 +255,93 @@ export default function Home() {
               allowFullScreen
             ></iframe>
           </div>
+        </div>
+      </section>
+
+      {/* Logo Stripe Section */}
+      <section className="py-12 md:py-16 overflow-hidden">
+        <div className="container mx-auto px-4 text-center mb-8">
+          <p className="text-muted-foreground text-sm md:text-base">
+            Trusted by innovative companies worldwide
+          </p>
+        </div>
+        
+        {/* Animated Logo Stripe */}
+        <div className="relative w-full overflow-hidden">
+          <div className="flex animate-scroll space-x-12">
+            {/* First set of logos */}
+            <div className="flex space-x-12 shrink-0">
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+            </div>
+            
+            {/* Duplicate set for seamless loop */}
+            <div className="flex space-x-12 shrink-0">
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Turn Your Data Into Revenue Section */}
+      <section id="monetize-data" className="py-12 md:py-24">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6">ChatRAG is your <span className="animate-pulse-glow-light">AI business in a box</span></h2>
+          <p className="text-lg text-muted-foreground mb-12 max-w-4xl mx-auto">
+            Do you know businesses drowning in repetitive customer questions? Companies with massive knowledge bases gathering digital dust? Educators who want to scale their teaching to reach thousands more students? Organizations spending thousands on support teams for the same FAQs? Your business—and every business you know—already has valuable data sitting unused: training materials, product documentation, policies, knowledge bases, and course content. ChatRAG transforms this existing content into intelligent chatbots that reduce support costs, improve customer experience, and create new revenue streams. Stop letting your data collect dust and start making it work for you.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+              <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <GraduationCap className="w-8 h-8 gradient-icon" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Educational Knowledge Scaling</h3>
+              <p className="text-muted-foreground">
+                Transform your courses, lesson plans, and educational materials into intelligent tutoring bots. Serve thousands of students simultaneously while providing personalized learning support 24/7.
+              </p>
+            </Card>
+
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+              <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <FileText className="w-8 h-8 gradient-icon" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Employee Training Chatbots</h3>
+              <p className="text-muted-foreground">
+                Transform your training materials and employee handbooks into interactive chatbots. Onboard new hires faster and provide instant policy answers.
+              </p>
+            </Card>
+
+            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
+              <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Zap className="w-8 h-8 gradient-icon" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Product Knowledge Bots</h3>
+              <p className="text-muted-foreground">
+                Convert product specs, manuals, and documentation into smart assistants that help customers and sales teams find exactly what they need.
+              </p>
+            </Card>
+          </div>
+
+          <Button size="lg" className="px-14 py-6 text-lg font-semibold bg-black text-white hover:bg-black hover:scale-105 hover:shadow-lg transform transition-all duration-200 group chatrag-gradient-border" variant="default">
+            <div className="group-hover:-rotate-12 transition-transform duration-200">
+              <SmallLogo />
+            </div>
+            <span className="ml-2">Start Monetizing Your Data</span>
+          </Button>
         </div>
       </section>
 
@@ -840,54 +920,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Turn Your Data Into Revenue Section */}
-      <section id="monetize-data" className="py-12 md:py-24">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">ChatRAG is your <span className="animate-pulse-glow-light">AI business in a box</span></h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-4xl mx-auto">
-            Do you know businesses drowning in repetitive customer questions? Companies with massive knowledge bases gathering digital dust? Educators who want to scale their teaching to reach thousands more students? Organizations spending thousands on support teams for the same FAQs? Your business—and every business you know—already has valuable data sitting unused: training materials, product documentation, policies, knowledge bases, and course content. ChatRAG transforms this existing content into intelligent chatbots that reduce support costs, improve customer experience, and create new revenue streams. Stop letting your data collect dust and start making it work for you.
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
-              <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <GraduationCap className="w-8 h-8 gradient-icon" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Educational Knowledge Scaling</h3>
-              <p className="text-muted-foreground">
-                Transform your courses, lesson plans, and educational materials into intelligent tutoring bots. Serve thousands of students simultaneously while providing personalized learning support 24/7.
-              </p>
-            </Card>
-
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
-              <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <FileText className="w-8 h-8 gradient-icon" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Employee Training Chatbots</h3>
-              <p className="text-muted-foreground">
-                Transform your training materials and employee handbooks into interactive chatbots. Onboard new hires faster and provide instant policy answers.
-              </p>
-            </Card>
-
-            <Card className="p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border">
-              <div className="w-16 h-16 mx-auto mb-6 gradient-icon-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Zap className="w-8 h-8 gradient-icon" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Product Knowledge Bots</h3>
-              <p className="text-muted-foreground">
-                Convert product specs, manuals, and documentation into smart assistants that help customers and sales teams find exactly what they need.
-              </p>
-            </Card>
-          </div>
-
-          <Button size="lg" className="px-14 py-6 text-lg font-semibold bg-black text-white hover:bg-black hover:scale-105 hover:shadow-lg transform transition-all duration-200 group chatrag-gradient-border" variant="default">
-            <div className="group-hover:-rotate-12 transition-transform duration-200">
-              <SmallLogo />
-            </div>
-            <span className="ml-2">Start Monetizing Your Data</span>
-          </Button>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="border-t py-12 pb-16">
@@ -956,8 +988,8 @@ export default function Home() {
         primaryColor="#FF6417"
         title="ChatRAG Assistant"
         showDemoBadge={true}
-        isVisible={isChatWidgetVisible}
-        animationState={animationState}
+        isVisible={true}
+        animationState="visible"
       />
     </div>
     </>

@@ -906,7 +906,7 @@ export function ChatWidgetDemo(props: ChatWidgetDemoProps = {}) {
                     flexDirection: 'column',
                     overflow: 'hidden',
                     zIndex: 999999,
-                    ...(position === 'bottom-right' && { bottom: '90px', right: '24px' }),
+                    ...(position === 'bottom-right' && { bottom: '90px', right: '10px' }),
                     ...(position === 'bottom-left' && { bottom: '90px', left: '24px' }),
                     ...(position === 'top-right' && { top: '90px', right: '24px' }),
                     ...(position === 'top-left' && { top: '90px', left: '24px' })
