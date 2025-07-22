@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: 222 84% 4.9%;
+  --background: 222 84% 4.2%;
   --foreground: 60 9.1% 97.8%;
   --card: 222 47% 11%;
   --card-foreground: 60 9.1% 97.8%;
@@ -637,10 +637,9 @@
   bottom: -2px;
   background: linear-gradient(
     135deg,
-    #FF9F7D 0%,
-    #FFB8A0 25%,
-    #C9A7FF 75%,
-    #B084FF 100%
+    #4080FF 0%,
+    #FFB001 50%,
+    #F44335 100%
   );
   border-radius: 4px;
   transform: rotate(-1deg);

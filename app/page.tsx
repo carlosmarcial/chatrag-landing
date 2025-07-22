@@ -250,6 +250,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="container mx-auto px-4 -mt-16 pb-12 md:-mt-20 md:pb-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              className="absolute top-0 left-0 w-full h-full rounded-lg"
+              src="https://www.youtube.com/embed/h-C6NVz1fIY"
+              title="ChatRAG Demo Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section id="benefits" className="pt-8 pb-12 md:pt-12 md:pb-24" ref={benefitsSectionRef}>
         <div className="container mx-auto px-4">
@@ -498,7 +514,7 @@ export default function Home() {
 
 
       {/* Dashboards Section */}
-      <section id="demo" className="pt-24 pb-12 md:pt-32 md:pb-24 bg-muted/30">
+      <section id="demo" className="pt-24 pb-12 md:pt-32 md:pb-24">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">The <span className="animate-pulse-glow-light">true power</span> of ChatRAG lies in its user-friendly dashboards</h2>
           <p className="text-lg text-muted-foreground mb-12 max-w-4xl mx-auto">
@@ -718,7 +734,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section - Hidden until we have actual customers */}
-      <section id="testimonials" className="hidden py-12 md:py-24 bg-muted/30">
+      <section id="testimonials" className="hidden py-12 md:py-24">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">What Our Customers Say</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -769,7 +785,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-12 md:py-24 bg-muted/30">
+      <section id="faq" className="py-12 md:py-24">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
           <Accordion type="single" collapsible className="w-full [&>div>h3>button]:text-lg [&>div>div>div]:text-base">
