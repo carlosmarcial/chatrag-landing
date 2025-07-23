@@ -16,12 +16,43 @@ import {
 } from "@/components/ui/accordion";
 import { ChatWidgetDemo } from "@/components/demos/chat-widget-demo";
 import { Space_Grotesk } from 'next/font/google';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
+// Dynamic logo data extracted from filenames
+const techProviders = [
+  { filename: 'openai', displayName: 'OpenAI', description: 'Artificial intelligence research' },
+  { filename: 'stripe', displayName: 'Stripe', description: 'Online payment processing' },
+  { filename: 'nextjs', displayName: 'Next.js', description: 'React framework for production' },
+  { filename: 'supabase', displayName: 'Supabase', description: 'Open source Firebase alternative' },
+  { filename: 'mcp', displayName: 'MCP', description: 'Model Context Protocol' },
+  { filename: 'typescript', displayName: 'TypeScript', description: 'Typed JavaScript' },
+  { filename: 'polar', displayName: 'Polar', description: 'Developer monetization platform' },
+  { filename: 'falai', displayName: 'fal.ai', description: 'AI media generation platform' },
+  { filename: 'llamacloud', displayName: 'LlamaCloud', description: 'Document parsing and processing' },
+  { filename: 'tailwind', displayName: 'Tailwind CSS', description: 'Utility-first CSS framework' },
+  { filename: 'replicate', displayName: 'Replicate', description: 'Machine learning model hosting' },
+  { filename: 'openrouter', displayName: 'OpenRouter', description: 'AI model router and gateway' },
+  { filename: 'resend-icon-white', displayName: 'Resend', description: 'Email API for developers' },
+];
+
+// Create logo sets for seamless infinite scroll
+const createLogoSet = (providers: typeof techProviders) => 
+  providers.map((provider, index) => ({
+    ...provider,
+    key: `${provider.filename}-${index}`,
+    src: `/images/chatrag_techprovider_${provider.filename}.png`,
+  }));
+
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoveredLogo, setHoveredLogo] = useState<string | null>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  // Create two sets of logos for seamless infinite scroll
+  const logoSet1 = createLogoSet(techProviders);
+  const logoSet2 = createLogoSet(techProviders.slice(8).concat(techProviders.slice(0, 8)));
 
   // Structured data for SEO
   const structuredData = {
@@ -72,6 +103,38 @@ export default function Home() {
 
   // Refs for scroll trigger sections
   const benefitsSectionRef = useRef<HTMLDivElement>(null);
+
+  // Precise hover control for carousel
+  useEffect(() => {
+    const logoElements = document.querySelectorAll('.logo-container');
+    const carousel = carouselRef.current;
+    
+    if (!carousel) return;
+    
+    const handleMouseEnter = (logoId: string) => () => {
+      carousel.style.animationPlayState = 'paused';
+      setHoveredLogo(logoId);
+    };
+    
+    const handleMouseLeave = () => {
+      carousel.style.animationPlayState = 'running';
+      setHoveredLogo(null);
+    };
+    
+    logoElements.forEach((element, index) => {
+      const logoId = `logo-${index}`;
+      element.addEventListener('mouseenter', handleMouseEnter(logoId));
+      element.addEventListener('mouseleave', handleMouseLeave);
+    });
+    
+    return () => {
+      logoElements.forEach((element, index) => {
+        const logoId = `logo-${index}`;
+        element.removeEventListener('mouseenter', handleMouseEnter(logoId));
+        element.removeEventListener('mouseleave', handleMouseLeave);
+      });
+    };
+  }, []);
 
   return (
     <>
@@ -261,37 +324,43 @@ export default function Home() {
 
       {/* Logo Stripe Section */}
       <section className="py-12 md:py-16 overflow-hidden bg-background">
-        <div className="container mx-auto px-4 text-center mb-8">
-          <p className="text-muted-foreground text-sm md:text-base">
-            Trusted by innovative companies worldwide
-          </p>
-        </div>
-        
         {/* Animated Logo Stripe */}
         <div className="relative w-full overflow-hidden">
-          <div className="flex animate-scroll space-x-12">
+          <div ref={carouselRef} className="flex animate-scroll-precise space-x-20">
             {/* First set of logos */}
-            <div className="flex space-x-12 shrink-0">
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+            <div className="flex space-x-20 shrink-0">
+              {logoSet1.map((provider) => (
+                <div key={provider.key} className="relative group logo-container">
+                  <Image
+                    src={provider.src}
+                    alt={`${provider.displayName} - ${provider.description}`}
+                    width={128}
+                    height={64}
+                    className="w-32 h-16 object-contain flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap" style={{zIndex: 10000, fontSize: '12px', fontWeight: 'bold'}}>
+                    {provider.displayName}
+                  </div>
+                </div>
+              ))}
             </div>
             
             {/* Duplicate set for seamless loop */}
-            <div className="flex space-x-12 shrink-0">
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
-              <div className="w-24 h-12 bg-muted/30 rounded-md flex-shrink-0"></div>
+            <div className="flex space-x-20 shrink-0">
+              {logoSet2.map((provider) => (
+                <div key={`${provider.key}-duplicate`} className="relative group logo-container">
+                  <Image
+                    src={provider.src}
+                    alt={`${provider.displayName} - ${provider.description}`}
+                    width={128}
+                    height={64}
+                    className="w-32 h-16 object-contain flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap" style={{zIndex: 10000, fontSize: '12px', fontWeight: 'bold'}}>
+                    {provider.displayName}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

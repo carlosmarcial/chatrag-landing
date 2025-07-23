@@ -661,9 +661,18 @@
   }
 }
 
+/* Simple tooltip styling - no conflicts */
+
 .animate-scroll {
   animation: scroll 30s linear infinite;
 }
+
+.animate-scroll-precise {
+  animation: scroll 30s linear infinite;
+}
+
+/* Removed imprecise hover rules that paused entire carousel */
+/* Now using JavaScript event listeners for precise control */
 
 
 
