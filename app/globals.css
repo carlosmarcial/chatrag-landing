@@ -671,6 +671,12 @@
   animation: scroll 30s linear infinite;
 }
 
+@media (max-width: 768px) {
+  .animate-scroll-precise {
+    animation: scroll 15s linear infinite;
+  }
+}
+
 /* Removed imprecise hover rules that paused entire carousel */
 /* Now using JavaScript event listeners for precise control */
 
