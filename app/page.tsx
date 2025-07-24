@@ -326,9 +326,9 @@ export default function Home() {
       <section className="py-12 md:py-16 overflow-hidden bg-background">
         {/* Animated Logo Stripe */}
         <div className="relative w-full overflow-hidden">
-          <div ref={carouselRef} className="flex animate-scroll-precise space-x-20">
+          <div ref={carouselRef} className="flex animate-scroll-precise space-x-8 md:space-x-20">
             {/* First set of logos */}
-            <div className="flex space-x-20 shrink-0">
+            <div className="flex space-x-8 md:space-x-20 shrink-0">
               {logoSet1.map((provider) => (
                 <div key={provider.key} className="relative group logo-container">
                   <Image
@@ -346,7 +346,7 @@ export default function Home() {
             </div>
             
             {/* Duplicate set for seamless loop */}
-            <div className="flex space-x-20 shrink-0">
+            <div className="flex space-x-8 md:space-x-20 shrink-0">
               {logoSet2.map((provider) => (
                 <div key={`${provider.key}-duplicate`} className="relative group logo-container">
                   <Image

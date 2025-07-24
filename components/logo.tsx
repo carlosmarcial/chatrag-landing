@@ -19,14 +19,16 @@ export function Logo() {
         </defs>
         
         {/* Chat bubble with decorative lines */}
-        <g transform="translate(10, 2) scale(0.9)">
+        <g transform="translate(5, 10) scale(1.1)">
           <path 
-            d="M10,25 h50 a5,5 0 0 1 5,5 v30 a5,5 0 0 1 -5,5 h-20 l-10,10 l-10,-10 h-10 a5,5 0 0 1 -5,-5 v-30 a5,5 0 0 1 5,-5 z" 
+            d="M5,15 h45 a8,8 0 0 1 8,8 v25 a8,8 0 0 1 -8,8 h-15 l-8,8 l-8,-8 h-14 a8,8 0 0 1 -8,-8 v-25 a8,8 0 0 1 8,-8 z" 
             fill="url(#chatBubbleGradient)"
+            stroke="rgba(255,255,255,0.2)"
+            strokeWidth="1"
           />
           
           {/* Animated chat lines - using CSS variables for instant theme support */}
-          <rect x="20" y="35" height="2" rx="1" className="logo-line">
+          <rect x="15" y="28" height="2" rx="1" className="logo-line">
             <animate
               attributeName="width"
               values="0; 30; 30; 0"
@@ -43,7 +45,7 @@ export function Logo() {
             />
           </rect>
           
-          <rect x="20" y="42" height="2" rx="1" className="logo-line">
+          <rect x="15" y="35" height="2" rx="1" className="logo-line">
             <animate
               attributeName="width"
               values="0; 20; 20; 0"
@@ -62,7 +64,7 @@ export function Logo() {
             />
           </rect>
           
-          <rect x="20" y="49" height="2" rx="1" className="logo-line">
+          <rect x="15" y="42" height="2" rx="1" className="logo-line">
             <animate
               attributeName="width"
               values="0; 25; 25; 0"
