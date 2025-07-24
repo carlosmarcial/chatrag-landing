@@ -19,7 +19,7 @@ export function Logo() {
         </defs>
         
         {/* Chat bubble with decorative lines */}
-        <g transform="translate(5, 10) scale(1.1)">
+        <g transform="translate(20, 10) scale(1.1)">
           <path 
             d="M5,15 h45 a8,8 0 0 1 8,8 v25 a8,8 0 0 1 -8,8 h-15 l-8,8 l-8,-8 h-14 a8,8 0 0 1 -8,-8 v-25 a8,8 0 0 1 8,-8 z" 
             fill="url(#chatBubbleGradient)"
@@ -87,7 +87,7 @@ export function Logo() {
         {/* Text elements with CSS classes for instant rendering */}
         <g>
           <text 
-            x="80" 
+            x="95" 
             y="60" 
             className="logo-text-light"
             style={{ 
@@ -98,7 +98,7 @@ export function Logo() {
             Chat
           </text>
           <text 
-            x="183" 
+            x="198" 
             y="60" 
             className="logo-text-bold"
             style={{ 
