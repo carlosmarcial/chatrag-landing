@@ -778,7 +778,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-center text-muted-foreground">
                     <span className="mr-2">✗</span>
-                    Lifetime updates
+                    1-year updates
                   </li>
                 </ul>
                 <Button className="w-full bg-black text-white hover:bg-black hover:scale-[1.03] hover:shadow-lg transform transition-all duration-150 group" size="lg">
@@ -861,7 +861,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    Lifetime updates
+                    1-year updates
                     <div className="inline-flex items-center bg-[#FE6416] text-white px-2.5 py-1 rounded-full text-xs font-medium ml-3">
                       Updated 2 days ago
                     </div>
