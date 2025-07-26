@@ -48,11 +48,12 @@ const createLogoSet = (providers: typeof techProviders) =>
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const positionRef = useRef(0);
+  const isPausedRef = useRef(false);
+  const [isPaused, setIsPaused] = useState(false);
 
-  // Create multiple identical sets of logos for seamless infinite scroll
+  // Create logo set
   const logos = createLogoSet(techProviders);
-  // Create 8 identical sets for truly infinite appearance on all screen sizes
-  const logoSets = [logos, logos, logos, logos, logos, logos, logos, logos];
 
   // Structured data for SEO
   const structuredData = {
@@ -104,78 +105,70 @@ export default function Home() {
   // Refs for scroll trigger sections
   const benefitsSectionRef = useRef<HTMLDivElement>(null);
 
-  // Carousel control with dynamic timing and hover interaction
+  // Sync isPaused state with ref
+  useEffect(() => {
+    isPausedRef.current = isPaused;
+  }, [isPaused]);
+
+  // JavaScript-controlled carousel animation with persistent position
   useEffect(() => {
     const carousel = carouselRef.current;
     if (!carousel) return;
-    
-    // Calculate optimal animation duration based on viewport width
-    const calculateAnimationDuration = () => {
-      const viewportWidth = window.innerWidth;
+
+    let animationId: number;
+    let lastTime = Date.now();
+    const viewportWidth = window.innerWidth;
+    const baseSpeed = viewportWidth < 768 ? 0.5 : 1.5; // Adjust speed based on screen size
+
+    const animate = () => {
+      const currentTime = Date.now();
+      const deltaTime = currentTime - lastTime;
       
-      // Dynamic duration calculation: much faster overall, scales with screen size
-      // Formula: 40 - (viewport / 60) gives faster speeds
-      // Examples:
-      // - 320px (mobile): ~35s (slower but still quick)
-      // - 768px (tablet): ~27s 
-      // - 1440px (desktop): ~16s
-      // - 1920px (large): ~8s
-      // - 2560px (ultra-wide): ~5s (very fast!)
-      let duration = 40 - (viewportWidth / 60);
+      if (!isPausedRef.current) {
+        // Get all logo containers
+        const logoContainers = carousel.querySelectorAll('.logo-container');
+        if (logoContainers.length > 0) {
+          // Calculate the width of one complete set (half of all logos)
+          const halfCount = Math.floor(logoContainers.length / 2);
+          let setWidth = 0;
+          
+          // Sum up the width of half the logos plus gaps
+          for (let i = 0; i < halfCount; i++) {
+            const logo = logoContainers[i] as HTMLElement;
+            setWidth += logo.getBoundingClientRect().width;
+            // Add gap width (except after the last logo)
+            if (i < halfCount - 1) {
+              const gap = window.innerWidth < 768 ? 48 : 80; // gap-12 = 48px, gap-20 = 80px
+              setWidth += gap;
+            }
+          }
+          
+          // Normalize speed to 60fps (16.67ms per frame)
+          const speed = baseSpeed * (deltaTime / 16.67);
+          
+          positionRef.current -= speed;
+          
+          // Reset when exactly one set width has scrolled
+          if (Math.abs(positionRef.current) >= setWidth) {
+            positionRef.current = positionRef.current + setWidth;
+          }
+          
+          carousel.style.transform = `translateX(${positionRef.current}px)`;
+        }
+      }
       
-      // Apply constraints
-      const MIN_DURATION = 5; // Fastest speed for ultra-wide screens
-      const MAX_DURATION = 40; // Slowest speed for very small screens
-      
-      duration = Math.max(MIN_DURATION, Math.min(MAX_DURATION, duration));
-      
-      // Apply calculated duration
-      carousel.style.animationDuration = `${duration}s`;
+      lastTime = currentTime;
+      animationId = requestAnimationFrame(animate);
     };
-    
-    // Initial calculation
-    calculateAnimationDuration();
-    
-    // Hover controls for individual logos
-    let cleanupHoverListeners: (() => void) | null = null;
-    
-    // Setup logo hover listeners after a small delay to ensure DOM is ready
-    const timeoutId = setTimeout(() => {
-      const logoContainers = carousel.querySelectorAll('.logo-container');
-      
-      const handleMouseEnter = () => {
-        carousel.style.animationPlayState = 'paused';
-      };
-      
-      const handleMouseLeave = () => {
-        carousel.style.animationPlayState = 'running';
-      };
-      
-      logoContainers.forEach(container => {
-        container.addEventListener('mouseenter', handleMouseEnter);
-        container.addEventListener('mouseleave', handleMouseLeave);
-      });
-      
-      // Store cleanup function
-      cleanupHoverListeners = () => {
-        logoContainers.forEach(container => {
-          container.removeEventListener('mouseenter', handleMouseEnter);
-          container.removeEventListener('mouseleave', handleMouseLeave);
-        });
-      };
-    }, 100);
-    
-    // Recalculate on resize
-    window.addEventListener('resize', calculateAnimationDuration);
-    
+
+    animate();
+
     return () => {
-      window.removeEventListener('resize', calculateAnimationDuration);
-      clearTimeout(timeoutId);
-      if (cleanupHoverListeners) {
-        cleanupHoverListeners();
+      if (animationId) {
+        cancelAnimationFrame(animationId);
       }
     };
-  }, []);
+  }, []); // Empty dependency array - only run once
 
   return (
     <>
@@ -367,25 +360,26 @@ export default function Home() {
       <section className="py-12 md:py-16 pb-20 md:pb-24">
         {/* Animated Logo Stripe */}
         <div className="relative w-full overflow-hidden py-8">
-          <div ref={carouselRef} className="flex animate-scroll-infinite pb-16">
-            {/* Render multiple identical sets for seamless infinite scroll */}
-            {logoSets.map((logoSet, setIndex) => (
-              <div key={`set-${setIndex}`} className="flex gap-8 md:gap-16 shrink-0 px-4">
-                {logoSet.map((provider, providerIndex) => (
-                  <div key={`${setIndex}-${provider.key}`} className="relative group logo-container flex-shrink-0">
-                    <Image
-                      src={provider.src}
-                      alt={`${provider.displayName} - ${provider.description}`}
-                      width={128}
-                      height={64}
-                      className="w-24 h-12 md:w-32 md:h-16 object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-                    />
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full bg-black text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none shadow-lg" style={{zIndex: 50, minWidth: '120px', maxWidth: '200px', marginTop: '8px'}}>
-                      <div className="font-semibold text-sm mb-1">{provider.displayName}</div>
-                      <div className="text-xs text-gray-300 leading-tight">{provider.description}</div>
-                    </div>
-                  </div>
-                ))}
+          <div ref={carouselRef} className="flex gap-12 md:gap-20 pb-16">
+            {/* Render all logos in one continuous flow for consistent spacing */}
+            {[...logos, ...logos].map((provider, index) => (
+              <div 
+                key={`${index}-${provider.filename}`} 
+                className="relative group logo-container flex-shrink-0"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+              >
+                <Image
+                  src={provider.src}
+                  alt={`${provider.displayName} - ${provider.description}`}
+                  width={128}
+                  height={64}
+                  className="w-24 h-12 md:w-32 md:h-16 object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                />
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full bg-black text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none shadow-lg" style={{zIndex: 50, minWidth: '120px', maxWidth: '200px', marginTop: '8px'}}>
+                  <div className="font-semibold text-sm mb-1">{provider.displayName}</div>
+                  <div className="text-xs text-gray-300 leading-tight">{provider.description}</div>
+                </div>
               </div>
             ))}
           </div>

@@ -651,16 +651,7 @@
   min-width: 200px;
 }
 
-/* Logo stripe animation - Updated for perfect infinite loop */
-@keyframes scroll-infinite {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    /* Move by exactly 12.5% (1 of 8 sets) for seamless loop */
-    transform: translateX(-12.5%);
-  }
-}
+/* Logo stripe animation - Removed in favor of JavaScript control */
 
 /* Simple tooltip styling - no conflicts */
 
@@ -682,33 +673,9 @@
   }
 }
 
-/* New infinite scroll animation with consistent timing */
-.animate-scroll-infinite {
-  animation: scroll-infinite 60s linear infinite;
-  /* Will be recalculated dynamically based on content width */
-}
+/* Animation classes removed - now using JavaScript control */
 
-/* Faster animation on mobile for better UX */
-@media (max-width: 768px) {
-  .animate-scroll-infinite {
-    animation: scroll-infinite 30s linear infinite;
-  }
-}
-
-/* Legacy animations - kept for backwards compatibility */
-.animate-scroll {
-  animation: scroll-infinite 30s linear infinite;
-}
-
-.animate-scroll-precise {
-  animation: scroll-infinite 30s linear infinite;
-}
-
-@media (max-width: 768px) {
-  .animate-scroll-precise {
-    animation: scroll-infinite 15s linear infinite;
-  }
-}
+/* Legacy animations - removed */
 
 /* Removed imprecise hover rules that paused entire carousel */
 /* Now using JavaScript event listeners for precise control */
