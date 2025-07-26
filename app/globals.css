@@ -651,13 +651,14 @@
   min-width: 200px;
 }
 
-/* Logo stripe animation */
-@keyframes scroll {
+/* Logo stripe animation - Updated for perfect infinite loop */
+@keyframes scroll-infinite {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    /* Move by exactly 12.5% (1 of 8 sets) for seamless loop */
+    transform: translateX(-12.5%);
   }
 }
 
@@ -681,17 +682,31 @@
   }
 }
 
+/* New infinite scroll animation with consistent timing */
+.animate-scroll-infinite {
+  animation: scroll-infinite 60s linear infinite;
+  /* Will be recalculated dynamically based on content width */
+}
+
+/* Faster animation on mobile for better UX */
+@media (max-width: 768px) {
+  .animate-scroll-infinite {
+    animation: scroll-infinite 30s linear infinite;
+  }
+}
+
+/* Legacy animations - kept for backwards compatibility */
 .animate-scroll {
-  animation: scroll 30s linear infinite;
+  animation: scroll-infinite 30s linear infinite;
 }
 
 .animate-scroll-precise {
-  animation: scroll 30s linear infinite;
+  animation: scroll-infinite 30s linear infinite;
 }
 
 @media (max-width: 768px) {
   .animate-scroll-precise {
-    animation: scroll 6s linear infinite;
+    animation: scroll-infinite 15s linear infinite;
   }
 }
 

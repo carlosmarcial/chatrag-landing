@@ -49,9 +49,10 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  // Create two sets of logos for seamless infinite scroll
-  const logoSet1 = createLogoSet(techProviders);
-  const logoSet2 = createLogoSet(techProviders.slice(8).concat(techProviders.slice(0, 8)));
+  // Create multiple identical sets of logos for seamless infinite scroll
+  const logos = createLogoSet(techProviders);
+  // Create 8 identical sets for truly infinite appearance on all screen sizes
+  const logoSets = [logos, logos, logos, logos, logos, logos, logos, logos];
 
   // Structured data for SEO
   const structuredData = {
@@ -103,26 +104,76 @@ export default function Home() {
   // Refs for scroll trigger sections
   const benefitsSectionRef = useRef<HTMLDivElement>(null);
 
-  // Precise hover control for carousel with improved interaction
+  // Carousel control with dynamic timing and hover interaction
   useEffect(() => {
     const carousel = carouselRef.current;
     if (!carousel) return;
     
-    const handleMouseEnter = () => {
-      carousel.style.animationPlayState = 'paused';
+    // Calculate optimal animation duration based on viewport width
+    const calculateAnimationDuration = () => {
+      const viewportWidth = window.innerWidth;
+      
+      // Dynamic duration calculation: much faster overall, scales with screen size
+      // Formula: 40 - (viewport / 60) gives faster speeds
+      // Examples:
+      // - 320px (mobile): ~35s (slower but still quick)
+      // - 768px (tablet): ~27s 
+      // - 1440px (desktop): ~16s
+      // - 1920px (large): ~8s
+      // - 2560px (ultra-wide): ~5s (very fast!)
+      let duration = 40 - (viewportWidth / 60);
+      
+      // Apply constraints
+      const MIN_DURATION = 5; // Fastest speed for ultra-wide screens
+      const MAX_DURATION = 40; // Slowest speed for very small screens
+      
+      duration = Math.max(MIN_DURATION, Math.min(MAX_DURATION, duration));
+      
+      // Apply calculated duration
+      carousel.style.animationDuration = `${duration}s`;
     };
     
-    const handleMouseLeave = () => {
-      carousel.style.animationPlayState = 'running';
-    };
+    // Initial calculation
+    calculateAnimationDuration();
     
-    // Apply hover listeners to the carousel container for better control
-    carousel.addEventListener('mouseenter', handleMouseEnter);
-    carousel.addEventListener('mouseleave', handleMouseLeave);
+    // Hover controls for individual logos
+    let cleanupHoverListeners: (() => void) | null = null;
+    
+    // Setup logo hover listeners after a small delay to ensure DOM is ready
+    const timeoutId = setTimeout(() => {
+      const logoContainers = carousel.querySelectorAll('.logo-container');
+      
+      const handleMouseEnter = () => {
+        carousel.style.animationPlayState = 'paused';
+      };
+      
+      const handleMouseLeave = () => {
+        carousel.style.animationPlayState = 'running';
+      };
+      
+      logoContainers.forEach(container => {
+        container.addEventListener('mouseenter', handleMouseEnter);
+        container.addEventListener('mouseleave', handleMouseLeave);
+      });
+      
+      // Store cleanup function
+      cleanupHoverListeners = () => {
+        logoContainers.forEach(container => {
+          container.removeEventListener('mouseenter', handleMouseEnter);
+          container.removeEventListener('mouseleave', handleMouseLeave);
+        });
+      };
+    }, 100);
+    
+    // Recalculate on resize
+    window.addEventListener('resize', calculateAnimationDuration);
     
     return () => {
-      carousel.removeEventListener('mouseenter', handleMouseEnter);
-      carousel.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('resize', calculateAnimationDuration);
+      clearTimeout(timeoutId);
+      if (cleanupHoverListeners) {
+        cleanupHoverListeners();
+      }
     };
   }, []);
 
@@ -313,49 +364,30 @@ export default function Home() {
       </section>
 
       {/* Logo Stripe Section */}
-      <section className="py-12 md:py-16 pb-20 md:pb-24 bg-background">
+      <section className="py-12 md:py-16 pb-20 md:pb-24">
         {/* Animated Logo Stripe */}
         <div className="relative w-full overflow-hidden py-8">
-          <div ref={carouselRef} className="flex animate-scroll-precise space-x-4 md:space-x-20 pb-16">
-            {/* First set of logos */}
-            <div className="flex space-x-4 md:space-x-20 shrink-0">
-              {logoSet1.map((provider) => (
-                <div key={provider.key} className="relative group logo-container">
-                  <Image
-                    src={provider.src}
-                    alt={`${provider.displayName} - ${provider.description}`}
-                    width={128}
-                    height={64}
-                    className="w-24 h-12 md:w-32 md:h-16 object-contain flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-                  />
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full mt-2 bg-black/95 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none shadow-lg backdrop-blur-sm" style={{zIndex: 10000, minWidth: '120px', maxWidth: '200px'}}>
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-2 h-2 bg-black/95"></div>
-                    <div className="font-semibold text-sm mb-1">{provider.displayName}</div>
-                    <div className="text-xs text-gray-300 leading-tight">{provider.description}</div>
+          <div ref={carouselRef} className="flex animate-scroll-infinite pb-16">
+            {/* Render multiple identical sets for seamless infinite scroll */}
+            {logoSets.map((logoSet, setIndex) => (
+              <div key={`set-${setIndex}`} className="flex gap-8 md:gap-16 shrink-0 px-4">
+                {logoSet.map((provider, providerIndex) => (
+                  <div key={`${setIndex}-${provider.key}`} className="relative group logo-container flex-shrink-0">
+                    <Image
+                      src={provider.src}
+                      alt={`${provider.displayName} - ${provider.description}`}
+                      width={128}
+                      height={64}
+                      className="w-24 h-12 md:w-32 md:h-16 object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full bg-black text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none shadow-lg" style={{zIndex: 50, minWidth: '120px', maxWidth: '200px', marginTop: '8px'}}>
+                      <div className="font-semibold text-sm mb-1">{provider.displayName}</div>
+                      <div className="text-xs text-gray-300 leading-tight">{provider.description}</div>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Duplicate set for seamless loop */}
-            <div className="flex space-x-4 md:space-x-20 shrink-0">
-              {logoSet2.map((provider) => (
-                <div key={`${provider.key}-duplicate`} className="relative group logo-container">
-                  <Image
-                    src={provider.src}
-                    alt={`${provider.displayName} - ${provider.description}`}
-                    width={128}
-                    height={64}
-                    className="w-24 h-12 md:w-32 md:h-16 object-contain flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-                  />
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full mt-2 bg-black/95 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none shadow-lg backdrop-blur-sm" style={{zIndex: 10000, minWidth: '120px', maxWidth: '200px'}}>
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-2 h-2 bg-black/95"></div>
-                    <div className="font-semibold text-sm mb-1">{provider.displayName}</div>
-                    <div className="text-xs text-gray-300 leading-tight">{provider.description}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </section>
