@@ -663,6 +663,24 @@
 
 /* Simple tooltip styling - no conflicts */
 
+/* Enhanced tooltip styles for logo carousel */
+.logo-container {
+  position: relative;
+}
+
+/* Ensure tooltips are visible on mobile tap */
+@media (max-width: 768px) {
+  .logo-container:active .absolute {
+    opacity: 1 !important;
+  }
+  
+  /* Adjust tooltip position on mobile to avoid edge cutoff */
+  .logo-container .absolute {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+}
+
 .animate-scroll {
   animation: scroll 30s linear infinite;
 }

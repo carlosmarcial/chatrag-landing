@@ -47,7 +47,6 @@ const createLogoSet = (providers: typeof techProviders) =>
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [hoveredLogo, setHoveredLogo] = useState<string | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   // Create two sets of logos for seamless infinite scroll
@@ -104,35 +103,26 @@ export default function Home() {
   // Refs for scroll trigger sections
   const benefitsSectionRef = useRef<HTMLDivElement>(null);
 
-  // Precise hover control for carousel
+  // Precise hover control for carousel with improved interaction
   useEffect(() => {
-    const logoElements = document.querySelectorAll('.logo-container');
     const carousel = carouselRef.current;
-    
     if (!carousel) return;
     
-    const handleMouseEnter = (logoId: string) => () => {
+    const handleMouseEnter = () => {
       carousel.style.animationPlayState = 'paused';
-      setHoveredLogo(logoId);
     };
     
     const handleMouseLeave = () => {
       carousel.style.animationPlayState = 'running';
-      setHoveredLogo(null);
     };
     
-    logoElements.forEach((element, index) => {
-      const logoId = `logo-${index}`;
-      element.addEventListener('mouseenter', handleMouseEnter(logoId));
-      element.addEventListener('mouseleave', handleMouseLeave);
-    });
+    // Apply hover listeners to the carousel container for better control
+    carousel.addEventListener('mouseenter', handleMouseEnter);
+    carousel.addEventListener('mouseleave', handleMouseLeave);
     
     return () => {
-      logoElements.forEach((element, index) => {
-        const logoId = `logo-${index}`;
-        element.removeEventListener('mouseenter', handleMouseEnter(logoId));
-        element.removeEventListener('mouseleave', handleMouseLeave);
-      });
+      carousel.removeEventListener('mouseenter', handleMouseEnter);
+      carousel.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
@@ -323,10 +313,10 @@ export default function Home() {
       </section>
 
       {/* Logo Stripe Section */}
-      <section className="py-12 md:py-16 overflow-hidden bg-background">
+      <section className="py-12 md:py-16 pb-20 md:pb-24 bg-background">
         {/* Animated Logo Stripe */}
-        <div className="relative w-full overflow-hidden">
-          <div ref={carouselRef} className="flex animate-scroll-precise space-x-4 md:space-x-20">
+        <div className="relative w-full overflow-hidden py-8">
+          <div ref={carouselRef} className="flex animate-scroll-precise space-x-4 md:space-x-20 pb-16">
             {/* First set of logos */}
             <div className="flex space-x-4 md:space-x-20 shrink-0">
               {logoSet1.map((provider) => (
@@ -338,8 +328,10 @@ export default function Home() {
                     height={64}
                     className="w-24 h-12 md:w-32 md:h-16 object-contain flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                   />
-                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap" style={{zIndex: 10000, fontSize: '12px', fontWeight: 'bold'}}>
-                    {provider.displayName}
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full mt-2 bg-black/95 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none shadow-lg backdrop-blur-sm" style={{zIndex: 10000, minWidth: '120px', maxWidth: '200px'}}>
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-2 h-2 bg-black/95"></div>
+                    <div className="font-semibold text-sm mb-1">{provider.displayName}</div>
+                    <div className="text-xs text-gray-300 leading-tight">{provider.description}</div>
                   </div>
                 </div>
               ))}
@@ -356,8 +348,10 @@ export default function Home() {
                     height={64}
                     className="w-24 h-12 md:w-32 md:h-16 object-contain flex-shrink-0 opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                   />
-                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap" style={{zIndex: 10000, fontSize: '12px', fontWeight: 'bold'}}>
-                    {provider.displayName}
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full mt-2 bg-black/95 text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none shadow-lg backdrop-blur-sm" style={{zIndex: 10000, minWidth: '120px', maxWidth: '200px'}}>
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-2 h-2 bg-black/95"></div>
+                    <div className="font-semibold text-sm mb-1">{provider.displayName}</div>
+                    <div className="text-xs text-gray-300 leading-tight">{provider.description}</div>
                   </div>
                 </div>
               ))}
