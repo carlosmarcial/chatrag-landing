@@ -70,15 +70,19 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com`;
   ];
 
   // Multi-open accordion with persistence
-  const [open, setOpen] = React.useState<string[]>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        const saved = localStorage.getItem("docsOpen");
-        if (saved) return JSON.parse(saved) as string[];
-      } catch {}
-    }
-    return ["quickstart"];
-  });
+  // Start with a stable server/client default, then hydrate from localStorage after mount
+  const [open, setOpen] = React.useState<string[]>(["quickstart"]);
+
+  // Load persisted state after mount to avoid SSR/CSR hydration mismatch
+  React.useEffect(() => {
+    try {
+      const saved = typeof window !== "undefined" ? localStorage.getItem("docsOpen") : null;
+      if (saved) {
+        const parsed = JSON.parse(saved) as string[];
+        if (Array.isArray(parsed)) setOpen(parsed);
+      }
+    } catch {}
+  }, []);
 
   React.useEffect(() => {
     try {
@@ -92,8 +96,8 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com`;
     // No hash updates, no programmatic scroll for stability
   };
 
-  return (
-    <div className="min-h-screen bg-background">
+return (
+    <div className="min-h-screen bg-background docs-scope">
       {/* Main two-column layout: left sidebar nav (with icon), right content */}
       <main className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
@@ -146,7 +150,7 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com`;
               className="w-full"
             >
               {/* Overview */}
-              <AccordionItem value="prerequisites" className="border rounded-md">
+<AccordionItem value="prerequisites" className="border rounded-md relative overflow-hidden docs-section">
                 <AccordionTrigger className="px-4 py-3 text-left">
                   <h2 id="prerequisites" className="scroll-mt-24 text-lg md:text-xl font-bold">
                     Overview
@@ -162,7 +166,7 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com`;
               </AccordionItem>
 
               {/* Quick Start */}
-              <AccordionItem value="quickstart" className="border rounded-md">
+<AccordionItem value="quickstart" className="border rounded-md relative overflow-hidden docs-section">
                 <AccordionTrigger className="px-4 py-3 text-left">
                   <h2 id="quickstart" className="scroll-mt-24 text-lg md:text-xl font-bold">
                     Quick Start
@@ -181,7 +185,7 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com`;
               </AccordionItem>
 
               {/* Database */}
-              <AccordionItem value="db-setup" className="border rounded-md">
+<AccordionItem value="db-setup" className="border rounded-md relative overflow-hidden docs-section">
                 <AccordionTrigger className="px-4 py-3 text-left">
                   <h2 id="db-setup" className="scroll-mt-24 text-lg md:text-xl font-bold">
                     Database Setup (Supabase)
@@ -201,7 +205,7 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com`;
               </AccordionItem>
 
               {/* Documents */}
-              <AccordionItem value="documents" className="border rounded-md">
+<AccordionItem value="documents" className="border rounded-md relative overflow-hidden docs-section">
                 <AccordionTrigger className="px-4 py-3 text-left">
                   <h2 id="documents" className="scroll-mt-24 text-lg md:text-xl font-bold">
                     Document Processing &amp; Management
@@ -221,7 +225,7 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com`;
               </AccordionItem>
 
               {/* System Prompt */}
-              <AccordionItem value="prompt" className="border rounded-md">
+<AccordionItem value="prompt" className="border rounded-md relative overflow-hidden docs-section">
                 <AccordionTrigger className="px-4 py-3 text-left">
                   <h2 id="prompt" className="scroll-mt-24 text-lg md:text-xl font-bold">
                     System Prompt Configuration
@@ -237,7 +241,7 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com`;
               </AccordionItem>
 
               {/* API Keys */}
-              <AccordionItem value="keys" className="border rounded-md">
+<AccordionItem value="keys" className="border rounded-md relative overflow-hidden docs-section">
                 <AccordionTrigger className="px-4 py-3 text-left">
                   <h2 id="keys" className="scroll-mt-24 text-lg md:text-xl font-bold">
                     Essential API Keys
@@ -258,7 +262,7 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com`;
               </AccordionItem>
 
               {/* Features */}
-              <AccordionItem value="features" className="border rounded-md">
+<AccordionItem value="features" className="border rounded-md relative overflow-hidden docs-section">
                 <AccordionTrigger className="px-4 py-3 text-left">
                   <h2 id="features" className="scroll-mt-24 text-lg md:text-xl font-bold">
                     Essential Features
@@ -293,7 +297,7 @@ RAG_FINAL_RESULT_COUNT=25`}
               </AccordionItem>
 
               {/* Verification */}
-              <AccordionItem value="verification" className="border rounded-md">
+<AccordionItem value="verification" className="border rounded-md relative overflow-hidden docs-section">
                 <AccordionTrigger className="px-4 py-3 text-left">
                   <h2 id="verification" className="scroll-mt-24 text-lg md:text-xl font-bold">
                     Verification
@@ -309,7 +313,7 @@ RAG_FINAL_RESULT_COUNT=25`}
               </AccordionItem>
 
               {/* Troubleshooting */}
-              <AccordionItem value="troubleshooting" className="border rounded-md">
+<AccordionItem value="troubleshooting" className="border rounded-md relative overflow-hidden docs-section">
                 <AccordionTrigger className="px-4 py-3 text-left">
                   <h2 id="troubleshooting" className="scroll-mt-24 text-lg md:text-xl font-bold">
                     Troubleshooting
@@ -328,7 +332,7 @@ RAG_FINAL_RESULT_COUNT=25`}
               </AccordionItem>
 
               {/* Deployment */}
-              <AccordionItem value="deployment" className="border rounded-md">
+<AccordionItem value="deployment" className="border rounded-md relative overflow-hidden docs-section">
                 <AccordionTrigger className="px-4 py-3 text-left">
                   <h2 id="deployment" className="scroll-mt-24 text-lg md:text-xl font-bold">
                     Deployment (Vercel)
@@ -348,7 +352,7 @@ RAG_FINAL_RESULT_COUNT=25`}
               </AccordionItem>
 
               {/* Support */}
-              <AccordionItem value="support" className="border rounded-md">
+<AccordionItem value="support" className="border rounded-md relative overflow-hidden docs-section">
                 <AccordionTrigger className="px-4 py-3 text-left">
                   <h2 id="support" className="scroll-mt-24 text-lg md:text-xl font-bold">
                     Support Resources
