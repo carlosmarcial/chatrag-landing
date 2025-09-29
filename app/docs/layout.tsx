@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { DocsThemeToggle } from "@/components/docs-theme-toggle";
 import { cn } from "@/lib/utils";
 import { BookOpen, Database, Settings, Zap, Rocket, HelpCircle, Code, Cloud, FileText } from "lucide-react";
 
@@ -68,7 +68,7 @@ export default function DocsLayout({
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background dark" data-docs-theme-root>
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 relative">
         <div className="container flex h-16 items-center">
@@ -77,7 +77,7 @@ export default function DocsLayout({
           </div>
         </div>
         <div className="absolute right-8 top-1/2 -translate-y-1/2 flex items-center space-x-2">
-          <ThemeToggle />
+          <DocsThemeToggle />
         </div>
       </header>
 
