@@ -75,6 +75,18 @@
     "cmdk": {
       "react": "$react",
       "react-dom": "$react-dom"
+    },
+    "next-themes": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "react-day-picker": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "vaul": {
+      "react": "$react",
+      "react-dom": "$react-dom"
     }
   }
 }
