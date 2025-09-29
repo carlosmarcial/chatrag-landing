@@ -195,6 +195,9 @@ export default function Home() {
               <Button variant="ghost" className="hover:text-foreground text-base hidden md:flex -mt-2" asChild>
                 <a href="#demo">Dashboards</a>
               </Button>
+              <Button variant="ghost" className="hover:text-foreground text-base hidden md:flex -mt-2" asChild>
+                <a href="/docs">Documentation</a>
+              </Button>
               <Button variant="ghost" className="hover:text-foreground text-base hidden" asChild>
                 <a href="#testimonials">Testimonials</a>
               </Button>
@@ -237,6 +240,14 @@ export default function Home() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <a href="#demo">Dashboards</a>
+              </Button>
+              <Button 
+                variant="ghost" 
+                className="text-2xl hover:text-foreground" 
+                asChild
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <a href="/docs">Documentation</a>
               </Button>
               <Button 
                 variant="ghost" 

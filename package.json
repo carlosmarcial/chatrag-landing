@@ -39,7 +39,6 @@
     "@radix-ui/react-toggle-group": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
     "@types/node": "20.6.2",
-    "@types/react": "^19.1.15",
     "@types/react-dom": "^19.1.9",
     "autoprefixer": "10.4.15",
     "class-variance-authority": "^0.7.0",
@@ -88,5 +87,8 @@
       "react": "$react",
       "react-dom": "$react-dom"
     }
+  },
+  "devDependencies": {
+    "@types/react": "19.1.15"
   }
 }

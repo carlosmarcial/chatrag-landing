@@ -1,6 +1,6 @@
 export function Logo() {
   return (
-    <a href="/" className="transition-transform duration-200 hover:scale-105">
+    <a href="/" className="transition-transform duration-200 hover:scale-105 flex items-center">
       <svg 
         width="180" 
         height="50" 
@@ -8,7 +8,7 @@ export function Logo() {
         xmlns="http://www.w3.org/2000/svg" 
         role="img" 
         aria-label="ChatRAG Logo"
-        className="logo-svg"
+        className="logo-svg block"
       >
         <defs>
           <linearGradient id="chatBubbleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
