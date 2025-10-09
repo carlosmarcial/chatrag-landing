@@ -5,19 +5,19 @@ import { Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function DocsThemeToggle() {
-  const [theme, setThemeState] = React.useState<'light' | 'dark'>('dark')
+  const [theme, setThemeState] = React.useState<'light' | 'dark'>('light')
 
   React.useEffect(() => {
-    // Load theme from localStorage on mount
+    // Load theme from localStorage on mount, default to light
     const stored = localStorage.getItem('docs-theme') as 'light' | 'dark' | null
-    if (stored) {
-      setThemeState(stored)
-      // Apply theme to the docs container only
-      const docsContainer = document.querySelector('[data-docs-theme-root]')
-      if (docsContainer) {
-        docsContainer.classList.remove('light', 'dark')
-        docsContainer.classList.add(stored)
-      }
+    const initialTheme = stored || 'light'
+    setThemeState(initialTheme)
+    
+    // Apply theme to the docs container only
+    const docsContainer = document.querySelector('[data-docs-theme-root]')
+    if (docsContainer) {
+      docsContainer.classList.remove('light', 'dark')
+      docsContainer.classList.add(initialTheme)
     }
   }, [])
 

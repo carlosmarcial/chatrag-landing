@@ -46,10 +46,12 @@ High-level architecture and conventions
   - public/ contains images, favicons, robots.txt, sitemap.xml used by the static site
 
 Notes specific to this repo
-- ESLint: Minimal config extending next/core-web-vitals (.eslintrc.json); lint errors won’t fail builds due to next.config.js
+- ESLint: Minimal config extending next/core-web-vitals (.eslintrc.json); lint errors won't fail builds due to next.config.js
 - Images: next/image optimization is disabled (images.unoptimized: true) and formats include WebP and AVIF; suitable for static export
 - Tailwind: Includes tailwindcss-animate; custom CSS variables and radii used for UI theming
 - Aliases: Import using @/ for components, lib, hooks, etc., as defined in components.json and tsconfig.json
+- View Demo button: Currently disabled on homepage (app/page.tsx line ~283). The button links to https://easyrag.vercel.app/ but is not clickable. To enable: remove 'pointer-events-none opacity-50 cursor-not-allowed' from the Button className and remove the 'onClick={(e) => e.preventDefault()}' from the anchor tag.
+- Documentation theme: app/docs/* uses dark mode only (theme toggle removed). Light mode styling exists in globals.css but is not active.
 
 What’s not present
 - No README.md; project docs pages live under app/docs/

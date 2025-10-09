@@ -70,14 +70,11 @@ export default function DocsLayout({
   return (
     <div className="min-h-screen bg-background" data-docs-theme-root>
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 relative">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center">
           <div className="mr-4 flex items-center pl-6">
             <Logo />
           </div>
-        </div>
-        <div className="absolute right-8 top-1/2 -translate-y-1/2 flex items-center space-x-2">
-          <DocsThemeToggle />
         </div>
       </header>
 
