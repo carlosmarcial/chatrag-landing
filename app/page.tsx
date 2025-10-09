@@ -280,11 +280,13 @@ export default function Home() {
               </div>
               <span className="ml-2">Get ChatRAG</span>
             </Button>
-            <Button size="lg" className="px-8 py-6 text-lg font-semibold group hero-button-width" variant="outline">
-              <div className="group-hover:-rotate-12 transition-transform duration-200">
-                <span className="text-xl">👀</span>
-              </div>
-              <span className="ml-2">View Demo</span>
+            <Button size="lg" className="px-8 py-6 text-lg font-semibold group hero-button-width" variant="outline" asChild>
+              <a href="https://easyrag.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <div className="group-hover:-rotate-12 transition-transform duration-200">
+                  <span className="text-xl">👀</span>
+                </div>
+                <span className="ml-2">View Demo</span>
+              </a>
             </Button>
           </div>
           
