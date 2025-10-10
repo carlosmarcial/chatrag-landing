@@ -274,11 +274,13 @@ export default function Home() {
           
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button size="lg" className="px-8 py-6 text-lg font-semibold group hero-button-width" variant="outline">
-              <div className="group-hover:-rotate-12 transition-transform duration-200">
-                <SmallLogo />
-              </div>
-              <span className="ml-2">Get ChatRAG</span>
+            <Button size="lg" className="px-8 py-6 text-lg font-semibold group hero-button-width" variant="outline" asChild>
+              <a href={`/api/checkout?products=f866c2a8-7228-4f9d-a5a1-d8c3fb23c449`}>
+                <div className="group-hover:-rotate-12 transition-transform duration-200">
+                  <SmallLogo />
+                </div>
+                <span className="ml-2">Get ChatRAG</span>
+              </a>
             </Button>
             <Button size="lg" className="px-8 py-6 text-lg font-semibold group hero-button-width pointer-events-none opacity-50 cursor-not-allowed" variant="outline" asChild>
               <a href="https://easyrag.vercel.app/" target="_blank" rel="noopener noreferrer" onClick={(e) => e.preventDefault()}>
@@ -440,11 +442,13 @@ export default function Home() {
             </Card>
           </div>
 
-          <Button size="lg" className="px-14 py-6 text-lg font-semibold bg-black text-white hover:bg-black hover:scale-105 hover:shadow-lg transform transition-all duration-200 group chatrag-gradient-border" variant="default">
-            <div className="group-hover:-rotate-12 transition-transform duration-200">
-              <SmallLogo />
-            </div>
-            <span className="ml-2">Start Monetizing Your Data</span>
+          <Button size="lg" className="px-14 py-6 text-lg font-semibold bg-black text-white hover:bg-black hover:scale-105 hover:shadow-lg transform transition-all duration-200 group chatrag-gradient-border" variant="default" asChild>
+            <a href={`/api/checkout?products=17760c04-9e91-464d-905d-e58de69aa791`}>
+              <div className="group-hover:-rotate-12 transition-transform duration-200">
+                <SmallLogo />
+              </div>
+              <span className="ml-2">Start Monetizing Your Data</span>
+            </a>
           </Button>
         </div>
       </section>
@@ -815,11 +819,13 @@ export default function Home() {
                     1-year updates
                   </li>
                 </ul>
-                <Button className="w-full bg-black text-white hover:bg-black hover:scale-[1.03] hover:shadow-lg transform transition-all duration-150 group" size="lg">
-                  <div className="group-hover:-rotate-12 transition-transform duration-150">
-                    <SmallLogo />
-                  </div>
-                  <span className="ml-2">Get ChatRAG</span>
+                <Button className="w-full bg-black text-white hover:bg-black hover:scale-[1.03] hover:shadow-lg transform transition-all duration-150 group" size="lg" asChild>
+                  <a href={`/api/checkout?products=17760c04-9e91-464d-905d-e58de69aa791`}>
+                    <div className="group-hover:-rotate-12 transition-transform duration-150">
+                      <SmallLogo />
+                    </div>
+                    <span className="ml-2">Get ChatRAG</span>
+                  </a>
                 </Button>
                 <p className="text-center text-sm text-foreground font-medium mt-3">
                   Pay once. Build unlimited chatbots!
@@ -901,11 +907,13 @@ export default function Home() {
                     </div>
                   </li>
                 </ul>
-                <Button className="w-full bg-black text-white hover:bg-black hover:scale-[1.03] hover:shadow-lg transform transition-all duration-150 group" size="lg" variant="default">
-                  <div className="group-hover:-rotate-12 transition-transform duration-150">
-                    <SmallLogo />
-                  </div>
-                  <span className="ml-2">Get ChatRAG</span>
+                <Button className="w-full bg-black text-white hover:bg-black hover:scale-[1.03] hover:shadow-lg transform transition-all duration-150 group" size="lg" variant="default" asChild>
+                  <a href={`/api/checkout?products=f866c2a8-7228-4f9d-a5a1-d8c3fb23c449`}>
+                    <div className="group-hover:-rotate-12 transition-transform duration-150">
+                      <SmallLogo />
+                    </div>
+                    <span className="ml-2">Get ChatRAG</span>
+                  </a>
                 </Button>
                 <p className="text-center text-sm text-foreground font-medium mt-3">
                   Pay once. Build unlimited chatbots!
@@ -1079,6 +1087,11 @@ export default function Home() {
                 </li>
                 <li>
                   <Button variant="link" className="h-auto p-0 text-muted-foreground hover:text-primary">Terms of Service</Button>
+                </li>
+                <li>
+                  <Button variant="link" className="h-auto p-0 text-muted-foreground hover:text-primary" asChild>
+                    <a href="https://polar.sh/purchases" target="_blank" rel="noopener noreferrer">Manage Subscription</a>
+                  </Button>
                 </li>
               </ul>
             </div>
