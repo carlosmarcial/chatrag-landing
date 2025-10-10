@@ -31,7 +31,7 @@ function SuccessContent() {
               <Link href="/">Back to home</Link>
             </Button>
             <Button variant="outline" asChild>
-              <a href="https://polar.sh/purchases" target="_blank" rel="noopener noreferrer">
+              <a href="https://polar.sh/purchases/subscriptions" target="_blank" rel="noopener noreferrer">
                 Manage Subscription
               </a>
             </Button>

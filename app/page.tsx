@@ -1090,7 +1090,7 @@ export default function Home() {
                 </li>
                 <li>
                   <Button variant="link" className="h-auto p-0 text-muted-foreground hover:text-primary" asChild>
-                    <a href="https://polar.sh/purchases" target="_blank" rel="noopener noreferrer">Manage Subscription</a>
+                    <a href="https://polar.sh/purchases/subscriptions" target="_blank" rel="noopener noreferrer">Manage Subscription</a>
                   </Button>
                 </li>
               </ul>
