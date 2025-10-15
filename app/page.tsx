@@ -361,7 +361,7 @@ export default function Home() {
           <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
             <iframe
               className="absolute top-0 left-0 w-full h-full rounded-lg"
-              src="https://www.youtube.com/embed/h-C6NVz1fIY"
+              src="https://www.youtube.com/embed/CRUlv97HDPI"
               title="ChatRAG Demo Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
