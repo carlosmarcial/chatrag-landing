@@ -373,7 +373,7 @@ export default function Home() {
       </section>
 
       {/* Logo Stripe Section */}
-      <section className="pt-6 md:pt-8 pb-20 md:pb-24">
+      <section className="pt-6 md:pt-8 pb-20 md:pb-24 bg-background">
         {/* Animated Logo Stripe */}
         <div className="relative w-full overflow-hidden py-8">
           <div ref={carouselRef} className="flex gap-24 md:gap-40 pb-16">
