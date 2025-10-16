@@ -269,7 +269,7 @@ export default function Home() {
             Ship AI chatbots in <span className="slanted-gradient-box">hours</span>, not months
           </h1>
           <p className="text-lg md:text-xl text-foreground/80 mb-8 md:mb-12 max-w-3xl mx-auto">
-            The complete Next.js & AI SDK boilerplate for turning data into profit with <strong>Retrieval Augmented Generation (RAG)</strong>. Build and monetize custom chatbot SaaS products for yourself or your clients.
+            The complete Next.js boilerplate for launching your chatbot-agent SaaS business. <strong>Pay once, own forever.</strong> Turn your data or that of your clients into recurring revenue. Deploy unlimited RAG-powered chatbots that monetize your expertise. Charge subscriptions, keep all the profits. Your AI business in a box.
           </p>
           
           {/* Action Buttons */}
