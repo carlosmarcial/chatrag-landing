@@ -130,17 +130,15 @@ export default function Home() {
         if (logoContainers.length > 0) {
           // Calculate the width of one complete set (half of all logos)
           const halfCount = Math.floor(logoContainers.length / 2);
+          const gap = window.innerWidth < 768 ? 96 : 160; // gap-24 = 96px, gap-40 = 160px
           let setWidth = 0;
           
           // Sum up the width of half the logos plus gaps
           for (let i = 0; i < halfCount; i++) {
             const logo = logoContainers[i] as HTMLElement;
             setWidth += logo.getBoundingClientRect().width;
-            // Add gap width (except after the last logo)
-            if (i < halfCount - 1) {
-              const gap = window.innerWidth < 768 ? 48 : 80; // gap-12 = 48px, gap-20 = 80px
-              setWidth += gap;
-            }
+            // Add gap width after every logo (including the last one for seamless loop)
+            setWidth += gap;
           }
           
           // Normalize speed to 60fps (16.67ms per frame)
@@ -150,7 +148,7 @@ export default function Home() {
           
           // Reset when exactly one set width has scrolled
           if (Math.abs(positionRef.current) >= setWidth) {
-            positionRef.current = positionRef.current + setWidth;
+            positionRef.current = positionRef.current % setWidth;
           }
           
           carousel.style.transform = `translateX(${positionRef.current}px)`;
