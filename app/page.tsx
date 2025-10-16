@@ -193,9 +193,6 @@ export default function Home() {
                 <a href="#pricing">Pricing</a>
               </Button>
               <Button variant="ghost" className="hover:text-foreground text-base hidden md:flex -mt-2" asChild>
-                <a href="#demo">Dashboards</a>
-              </Button>
-              <Button variant="ghost" className="hover:text-foreground text-base hidden md:flex -mt-2" asChild>
                 <a href="/docs">Documentation</a>
               </Button>
               <Button variant="ghost" className="hover:text-foreground text-base hidden" asChild>
@@ -232,14 +229,6 @@ export default function Home() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <a href="#pricing">Pricing</a>
-              </Button>
-              <Button 
-                variant="ghost" 
-                className="text-2xl hover:text-foreground" 
-                asChild
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <a href="#demo">Dashboards</a>
               </Button>
               <Button 
                 variant="ghost" 
@@ -356,7 +345,7 @@ export default function Home() {
       </section>
 
       {/* Video Section */}
-      <section className="container mx-auto px-4 -mt-16 pb-12 md:-mt-20 md:pb-16 bg-background">
+      <section className="container mx-auto px-4 -mt-16 pb-6 md:-mt-20 md:pb-8 bg-background">
         <div className="max-w-4xl mx-auto">
           <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
             <iframe
@@ -373,7 +362,7 @@ export default function Home() {
       </section>
 
       {/* Logo Stripe Section */}
-      <section className="py-12 md:py-16 pb-20 md:pb-24">
+      <section className="pt-6 md:pt-8 pb-20 md:pb-24">
         {/* Animated Logo Stripe */}
         <div className="relative w-full overflow-hidden py-8">
           <div ref={carouselRef} className="flex gap-12 md:gap-20 pb-16">
