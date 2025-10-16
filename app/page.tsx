@@ -22,19 +22,19 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
 
 // Dynamic logo data extracted from filenames
 const techProviders = [
-  { filename: 'openai', displayName: 'OpenAI', description: 'Artificial intelligence research' },
-  { filename: 'stripe', displayName: 'Stripe', description: 'Online payment processing' },
-  { filename: 'nextjs', displayName: 'Next.js', description: 'React framework for production' },
-  { filename: 'supabase', displayName: 'Supabase', description: 'Open source Firebase alternative' },
-  { filename: 'mcp', displayName: 'MCP', description: 'Model Context Protocol' },
-  { filename: 'typescript', displayName: 'TypeScript', description: 'Typed JavaScript' },
-  { filename: 'polar', displayName: 'Polar', description: 'Developer monetization platform' },
-  { filename: 'falai', displayName: 'fal.ai', description: 'AI media generation platform' },
-  { filename: 'llamacloud', displayName: 'LlamaCloud', description: 'Document parsing and processing' },
-  { filename: 'tailwind', displayName: 'Tailwind CSS', description: 'Utility-first CSS framework' },
-  { filename: 'replicate', displayName: 'Replicate', description: 'Machine learning model hosting' },
-  { filename: 'openrouter', displayName: 'OpenRouter', description: 'AI model router and gateway' },
-  { filename: 'resend-icon-white', displayName: 'Resend', description: 'Email API for developers' },
+  { filename: 'openai', displayName: 'OpenAI', description: 'Powers embeddings for semantic search and GPT models for intelligent AI conversations' },
+  { filename: 'stripe', displayName: 'Stripe', description: 'Secure payment processing and subscription management for monetizing your chatbots' },
+  { filename: 'nextjs', displayName: 'Next.js', description: 'Full-stack React framework providing the foundation for your chatbot application' },
+  { filename: 'supabase', displayName: 'Supabase', description: 'Vector database for RAG storage, user authentication, and real-time data sync' },
+  { filename: 'mcp', displayName: 'MCP', description: 'Connects your chatbot to external tools like Zapier and N8N for automation' },
+  { filename: 'typescript', displayName: 'TypeScript', description: 'Type safety and enhanced developer experience across the entire codebase' },
+  { filename: 'polar', displayName: 'Polar', description: 'Alternative payment platform for selling and distributing your ChatRAG products' },
+  { filename: 'falai', displayName: 'fal.ai', description: 'Generates AI images and videos on-demand within your chatbot conversations' },
+  { filename: 'llamacloud', displayName: 'LlamaCloud', description: 'Intelligently parses PDFs, Word docs, and more into RAG-ready chunks' },
+  { filename: 'tailwind', displayName: 'Tailwind CSS', description: 'Utility-first CSS framework for rapidly styling beautiful responsive UIs' },
+  { filename: 'replicate', displayName: 'Replicate', description: 'Advanced AI models for image generation, voice cloning, and more via API' },
+  { filename: 'openrouter', displayName: 'OpenRouter', description: 'Access to 200+ LLMs including Claude, Gemini, and Llama with unified pricing' },
+  { filename: 'resend-icon-white', displayName: 'Resend', description: 'Transactional emails for notifications, password resets, and user updates' },
 ];
 
 // Create logo sets for seamless infinite scroll
@@ -392,7 +392,7 @@ export default function Home() {
                   height={64}
                   className="w-24 h-12 md:w-32 md:h-16 object-contain opacity-80"
                 />
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full bg-black text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none shadow-lg" style={{zIndex: 50, minWidth: '120px', maxWidth: '200px', marginTop: '8px'}}>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full bg-black text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none shadow-lg" style={{zIndex: 50, minWidth: '180px', maxWidth: '280px', marginTop: '8px'}}>
                   <div className="font-semibold text-sm mb-1">{provider.displayName}</div>
                   <div className="text-xs text-gray-300 leading-tight">{provider.description}</div>
                 </div>
