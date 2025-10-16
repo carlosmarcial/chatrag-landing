@@ -356,7 +356,7 @@ export default function Home() {
 
       {/* Video Section */}
       <section className="container mx-auto px-4 -mt-16 pb-6 md:-mt-20 md:pb-8 bg-background">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
             <iframe
               className="absolute top-0 left-0 w-full h-full rounded-lg"
