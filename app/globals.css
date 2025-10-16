@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: 226 50% 4%;
+  --background: 226 50% 2%;
   --foreground: 60 9.1% 97.8%;
   --card: 222 47% 11%;
   --card-foreground: 60 9.1% 97.8%;
@@ -492,6 +492,28 @@
 /* Subtle glow effect on hover */
 .group:hover .gradient-icon-border::before {
   box-shadow: 0 0 20px rgba(64, 128, 255, 0.3);
+}
+
+/* Gift Icon Gradient */
+.gift-gradient-icon {
+  display: inline-flex;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  filter: drop-shadow(0 0 8px rgba(255, 176, 1, 0.4));
+}
+
+.gift-gradient-icon:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 12px rgba(255, 176, 1, 0.6));
+}
+
+.gift-gradient-icon svg {
+  stroke: url(#gift-gradient);
+  fill: none;
+}
+
+.gift-gradient-icon svg path {
+  stroke: url(#gift-gradient);
 }
 
 /* Gradient Card Border for Pricing Cards - ENHANCED */

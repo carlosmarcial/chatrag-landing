@@ -251,6 +251,17 @@ export default function Home() {
         )}
       </nav>
 
+      {/* SVG Gradient Definition */}
+      <svg width="0" height="0" style={{ position: 'absolute' }}>
+        <defs>
+          <linearGradient id="gift-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#4080FF" />
+            <stop offset="50%" stopColor="#FFB001" />
+            <stop offset="100%" stopColor="#F44335" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* Hero Section */}
       <section id="hero-section" className="container mx-auto px-4 pt-6 pb-8 md:pt-8 md:pb-16 lg:pt-10 xl:pt-12 lg:pb-20 bg-background">
         <div className="text-center max-w-4xl mx-auto">
@@ -282,8 +293,8 @@ export default function Home() {
           </div>
           
           <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground mb-16 -mt-2">
-            <Gift className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity duration-300" style={{ animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite', color: '#FE6416' }} />
-            <span>$100 off for the first 5,000 customers</span>
+            <Gift className="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity duration-300" style={{ animation: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite', color: '#FF8C00' }} />
+            <span><span style={{ color: '#FF8C00' }}>$100 off</span> for the first 5,000 customers</span>
           </div>
           
           {/* Social Proof - Hidden until we have actual clients */}
@@ -365,7 +376,7 @@ export default function Home() {
       <section className="pt-6 md:pt-8 pb-20 md:pb-24">
         {/* Animated Logo Stripe */}
         <div className="relative w-full overflow-hidden py-8">
-          <div ref={carouselRef} className="flex gap-12 md:gap-20 pb-16">
+          <div ref={carouselRef} className="flex gap-24 md:gap-40 pb-16">
             {/* Render all logos in one continuous flow for consistent spacing */}
             {[...logos, ...logos].map((provider, index) => (
               <div 
@@ -379,7 +390,7 @@ export default function Home() {
                   alt={`${provider.displayName} - ${provider.description}`}
                   width={128}
                   height={64}
-                  className="w-24 h-12 md:w-32 md:h-16 object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                  className="w-24 h-12 md:w-32 md:h-16 object-contain opacity-80"
                 />
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full bg-black text-white px-3 py-2 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none shadow-lg" style={{zIndex: 50, minWidth: '120px', maxWidth: '200px', marginTop: '8px'}}>
                   <div className="font-semibold text-sm mb-1">{provider.displayName}</div>
