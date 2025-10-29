@@ -706,6 +706,13 @@
   min-width: 200px;
 }
 
+/* GPU promotion + stability to reduce hover flicker on CTAs */
+.gpu-smooth {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, box-shadow, background-color, color, border-color;
+}
+
 /* Logo stripe animation - Removed in favor of JavaScript control */
 
 /* Simple tooltip styling - no conflicts */

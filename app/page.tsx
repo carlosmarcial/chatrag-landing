@@ -273,17 +273,28 @@ export default function Home() {
           
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button size="lg" className="px-8 py-6 text-lg font-semibold group hero-button-width" variant="outline" asChild>
+            {/* Primary CTA - high-contrast brand orange */}
+            <Button
+              size="lg"
+              className="px-8 py-6 text-lg font-semibold group hero-button-width bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200"
+              asChild
+            >
               <a href={`/api/checkout?products=f866c2a8-7228-4f9d-a5a1-d8c3fb23c449`}>
-                <div className="group-hover:-rotate-12 transition-transform duration-200">
+                <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
                   <SmallLogo />
                 </div>
                 <span className="ml-2">Get ChatRAG</span>
               </a>
             </Button>
-            <Button size="lg" className="px-8 py-6 text-lg font-semibold group hero-button-width" variant="outline" asChild>
+            {/* Secondary CTA - vivid electric blue outline */}
+            <Button
+              size="lg"
+              className="px-8 py-6 text-lg font-semibold group hero-button-width border-2 border-[#4080FF] text-[#4080FF] hover:text-white bg-transparent hover:bg-transparent focus-visible:ring-[#4080FF]/40 shadow-[0_10px_30px_-10px_rgba(64,128,255,0.45)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200"
+              variant="outline"
+              asChild
+            >
               <a href="https://chatrag-demo.vercel.app/" target="_blank" rel="noopener noreferrer">
-                <div className="group-hover:-rotate-12 transition-transform duration-200">
+                <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
                   <span className="text-xl">👀</span>
                 </div>
                 <span className="ml-2">View Demo</span>

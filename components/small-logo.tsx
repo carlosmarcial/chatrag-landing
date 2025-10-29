@@ -20,6 +20,10 @@ export function SmallLogo() {
       <path 
         d="M10,15 h40 a5,5 0 0 1 5,5 v25 a5,5 0 0 1 -5,5 h-15 l-10,10 l-10,-10 h-5 a5,5 0 0 1 -5,-5 v-25 a5,5 0 0 1 5,-5 z" 
         fill="url(#chatBubbleGradientSmall)"
+        stroke="rgba(0,0,0,0.55)"
+        strokeWidth="1.2"
+        vectorEffect="non-scaling-stroke"
+        shapeRendering="geometricPrecision"
       />
       
       <rect x="20" y="25" width="20" height="2" rx="1" className="small-logo-line" opacity="0.5" />
