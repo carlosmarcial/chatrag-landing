@@ -77,13 +77,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning style="background-color: #020408;">
       <head>
         {/* Meta viewport for mobile responsiveness */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         {/* Theme color for browser UI - matches dark background */}
-        <meta name="theme-color" content="#020817" />
+        <meta name="theme-color" content="#020408" />
         
         {/* Resource hints for better performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

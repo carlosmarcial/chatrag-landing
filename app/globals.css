@@ -105,13 +105,13 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
-    background-color: hsl(var(--background));
+    background-color: #020408 !important;
     min-height: 100%;
   }
   body {
     @apply bg-background text-foreground;
     min-height: 100vh;
-    background-color: hsl(var(--background));
+    background-color: #020408 !important;
   }
   
   /* Optimize font loading for logo */
