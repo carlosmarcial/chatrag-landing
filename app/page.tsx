@@ -281,8 +281,8 @@ export default function Home() {
                 <span className="ml-2">Get ChatRAG</span>
               </a>
             </Button>
-            <Button size="lg" className="px-8 py-6 text-lg font-semibold group hero-button-width pointer-events-none opacity-50 cursor-not-allowed" variant="outline" asChild>
-              <a href="https://easyrag.vercel.app/" target="_blank" rel="noopener noreferrer" onClick={(e) => e.preventDefault()}>
+            <Button size="lg" className="px-8 py-6 text-lg font-semibold group hero-button-width" variant="outline" asChild>
+              <a href="https://chatrag-demo.vercel.app/" target="_blank" rel="noopener noreferrer">
                 <div className="group-hover:-rotate-12 transition-transform duration-200">
                   <span className="text-xl">👀</span>
                 </div>

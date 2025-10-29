@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Using serverful deployment on Vercel to support API routes
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
