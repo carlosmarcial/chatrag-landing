@@ -82,6 +82,9 @@ export default function RootLayout({
         {/* Meta viewport for mobile responsiveness */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
+        {/* Theme color for browser UI - matches dark background */}
+        <meta name="theme-color" content="#020817" />
+        
         {/* Resource hints for better performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
