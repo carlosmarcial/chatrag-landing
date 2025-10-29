@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { ThemeProvider } from '@/components/theme-provider';
-
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
@@ -116,6 +115,32 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         <Analytics />
+        {/* ChatRAG Embed Widget */}
+        <script
+          id="chatrag-embed-loader"
+          dangerouslySetInnerHTML={{ __html: `
+            (function(){
+              var WIDGET_URL='https://chatrag-demo.vercel.app/embed/chat.js';
+              var COLOR='#ff6417';
+              function injectScript(){
+                if (window.ChatRAGWidget || document.getElementById('chatrag-embed-script')) return;
+                var s=document.createElement('script');
+                s.id='chatrag-embed-script';
+                s.src=WIDGET_URL;
+                s.async=true;
+                s.setAttribute('data-primary-color',COLOR);
+                s.setAttribute('data-title','ChatRAG Assistant');
+                s.onerror=function(){
+                  console.error('Failed to load ChatRAG widget script');
+                };
+                document.body.appendChild(s);
+              }
+              if (document.readyState==='loading'){
+                document.addEventListener('DOMContentLoaded',injectScript);
+              } else { injectScript(); }
+            })();
+          ` }}
+        />
       </body>
     </html>
   );
