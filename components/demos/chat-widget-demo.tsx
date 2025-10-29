@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, Paperclip, Mic, Globe, Video, Palette, Check, ChevronDown, ImageIcon, MessageCircle, X, Minimize2, Play, Square, Settings2, Upload } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { CurvedText } from '@/components/curved-text';
 
 // Types for generation settings
 interface VideoGenerationSettings {
@@ -850,43 +851,79 @@ export function ChatWidgetDemo(props: ChatWidgetDemoProps = {}) {
             }} />
             <motion.div
               className={getPositionClasses()}
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              initial={{ opacity: 0, scale: 0.9, y: 10 }}
               animate={{ 
                 opacity: animationState === 'visible' || animationState === 'appearing' ? 1 : 0,
-                scale: animationState === 'visible' || animationState === 'appearing' ? 1 : 0.8,
-                y: animationState === 'visible' || animationState === 'appearing' ? 0 : 20
+                scale: animationState === 'visible' || animationState === 'appearing' ? 1 : 0.9,
+                y: animationState === 'visible' || animationState === 'appearing' ? 0 : 10
               }}
-              exit={{ opacity: 0, scale: 0.8, y: 20 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              exit={{ opacity: 0, scale: 0.9, y: 10 }}
+              transition={{ 
+                duration: 0.4, 
+                ease: "easeOut"
+              }}
               style={{ 
                 fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                zIndex: 999999
+                zIndex: 999999,
+                willChange: 'transform, opacity',
+                transform: 'translateZ(0)',
+                backfaceVisibility: 'hidden' as const
               }}
             >
-              {/* Chat bubble trigger - always visible like real widget */}
-              <motion.button
-                onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center justify-center"
-                style={{
-                  width: '60px',
-                  height: '60px',
-                  borderRadius: '50%',
-                  backgroundColor: primaryColor,
-                  color: 'white',
-                  border: 'none',
-                  fontSize: '28px',
-                  cursor: 'pointer',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                  transition: 'transform 0.2s, box-shadow 0.2s'
-                }}
-                whileHover={{ 
-                  scale: 1.1,
-                  boxShadow: '0 6px 16px rgba(0,0,0,0.3)'
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {isOpen ? '−' : '💬'}
-              </motion.button>
+              {/* Chat bubble trigger with curved text - always visible like real widget */}
+              <div className="relative">
+                <motion.button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="flex items-center justify-center relative"
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    borderRadius: '50%',
+                    backgroundColor: primaryColor,
+                    color: 'white',
+                    border: 'none',
+                    fontSize: '28px',
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                    transition: 'transform 0.2s, box-shadow 0.2s',
+                    zIndex: 2,
+                  }}
+                  whileHover={{ 
+                    scale: 1.1,
+                    boxShadow: '0 6px 16px rgba(0,0,0,0.3)'
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {isOpen ? '−' : '💬'}
+                </motion.button>
+                
+                {/* Curved "Try me!" text - only show when widget is closed */}
+                {!isOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ 
+                      duration: 0.4, 
+                      ease: "easeOut",
+                      delay: 0.5 
+                    }}
+                    style={{
+                      willChange: 'transform, opacity',
+                      transform: 'translateZ(0)',
+                      backfaceVisibility: 'hidden' as const
+                    }}
+                  >
+                    <CurvedText
+                      text="Try me!"
+                      radius={52}
+                      color={primaryColor}
+                      fontSize={18}
+                      animate={true}
+                    />
+                  </motion.div>
+                )}
+              </div>
 
               {/* Chat widget - exactly like real widget */}
               {isOpen && (

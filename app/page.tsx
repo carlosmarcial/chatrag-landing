@@ -15,6 +15,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FeaturesShowcase } from "@/components/sections/features-showcase";
+import { ChatWidgetDemo } from "@/components/demos/chat-widget-demo";
 import { Space_Grotesk } from 'next/font/google';
 import { useState, useRef, useEffect } from 'react';
 
@@ -762,6 +763,15 @@ export default function Home() {
         </div>
       </footer>
 
+      {/* Floating Chat Widget with "Try me!" curved text */}
+      <ChatWidgetDemo 
+        position="bottom-right"
+        primaryColor="#FF6417"
+        title="ChatRAG Assistant"
+        showDemoBadge={true}
+        isVisible={true}
+        animationState="visible"
+      />
         </div>
       </div>
     </>
