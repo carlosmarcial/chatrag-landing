@@ -705,49 +705,42 @@
 /* Removed imprecise hover rules that paused entire carousel */
 /* Now using JavaScript event listeners for precise control */
 
-/* Custom Scrollbar Styling - Transparent track with visible thumb */
+/* Custom Scrollbar Styling - Minimal overlay style */
 /* Placed outside @layer to avoid being overridden */
 html::-webkit-scrollbar,
-body::-webkit-scrollbar,
-*::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
 html::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track,
-*::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
   background: transparent !important;
+  margin: 4px;
 }
 
 html::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb,
-*::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
+body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  border: none;
 }
 
 html::-webkit-scrollbar-thumb:hover,
-body::-webkit-scrollbar-thumb:hover,
-*::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
-  background-clip: padding-box;
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 html::-webkit-scrollbar-corner,
-body::-webkit-scrollbar-corner,
-*::-webkit-scrollbar-corner {
+body::-webkit-scrollbar-corner {
   background: transparent !important;
 }
 
 /* Firefox scrollbar */
 html,
-body,
-* {
+body {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }
 
 
