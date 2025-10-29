@@ -916,9 +916,9 @@ export function ChatWidgetDemo(props: ChatWidgetDemoProps = {}) {
                   >
                     <CurvedText
                       text="Try me!"
-                      radius={52}
+                      radius={70}
                       color={primaryColor}
-                      fontSize={18}
+                      fontSize={24}
                       animate={true}
                     />
                   </motion.div>

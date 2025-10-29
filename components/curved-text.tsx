@@ -19,9 +19,9 @@ interface CurvedTextProps {
 
 export function CurvedText({
   text = 'Try me!',
-  radius = 50,
+  radius = 70,
   color = '#FF6417',
-  fontSize = 16,
+  fontSize = 24,
   animate = true,
 }: CurvedTextProps) {
   // Calculate the path for the text to follow
@@ -63,7 +63,6 @@ export function CurvedText({
         viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
         style={{
           overflow: 'visible',
-          filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.15))',
         }}
       >
         <defs>
@@ -73,18 +72,49 @@ export function CurvedText({
             fill="none"
           />
           {/* Brand gradient definition */}
-          <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor="#4080FF" />
+            <stop offset="25%" stopColor="#7B70FF" />
             <stop offset="50%" stopColor="#FFB001" />
+            <stop offset="75%" stopColor="#FF7744" />
             <stop offset="100%" stopColor="#F44335" />
           </linearGradient>
+          {/* Glow filter */}
+          <filter id="glowFilter">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
         </defs>
+        {/* Glow layer - background */}
+        <text
+          className={`${dmSerif.className} ${animate ? 'animate-glow' : ''}`}
+          style={{
+            fill: '#ffffff',
+            fontSize: `${fontSize}px`,
+            fontWeight: 700,
+            letterSpacing: '0.05em',
+            opacity: 0.4,
+          }}
+          filter="url(#glowFilter)"
+        >
+          <textPath
+            href="#textPath"
+            startOffset="50%"
+            textAnchor="middle"
+          >
+            {text}
+          </textPath>
+        </text>
+        {/* Main text layer - foreground */}
         <text
           className={`${dmSerif.className} ${animate ? 'animate-pulse-subtle' : ''}`}
           style={{
-            fill: 'url(#brandGradient)',
+            fill: '#ffffff',
             fontSize: `${fontSize}px`,
-            fontWeight: 400,
+            fontWeight: 700,
             letterSpacing: '0.05em',
           }}
         >
@@ -110,9 +140,24 @@ export function CurvedText({
           }
         }
         
+        @keyframes glow-animation {
+          0%, 100% {
+            opacity: 0.3;
+            filter: url(#glowFilter) blur(2px);
+          }
+          50% {
+            opacity: 0.6;
+            filter: url(#glowFilter) blur(4px);
+          }
+        }
+        
         .animate-pulse-subtle {
           animation: pulse-subtle 2s ease-in-out infinite;
           transform-origin: center;
+        }
+        
+        .animate-glow {
+          animation: glow-animation 2s ease-in-out infinite;
         }
       `}</style>
     </div>
