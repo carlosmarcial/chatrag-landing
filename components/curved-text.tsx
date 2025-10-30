@@ -99,13 +99,13 @@ export function CurvedText({
             transform: scale(1);
           }
           50% {
-            opacity: 0.85;
-            transform: scale(1.03);
+            opacity: 0.80;
+            transform: scale(1.08);
           }
         }
-        
+
         .animate-pulse-subtle {
-          animation: pulse-subtle 2s ease-in-out infinite;
+          animation: pulse-subtle 1.75s ease-in-out infinite;
           transform-origin: center;
         }
       `}</style>

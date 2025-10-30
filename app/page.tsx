@@ -15,6 +15,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FeaturesShowcase } from "@/components/sections/features-showcase";
+import { ChatWidgetCurvedTextOverlay } from "@/components/chat-widget-curved-text-overlay";
 import { Space_Grotesk } from 'next/font/google';
 import { useState, useRef, useEffect } from 'react';
 
@@ -763,6 +764,9 @@ export default function Home() {
       </footer>
 
       {/* Floating Chat Widget - Now using production widget from chatrag-demo.vercel.app via layout.tsx */}
+
+      {/* Curved "Try me!" text overlay for production widget */}
+      <ChatWidgetCurvedTextOverlay />
         </div>
       </div>
     </>
