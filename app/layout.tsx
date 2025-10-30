@@ -118,8 +118,8 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         <Analytics />
-        {/* ChatRAG Embed Widget - DISABLED: Using custom ChatWidgetDemo component instead */}
-        {/* <script
+        {/* ChatRAG Production Widget from chatrag-demo.vercel.app */}
+        <script
           id="chatrag-embed-loader"
           dangerouslySetInnerHTML={{ __html: `
             (function(){
@@ -143,7 +143,7 @@ export default function RootLayout({
               } else { injectScript(); }
             })();
           ` }}
-        /> */}
+        />
       </body>
     </html>
   );
