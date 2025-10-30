@@ -64,7 +64,7 @@ const features: Feature[] = [
 
 export function FeaturesShowcase() {
   return (
-    <section className="pt-8 pb-12 md:pt-12 md:pb-16 bg-background">
+    <section className="py-12 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">

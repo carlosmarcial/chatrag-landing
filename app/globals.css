@@ -580,14 +580,15 @@
   contain: layout style;
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  max-width: 80rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 50rem;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .pricing-section-grid {
     grid-template-columns: repeat(2, 1fr);
+    max-width: 56rem;
   }
 }
 

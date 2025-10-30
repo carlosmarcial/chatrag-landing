@@ -418,11 +418,16 @@ export default function Home() {
       {/* Pricing Section */}
       <section id="pricing" className="py-12 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">Don't get left behind in the AI revolution! 🤖</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">Pay once, own forever!</h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              Don't get left behind in the AI revolution! 🤖
+            </p>
+          </div>
           <div className="pricing-section-grid">
-            <Card className="p-6 pricing-card-smooth border">
-              <div className="mb-4">
-                <h3 className="text-2xl font-bold mb-2">ChatRAG Starter</h3>
+            <Card className="p-6 border bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-orange-950/20 dark:via-amber-950/20 dark:to-yellow-950/20 hover:shadow-xl transition-shadow duration-300">
+              <div className="mb-4 pt-6">
+                <h3 className="text-2xl font-bold mb-6">ChatRAG Starter</h3>
                 <div className="flex items-baseline mb-6">
                   <div className="flex items-center">
                     <span className="text-muted-foreground line-through mr-2">$299</span>
@@ -430,54 +435,34 @@ export default function Home() {
                   </div>
                   <span className="text-muted-foreground ml-2">USD</span>
                 </div>
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-3 mb-10">
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    Next.js full-stack framework
+                    Complete Next.js RAG boilerplate
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    Vercel AI SDK
+                    LlamaCloud + OpenAI + Supabase Vector DB
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    Stripe / Polar Payments
+                    Stripe & Polar monetization built-in
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    LlamaCloud for document parsing
+                    200+ AI models via OpenRouter
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    OpenAI Embeddings
+                    Zapier MCP ready
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    OpenRouter LLMs
+                    Authentication & user management
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    Supabase Vector DB
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Supabase Auth
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    MCP Tools (Zapier & N8N out of the box)
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Resend emails
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Tailwind CSS & shadcn/ui components
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Cursor rules for AI-assisted development
+                    Production-ready UI with Tailwind & shadcn
                   </li>
                   <li className="flex items-center text-muted-foreground">
                     <span className="mr-2">✗</span>
@@ -485,12 +470,12 @@ export default function Home() {
                   </li>
                   <li className="flex items-center text-muted-foreground">
                     <span className="mr-2">✗</span>
-                    1-year updates
+                    Lifetime updates
                   </li>
                 </ul>
-                <Button className="w-full bg-black text-white hover:bg-black hover:scale-[1.03] hover:shadow-lg transform transition-all duration-150 group" size="lg" asChild>
+                <Button className="w-full px-8 py-6 text-base font-semibold group bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200" size="lg" asChild>
                   <a href={`/api/checkout?products=17760c04-9e91-464d-905d-e58de69aa791`}>
-                    <div className="group-hover:-rotate-12 transition-transform duration-150">
+                    <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
                       <SmallLogo />
                     </div>
                     <span className="ml-2">Get ChatRAG</span>
@@ -502,12 +487,12 @@ export default function Home() {
               </div>
             </Card>
 
-            <Card className="p-6 relative overflow-hidden gradient-card-border border">
-              <div className="absolute top-4 right-4 bg-[#FE6416] text-white px-3 py-1 rounded-full text-sm font-medium">
+            <Card className="p-6 relative overflow-hidden border bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-orange-950/20 dark:via-amber-950/20 dark:to-yellow-950/20 hover:shadow-xl transition-shadow duration-300">
+              <div className="absolute top-4 right-4 bg-[#FE6416] text-white px-3 py-1 rounded-full text-sm font-medium z-10">
                 Most Popular
               </div>
-              <div className="mb-4">
-                <h3 className="text-2xl font-bold mb-2">ChatRAG Complete</h3>
+              <div className="mb-4 pt-6">
+                <h3 className="text-2xl font-bold mb-6">ChatRAG Complete</h3>
                 <div className="flex items-baseline mb-6">
                   <div className="flex items-center">
                     <span className="text-muted-foreground line-through mr-2">$369</span>
@@ -515,54 +500,34 @@ export default function Home() {
                   </div>
                   <span className="text-muted-foreground ml-2">USD</span>
                 </div>
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-3 mb-10">
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    Next.js full-stack framework
+                    Complete Next.js RAG boilerplate
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    Vercel AI SDK
+                    LlamaCloud + OpenAI + Supabase Vector DB
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    Stripe / Polar Payments
+                    Stripe & Polar monetization built-in
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    LlamaCloud for document parsing
+                    200+ AI models via OpenRouter
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    OpenAI Embeddings
+                    Zapier MCP ready
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    OpenRouter LLMs
+                    Authentication & user management
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    Supabase Vector DB
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Supabase Auth
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    MCP Tools (Zapier & N8N out of the box)
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Resend emails
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Tailwind CSS & shadcn/ui components
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Cursor rules for AI-assisted development
+                    Production-ready UI with Tailwind & shadcn
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
@@ -570,15 +535,15 @@ export default function Home() {
                   </li>
                   <li className="flex items-center">
                     <span className="text-green-500 mr-2">✓</span>
-                    1-year updates
+                    Lifetime updates
                     <div className="inline-flex items-center bg-[#FE6416] text-white px-2.5 py-1 rounded-full text-xs font-medium ml-3">
                       Updated 2 days ago
                     </div>
                   </li>
                 </ul>
-                <Button className="w-full bg-black text-white hover:bg-black hover:scale-[1.03] hover:shadow-lg transform transition-all duration-150 group" size="lg" variant="default" asChild>
+                <Button className="w-full px-8 py-6 text-base font-semibold group bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200" size="lg" variant="default" asChild>
                   <a href={`/api/checkout?products=f866c2a8-7228-4f9d-a5a1-d8c3fb23c449`}>
-                    <div className="group-hover:-rotate-12 transition-transform duration-150">
+                    <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
                       <SmallLogo />
                     </div>
                     <span className="ml-2">Get ChatRAG</span>
@@ -598,7 +563,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
-              <span className="animate-pulse-glow-light">ChatRAG</span> vs Chatbase
+              <span className="animate-pulse-glow-light">ChatRAG</span> vs Others
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
               Why pay monthly subscriptions when you can own your chatbot infrastructure forever?
@@ -894,8 +859,8 @@ export default function Home() {
       {/* FAQ Section */}
       <section id="faq" className="py-12 md:py-24 bg-background">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-          <Accordion type="single" collapsible className="w-full [&>div>h3>button]:text-lg [&>div>div>div]:text-base">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+          <Accordion type="single" collapsible className="w-full [&>div>h3>button]:text-xl [&>div>h3>button]:md:text-2xl [&>div>h3>button]:text-left [&>div>div>div]:text-lg [&>div>div>div]:md:text-xl">
             <AccordionItem value="item-1">
               <AccordionTrigger>What is RAG (Retrieval Augmented Generation)?</AccordionTrigger>
               <AccordionContent>
@@ -939,9 +904,15 @@ export default function Home() {
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-8">
+              <AccordionTrigger>What do you plan to add in the future to ChatRAG?</AccordionTrigger>
+              <AccordionContent>
+                Exciting features are on the roadmap! <strong>Realtime voice conversations</strong> will let users talk directly to your knowledge base instead of typing—imagine having natural voice conversations with your AI assistant. <strong>Memory capabilities</strong> will be a game-changer alongside RAG, allowing the chatbot to remember user preferences and context over time for increasingly personalized answers with each interaction. The chatbot will learn and adapt to each user's needs automatically. This is exactly why getting <strong>ChatRAG Complete</strong> is such a smart investment—you'll get lifetime access to all these powerful features as they roll out, without paying extra!
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-9">
               <AccordionTrigger>What's the best reason for getting ChatRAG?</AccordionTrigger>
               <AccordionContent>
-                I built ChatRAG because I needed it. When clients started asking me for AI chatbot solutions, I searched everywhere for a boilerplate that had all the features I needed—and found nothing. So I created it myself. I'm ChatRAG's first user, deploying it for real clients every day. This isn't just a product I'm selling; it's the tool I depend on for my own business. When you get ChatRAG, you're getting battle-tested software that's proven in the real world.
+                I built ChatRAG because I needed it. When clients started asking me for AI chatbot solutions, I searched everywhere for a boilerplate that had all the features I needed—and found nothing. So I created it myself. I'm ChatRAG's first user, deploying it for real clients every day. This isn't just a product I'm selling; it's the tool I depend on for my own business. When you get ChatRAG, you're getting battle-tested software that's proven in the real world. Here's the real advantage: <strong>you focus on getting clients</strong>—finding people and companies with valuable knowledge bases that can be monetized—while <strong>we handle all the technical complexity</strong> of improving the RAG pipeline, keeping up with the latest AI advancements, and maintaining the infrastructure. Your time is spent on what actually makes you money: sales and client relationships, not debugging vector embeddings.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
