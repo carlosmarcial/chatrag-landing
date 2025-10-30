@@ -1,6 +1,6 @@
 "use client";
 
-import { Upload, MessageSquare, Settings, Share2 } from "lucide-react";
+import { Upload, MessageSquare, Settings, Share2, User, CreditCard, MessageCircle } from "lucide-react";
 
 interface Feature {
   title: string;
@@ -20,7 +20,7 @@ const features: Feature[] = [
   },
   {
     title: "Intelligent Conversations",
-    description: "Your chatbot understands context and delivers accurate answers from your uploaded knowledge base. Powered by OpenAI and OpenRouter, it provides human-like responses that keep your users engaged and satisfied.",
+    description: "Powered by a high-performance RAG pipeline that uses LlamaCloud for intelligent parsing and chunking, OpenAI embeddings for precise semantic search, and a Supabase HNSW vector index for ultra-fast retrieval. The codebase is continuously updated to adopt the latest, most powerful and efficient RAG techniques, delivering contextual, reliable answers in real time.",
     videoSrc: "/videos-features/placeholder-chat.mp4",
     icon: <MessageSquare className="w-6 h-6" />,
     reverse: true,
@@ -33,11 +33,32 @@ const features: Feature[] = [
     reverse: false,
   },
   {
-    title: "Deploy Anywhere",
-    description: "Share your chatbot with a single link or embed it on any website. Your AI assistant works seamlessly across desktop and mobile, providing consistent experiences for all your users.",
+    title: "Accounts & Saved Chats",
+    description: "Let users sign up and log in with built-in auth. Each account securely stores full chat history so conversations persist across sessions and devices.",
+    videoSrc: "/videos-features/placeholder-config.mp4",
+    icon: <User className="w-6 h-6" />,
+    reverse: true,
+  },
+  {
+    title: "Monetize with Stripe & Polar",
+    description: "Connect Stripe and Polar in minutes to charge for access to your custom chatbots—so you or your clients can monetize knowledge bases quickly with subscriptions or one-time purchases.",
+    videoSrc: "/videos-features/placeholder-config.mp4",
+    icon: <CreditCard className="w-6 h-6" />,
+    reverse: false,
+  },
+  {
+    title: "WhatsApp Integration",
+    description: "Beyond the web app and embeddable chat widget, connect your chatbot to any WhatsApp number—no WhatsApp Business account required. Go live fast and meet users where they already chat.",
+    videoSrc: "/videos-features/placeholder-chat.mp4",
+    icon: <MessageCircle className="w-6 h-6" />,
+    reverse: true,
+  },
+  {
+    title: "Built-In Pro Features",
+    description: "Share a link, embed a widget, or ship a full web app—then scale globally. Packed with power features out of the box: image, video, and 3D generation; MCP tool integrations; executable Artifacts that visualize code; OpenAI speech-to-text plus ElevenLabs TTS/STT; and a web UI localized in 14+ languages for a truly global audience.",
     videoSrc: "/videos-features/placeholder-deploy.mp4",
     icon: <Share2 className="w-6 h-6" />,
-    reverse: true,
+    reverse: false,
   },
 ];
 

@@ -593,6 +593,253 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ChatRAG vs Others Comparison Section */}
+      <section id="comparison" className="py-12 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
+              <span className="animate-pulse-glow-light">ChatRAG</span> vs Chatbase
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              Why pay monthly subscriptions when you can own your chatbot infrastructure forever?
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-background rounded-lg shadow-lg border">
+                <thead>
+                  <tr className="border-b">
+                    <th className="text-left p-2 md:p-3 font-semibold text-sm md:text-base border-r w-1/2">Feature</th>
+                    <th className="text-center p-2 md:p-3 font-semibold text-sm md:text-base bg-green-50 dark:bg-green-950/20 border-r w-1/4">
+                      <div className="flex flex-col items-center">
+                        <SmallLogo />
+                        <span className="mt-1 text-xs md:text-sm">ChatRAG</span>
+                      </div>
+                    </th>
+                    <th className="text-center p-2 md:p-3 font-semibold text-sm md:text-base w-1/4">Chatbase</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Pay once, build forever</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                      <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5">$40-500/mo</div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Unlimited chats</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Unlimited messages</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                      <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5">100-40K/mo</div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Ownership of chatbots</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                      <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5">Self-hosted</div>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                      <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5">SaaS only</div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Lose access if company disappears</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✗</span>
+                      <div className="text-[10px] md:text-xs text-green-600 dark:text-green-400 mt-0.5 font-medium">You own it</div>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✓</span>
+                      <div className="text-[10px] md:text-xs text-red-600 dark:text-red-400 mt-0.5">Vendor lock-in</div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Full ChatGPT/Claude-like web interface</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                      <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5">Widget only</div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Connect WhatsApp without Business account</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Charge subscriptions to your chatbots (Stripe/Polar)</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                      <div className="text-[10px] md:text-xs text-green-600 dark:text-green-400 mt-0.5 font-medium">Monetize it!</div>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Create images, videos & 3D assets</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                      <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5">fal.ai, Replicate</div>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Connect any MCP you want</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                      <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5">Zapier, N8N, etc.</div>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Connect to any AI model with API</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                      <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5">200+ via OpenRouter</div>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                      <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5">Limited selection</div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Create artifacts from code</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                      <div className="text-[10px] md:text-xs text-muted-foreground mt-0.5">Claude Artifacts</div>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Shareable conversation links</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Download conversation as PDF</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Add AI responses to knowledge base (manual memory)</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Speech-to-text & text-to-speech</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Incognito chats</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm font-semibold border-r">Full control of your data & database</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                      <div className="text-[10px] md:text-xs text-green-600 dark:text-green-400 mt-0.5 font-medium">You own everything</div>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                      <div className="text-[10px] md:text-xs text-red-600 dark:text-red-400 mt-0.5">Hosted by Chatbase</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="text-center mt-8">
+              <Button
+                size="lg"
+                className="px-8 py-6 text-base md:text-lg font-semibold group bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200"
+                asChild
+              >
+                <a href={`/api/checkout?products=f866c2a8-7228-4f9d-a5a1-d8c3fb23c449`}>
+                  <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
+                    <SmallLogo />
+                  </div>
+                  <span className="ml-2">Get ChatRAG Now</span>
+                </a>
+              </Button>
+              <p className="text-sm text-muted-foreground mt-4">
+                Stop paying monthly fees. Own your chatbot infrastructure forever.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section - Hidden until we have actual customers */}
       <section id="testimonials" className="hidden py-12 md:py-24">
         <div className="container mx-auto px-4">
