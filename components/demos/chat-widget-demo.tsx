@@ -918,7 +918,7 @@ export function ChatWidgetDemo(props: ChatWidgetDemoProps = {}) {
                       text="Try me!"
                       radius={70}
                       color={primaryColor}
-                      fontSize={24}
+                      fontSize={28}
                       animate={true}
                     />
                   </motion.div>

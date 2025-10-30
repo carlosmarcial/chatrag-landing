@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { DM_Serif_Display } from 'next/font/google';
+import { VT323 } from 'next/font/google';
 
-const dmSerif = DM_Serif_Display({ 
+const vt323 = VT323({ 
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
@@ -74,12 +74,12 @@ export function CurvedText({
         </defs>
         {/* Main text layer - foreground */}
         <text
-          className={`${dmSerif.className} ${animate ? 'animate-pulse-subtle' : ''}`}
+          className={`${vt323.className} ${animate ? 'animate-pulse-subtle' : ''}`}
           style={{
             fill: '#ffffff',
             fontSize: `${fontSize}px`,
-            fontWeight: 700,
-            letterSpacing: '0.05em',
+            fontWeight: 400,
+            letterSpacing: '0.04em',
           }}
         >
           <textPath
