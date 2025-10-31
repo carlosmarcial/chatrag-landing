@@ -129,7 +129,7 @@ export default function RootLayout({
                 if (window.ChatRAGWidget || document.getElementById('chatrag-embed-script')) return;
                 var s=document.createElement('script');
                 s.id='chatrag-embed-script';
-                s.src=WIDGET_URL;
+                s.src=WIDGET_URL+'?v='+Date.now();
                 s.async=true;
                 s.setAttribute('data-primary-color',COLOR);
                 s.setAttribute('data-title','ChatRAG Assistant');
