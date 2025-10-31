@@ -55,7 +55,7 @@ const features: Feature[] = [
   },
   {
     title: "Built-In Pro Features",
-    description: "Share a link, embed a widget, or ship a full web app—then scale globally. Packed with power features out of the box: image, video, and 3D generation; MCP tool integrations; executable Artifacts that visualize code; OpenAI speech-to-text plus ElevenLabs TTS/STT; and a web UI localized in 14+ languages for a truly global audience.",
+    description: "Share a link, embed a widget, or ship a full web app—then scale globally. Packed with power features out of the box: image, video, and 3D generation; MCP tool integrations; web search combined with RAG; executable Artifacts that visualize code; OpenAI speech-to-text plus ElevenLabs TTS/STT; and a web UI localized in 14+ languages for a truly global audience.",
     videoSrc: "/videos-features/placeholder-deploy.mp4",
     icon: <Share2 className="w-6 h-6" />,
     reverse: false,

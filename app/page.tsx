@@ -697,6 +697,16 @@ export default function Home() {
                   </tr>
 
                   <tr className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-2 md:p-3 text-xs md:text-sm border-r">Web search combined with RAG</td>
+                    <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
+                      <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
+                    </td>
+                    <td className="p-2 md:p-3 text-center">
+                      <span className="text-red-600 dark:text-red-400 text-lg md:text-xl">✗</span>
+                    </td>
+                  </tr>
+
+                  <tr className="border-b hover:bg-muted/50 transition-colors">
                     <td className="p-2 md:p-3 text-xs md:text-sm border-r">Connect to any AI model with API</td>
                     <td className="p-2 md:p-3 text-center bg-green-50 dark:bg-green-950/20 border-r">
                       <span className="text-green-600 dark:text-green-400 text-lg md:text-xl">✓</span>
@@ -906,7 +916,7 @@ export default function Home() {
             <AccordionItem value="item-8">
               <AccordionTrigger>What do you plan to add in the future to ChatRAG?</AccordionTrigger>
               <AccordionContent>
-                Exciting features are on the roadmap! <strong>Realtime voice conversations</strong> will let users talk directly to your knowledge base instead of typing—imagine having natural voice conversations with your AI assistant. <strong>Memory capabilities</strong> will be a game-changer alongside RAG, allowing the chatbot to remember user preferences and context over time for increasingly personalized answers with each interaction. The chatbot will learn and adapt to each user's needs automatically. This is exactly why getting <strong>ChatRAG Complete</strong> is such a smart investment—you'll get lifetime access to all these powerful features as they roll out, without paying extra!
+                Exciting features are on the roadmap! <strong>Realtime voice conversations</strong> will let users talk directly to your knowledge base instead of typing—imagine having natural voice conversations with your AI assistant. <strong>Memory capabilities</strong> will be a game-changer alongside RAG, allowing the chatbot to remember user preferences and context over time for increasingly personalized answers with each interaction. The chatbot will learn and adapt to each user's needs automatically. <strong>Browser automation integration</strong> is also coming—imagine your chatbot not just answering questions, but actually controlling a browser to complete tasks for you. An AI agent with RAG knowledge and memory is exponentially more powerful and useful than one starting from zero every time. This is exactly why getting <strong>ChatRAG Complete</strong> is such a smart investment—you'll get lifetime access to all these powerful features as they roll out, without paying extra!
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-9">
