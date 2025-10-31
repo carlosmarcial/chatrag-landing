@@ -279,7 +279,7 @@ export default function Home() {
               className="px-8 py-6 text-base md:text-lg font-semibold group hero-button-width bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200"
               asChild
             >
-              <a href={`/api/checkout?products=f866c2a8-7228-4f9d-a5a1-d8c3fb23c449`}>
+              <a href={`/api/checkout?products=c9cb30b2-3c43-44fc-9070-19c9cc02a24d`}>
                 <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
                   <SmallLogo />
                 </div>
@@ -474,7 +474,7 @@ export default function Home() {
                   </li>
                 </ul>
                 <Button className="w-full px-8 py-6 text-base font-semibold group bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200" size="lg" asChild>
-                  <a href={`/api/checkout?products=17760c04-9e91-464d-905d-e58de69aa791`}>
+                  <a href={`/api/checkout?products=1fccb238-c09e-41fd-9875-d7eba1167467`}>
                     <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
                       <SmallLogo />
                     </div>
@@ -542,7 +542,7 @@ export default function Home() {
                   </li>
                 </ul>
                 <Button className="w-full px-8 py-6 text-base font-semibold group bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200" size="lg" variant="default" asChild>
-                  <a href={`/api/checkout?products=f866c2a8-7228-4f9d-a5a1-d8c3fb23c449`}>
+                  <a href={`/api/checkout?products=c9cb30b2-3c43-44fc-9070-19c9cc02a24d`}>
                     <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
                       <SmallLogo />
                     </div>
@@ -800,7 +800,7 @@ export default function Home() {
                 className="px-8 py-6 text-base md:text-lg font-semibold group bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200"
                 asChild
               >
-                <a href={`/api/checkout?products=f866c2a8-7228-4f9d-a5a1-d8c3fb23c449`}>
+                <a href={`/api/checkout?products=c9cb30b2-3c43-44fc-9070-19c9cc02a24d`}>
                   <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
                     <SmallLogo />
                   </div>
