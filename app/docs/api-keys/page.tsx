@@ -282,9 +282,28 @@ export default function APIKeysPage() {
             </div>
 
             <div className="border rounded-lg p-4">
+              <h3 className="font-semibold mb-2 flex items-center">
+                Polar Payments
+                <span className="ml-2 text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-0.5 rounded">RECOMMENDED</span>
+              </h3>
+              <p className="text-sm text-muted-foreground mb-2">
+                Easiest payment setup for SaaS subscriptions
+              </p>
+              <pre className="bg-muted p-2 rounded text-xs overflow-x-auto">
+                <code>{`POLAR_ACCESS_TOKEN=...
+NEXT_PUBLIC_POLAR_PRICE_ID_STARTER=...
+NEXT_PUBLIC_POLAR_CHECKOUT_STARTER=...
+NEXT_PUBLIC_POLAR_PRICE_ID_PRO=...
+NEXT_PUBLIC_POLAR_CHECKOUT_PRO=...
+NEXT_PUBLIC_POLAR_PRICE_ID_ENTERPRISE=...
+NEXT_PUBLIC_POLAR_CHECKOUT_ENTERPRISE=...`}</code>
+              </pre>
+            </div>
+
+            <div className="border rounded-lg p-4">
               <h3 className="font-semibold mb-2">Stripe Keys</h3>
               <p className="text-sm text-muted-foreground mb-2">
-                For payment processing
+                Alternative payment processing
               </p>
               <pre className="bg-muted p-2 rounded text-xs overflow-x-auto">
                 <code>{`NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=...
