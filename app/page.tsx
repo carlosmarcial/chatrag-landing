@@ -192,6 +192,9 @@ export default function Home() {
                 <a href="#pricing">Pricing</a>
               </Button>
               <Button variant="ghost" className="hover:text-foreground text-base hidden md:flex -mt-2" asChild>
+                <a href="#faq">FAQ</a>
+              </Button>
+              <Button variant="ghost" className="hover:text-foreground text-base hidden md:flex -mt-2" asChild>
                 <a href="/docs">Documentation</a>
               </Button>
               <Button variant="ghost" className="hover:text-foreground text-base hidden" asChild>
@@ -221,25 +224,33 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden fixed inset-0 z-40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="flex flex-col items-center justify-center h-full space-y-8">
-              <Button 
-                variant="ghost" 
-                className="text-2xl hover:text-foreground" 
+              <Button
+                variant="ghost"
+                className="text-2xl hover:text-foreground"
                 asChild
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <a href="#pricing">Pricing</a>
               </Button>
-              <Button 
-                variant="ghost" 
-                className="text-2xl hover:text-foreground" 
+              <Button
+                variant="ghost"
+                className="text-2xl hover:text-foreground"
+                asChild
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <a href="#faq">FAQ</a>
+              </Button>
+              <Button
+                variant="ghost"
+                className="text-2xl hover:text-foreground"
                 asChild
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <a href="/docs">Documentation</a>
               </Button>
-              <Button 
-                variant="ghost" 
-                className="text-2xl hover:text-foreground hidden" 
+              <Button
+                variant="ghost"
+                className="text-2xl hover:text-foreground hidden"
                 asChild
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -368,9 +379,9 @@ export default function Home() {
       {/* Video Section */}
       <section className="container mx-auto px-4 -mt-16 pb-6 md:-mt-20 md:pb-8 bg-background">
         <div className="max-w-5xl mx-auto">
-          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+          <div className="relative w-full overflow-hidden rounded-sm" style={{ paddingBottom: '56.25%' }}>
             <iframe
-              className="absolute top-0 left-0 w-full h-full rounded-lg"
+              className="absolute top-0 left-0 w-full h-full"
               src="https://www.youtube.com/embed/CRUlv97HDPI"
               title="ChatRAG Demo Video"
               frameBorder="0"
@@ -933,60 +944,19 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t py-12 pb-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-2">
-                <Logo />
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                Ship AI chatbots in hours, not months
-              </p>
-              <p className="text-sm text-muted-foreground mb-4">
-                Made with <span className="animated-gradient-heart">❤️</span> by <a href="https://x.com/carlosmarcialt" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-200">Carlos Marcial</a>
-              </p>
-              <p className="text-sm text-muted-foreground">
-                © 2025 ChatRAG. All rights reserved.
-              </p>
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="flex items-center justify-center space-x-2 mb-2">
+              <Logo />
             </div>
-            <div>
-              <h4 className="font-medium mb-4">Product</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Button variant="link" className="h-auto p-0 text-muted-foreground hover:text-primary">Features</Button>
-                </li>
-                <li>
-                  <Button variant="link" className="h-auto p-0 text-muted-foreground hover:text-primary">Pricing</Button>
-                </li>
-                <li>
-                  <Button variant="link" className="h-auto p-0 text-muted-foreground hover:text-primary">Documentation</Button>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-medium mb-4">Company</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Button variant="link" className="h-auto p-0 text-muted-foreground hover:text-primary">About</Button>
-                </li>
-                <li>
-                  <Button variant="link" className="h-auto p-0 text-muted-foreground hover:text-primary">Blog</Button>
-                </li>
-                <li>
-                  <Button variant="link" className="h-auto p-0 text-muted-foreground hover:text-primary">Contact</Button>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-medium mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Button variant="link" className="h-auto p-0 text-muted-foreground hover:text-primary">Privacy Policy</Button>
-                </li>
-                <li>
-                  <Button variant="link" className="h-auto p-0 text-muted-foreground hover:text-primary">Terms of Service</Button>
-                </li>
-              </ul>
-            </div>
+            <p className="text-sm text-muted-foreground mb-4">
+              Ship AI chatbots in hours, not months
+            </p>
+            <p className="text-sm text-muted-foreground mb-4">
+              Made with <span className="animated-gradient-heart">❤️</span> by <a href="https://x.com/carlosmarcialt" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-200">Carlos Marcial</a>
+            </p>
+            <p className="text-sm text-muted-foreground">
+              © 2025 ChatRAG. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>

@@ -11,7 +11,7 @@
   <rect width="180" height="180" fill="#ffffff" rx="40"/>
   
   <!-- Chat bubble centered and scaled for Apple touch icon -->
-  <g transform="translate(30, 35) scale(2.2)">
+  <g transform="translate(30, 13) scale(2.2)">
     <path 
       d="M10,15 h35 a6,6 0 0 1 6,6 v20 a6,6 0 0 1 -6,6 h-14 l-8,8 l-8,-8 h-5 a6,6 0 0 1 -6,-6 v-20 a6,6 0 0 1 6,-6 z" 
       fill="#4080FF"
