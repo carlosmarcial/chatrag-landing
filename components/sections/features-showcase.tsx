@@ -40,8 +40,8 @@ const features: Feature[] = [
     reverse: true,
   },
   {
-    title: "Monetize with Stripe & Polar",
-    description: "Connect Stripe and Polar in minutes to charge for access to your custom chatbots—so you or your clients can monetize knowledge bases quickly with subscriptions or one-time purchases.",
+    title: "Monetize with Polar & Stripe",
+    description: "Get Polar up and running in minutes to start charging for access to your custom chatbots. Perfect for subscriptions or one-time purchases, Polar makes monetization effortless. Stripe integration is also included and ready to go whenever you need it.",
     videoSrc: "/videos-features/monetize.mp4",
     icon: <CreditCard className="w-6 h-6" />,
     reverse: false,
