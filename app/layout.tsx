@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'The Next.js & AI SDK boilerplate for turning data into profit with RAG (Retrieval Augmented Generation). Build, launch, and monetize custom chatbot-based SaaS products.',
     images: [
       {
-        url: '/images/heroChatRag.png',
+        url: 'https://chatrag.ai/images/heroChatRag.png?v=2',
         width: 2166,
         height: 2017,
         alt: 'ChatRAG - AI Chatbot Builder Platform with RAG Technology',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     creator: '@carlosmarcialt',
     title: 'Build AI chatbots in hours, not months | ChatRAG',
     description: 'The Next.js & AI SDK boilerplate for turning data into profit with RAG (Retrieval Augmented Generation).',
-    images: ['/images/heroChatRag.png'],
+    images: ['https://chatrag.ai/images/heroChatRag.png?v=2'],
   },
   icons: {
     icon: [
