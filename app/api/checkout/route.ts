@@ -1,4 +1,5 @@
 import { Checkout } from "@polar-sh/nextjs"
+import { cookies } from 'next/headers'
 
 // Next.js App Router route handler
 // GET /api/checkout?products=<PRODUCT_ID>[,PRODUCT_ID2]
@@ -15,4 +16,11 @@ export const GET = Checkout({
   server,
   // Optional theme override. Remove to use system theme.
   // theme: "dark",
+  customData: async () => {
+    const cookieStore = await cookies()
+    return {
+      datafast_visitor_id: cookieStore.get('datafast_visitor_id')?.value,
+      datafast_session_id: cookieStore.get('datafast_session_id')?.value,
+    }
+  },
 })
