@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
     const cookieStore = await cookies()
 
     const checkout = await polar.checkouts.create({
-      productPriceId: productIds[0],
+      products: productIds,
       successUrl: process.env.SUCCESS_URL!,
       metadata: {
         datafast_visitor_id: cookieStore.get('datafast_visitor_id')?.value || '',
