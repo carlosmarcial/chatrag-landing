@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter, DM_Serif_Display } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { ThemeProvider } from '@/components/theme-provider';
+import Script from 'next/script';
 const inter = Inter({ 
   subsets: ['latin'],
   display: 'swap',
@@ -229,6 +230,15 @@ export default function RootLayout({
             }
           `
         }} />
+
+        {/* DataFast Analytics */}
+        <Script
+          defer
+          data-website-id="dfid_52F58Fgk2yFHPiAVw869k"
+          data-domain="www.chatrag.ai"
+          src="https://datafa.st/js/script.js"
+          strategy="afterInteractive"
+        />
       </head>
       <body className="overflow-y-auto" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
