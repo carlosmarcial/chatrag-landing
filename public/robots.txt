@@ -11,12 +11,79 @@ Crawl-delay: 1
 # Disallow: /admin/
 # Disallow: /private/
 
-# Allow all major search engines
+# ========================================
+# Traditional Search Engine Crawlers
+# ========================================
+
+# Google Search
 User-agent: Googlebot
 Allow: /
 
+# Bing Search
 User-agent: Bingbot
 Allow: /
 
+# Yahoo Search
 User-agent: Slurp
-Allow: / 
+Allow: /
+
+# ========================================
+# AI Chatbot & LLM Crawlers (GEO)
+# ========================================
+
+# ChatGPT (OpenAI)
+User-agent: GPTBot
+Allow: /
+
+# ChatGPT Browsing Mode
+User-agent: ChatGPT-User
+Allow: /
+
+# OpenAI Search
+User-agent: OAI-SearchBot
+Allow: /
+
+# Claude (Anthropic)
+User-agent: ClaudeBot
+Allow: /
+
+# Anthropic AI
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Google Gemini/Bard
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence & Siri
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Diffbot
+User-agent: Diffbot
+Allow: /
+
+# Common Crawl (used by many AI training datasets)
+User-agent: CCBot
+Allow: /
+
+# Bytespider (ByteDance/TikTok)
+User-agent: Bytespider
+Allow: /
+
+# ========================================
+# Additional Files for AI Discovery
+# ========================================
+# See /llms.txt and /llms-full.txt for AI-optimized content 

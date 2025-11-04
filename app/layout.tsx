@@ -76,19 +76,136 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Enhanced JSON-LD structured data for AI and search engines
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ChatRAG",
+    "url": "https://chatrag.ai",
+    "logo": "https://chatrag.ai/favicon.svg",
+    "description": "The Next.js & AI SDK boilerplate for building production-ready AI chatbots with RAG (Retrieval Augmented Generation). Build, launch, and monetize custom chatbot-based SaaS products.",
+    "founder": {
+      "@type": "Person",
+      "name": "Carlos Marcial",
+      "url": "https://x.com/carlosmarcialt"
+    },
+    "sameAs": [
+      "https://x.com/carlosmarcialt",
+      "https://github.com/carlosmarcial"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Support",
+      "url": "https://chatrag.ai"
+    }
+  };
+
+  const softwareApplicationSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ChatRAG",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Cross-platform",
+    "url": "https://chatrag.ai",
+    "description": "Next.js & AI SDK boilerplate for building RAG-powered AI chatbots with document understanding, multi-LLM support, vector search, and built-in monetization.",
+    "offers": {
+      "@type": "Offer",
+      "price": "99",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "softwareVersion": "1.0",
+    "featureList": [
+      "RAG (Retrieval Augmented Generation)",
+      "Next.js 14+ App Router",
+      "Multiple LLM providers (OpenAI, Claude, Gemini, Llama)",
+      "Supabase Vector Database with HNSW indexes",
+      "Document processing (PDF, DOCX, TXT)",
+      "Built-in authentication",
+      "Stripe and Polar payment integration",
+      "WhatsApp integration",
+      "AI image and video generation",
+      "White-label customization",
+      "TypeScript support",
+      "Production-ready infrastructure"
+    ],
+    "screenshot": "https://chatrag.ai/images/heroChatRag.png",
+    "creator": {
+      "@type": "Person",
+      "name": "Carlos Marcial",
+      "url": "https://x.com/carlosmarcialt"
+    }
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ChatRAG",
+    "url": "https://chatrag.ai",
+    "description": "Build AI chatbots in hours, not months. Complete Next.js boilerplate with RAG, vector search, multi-LLM support, and monetization.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://chatrag.ai/docs?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://chatrag.ai"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Documentation",
+        "item": "https://chatrag.ai/docs"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Pricing",
+        "item": "https://chatrag.ai/#pricing"
+      }
+    ]
+  };
+
   return (
     <html lang="en" suppressHydrationWarning style={{ backgroundColor: '#020408' }}>
       <head>
         {/* Meta viewport for mobile responsiveness */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
+
         {/* Theme color for browser UI - matches dark background */}
         <meta name="theme-color" content="#020408" />
-        
+
         {/* Resource hints for better performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+
+        {/* JSON-LD Structured Data for AI and Search Engines */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+
         {/* Font face declarations for immediate availability */}
         <style dangerouslySetInnerHTML={{
           __html: `
@@ -104,7 +221,7 @@ export default function RootLayout({
               font-display: swap;
               font-weight: 900;
             }
-            
+
             /* Critical CSS for logo to prevent any flash */
             .logo-svg, .small-logo-svg {
               opacity: 1 !important;

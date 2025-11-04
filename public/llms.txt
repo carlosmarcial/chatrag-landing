@@ -1,0 +1,142 @@
+# ChatRAG
+
+> The Next.js & AI SDK boilerplate for building production-ready AI chatbots with RAG (Retrieval Augmented Generation). Build, launch, and monetize custom chatbot-based SaaS products in hours, not months.
+
+## Overview
+
+ChatRAG is a complete Next.js boilerplate that enables developers to rapidly build and deploy AI-powered chatbots with document understanding capabilities. It combines modern web technologies with enterprise-grade AI features, including vector databases, multiple LLM providers, and built-in monetization through Polar.
+
+**Key Value Proposition:** Turn data into profit by building custom AI chatbot SaaS products without months of infrastructure development.
+
+## Main Pages
+
+- [Home](https://chatrag.ai/): Full feature overview, pricing, and live demo
+- [Documentation](https://chatrag.ai/docs/): Complete setup and integration guides
+- [Pricing](https://chatrag.ai/#pricing): Transparent pricing with one-time payment
+- [Demo](https://chatrag.ai/#demo): Interactive chatbot demonstration
+- [FAQ](https://chatrag.ai/#faq): Common questions and answers
+
+## Core Features
+
+### AI & RAG Capabilities
+- **Multiple LLM Support**: OpenAI, Anthropic Claude, Google Gemini, Meta Llama, Groq
+- **Advanced RAG System**: Context-aware responses using vector search
+- **Document Processing**: Support for PDF, TXT, MD, DOCX, and web scraping
+- **Smart Context Management**: Automatic relevance scoring and citation
+
+### Technical Stack
+- **Framework**: Next.js 14+ with App Router and Server Actions
+- **Database**: Supabase with pgvector for embeddings
+- **AI SDKs**: Vercel AI SDK, LlamaIndex, LangChain
+- **Storage**: Multiple vector database options (Supabase, LlamaCloud)
+- **Authentication**: NextAuth.js with multiple providers
+
+### Business Features
+- **Built-in Monetization**: Polar integration for subscriptions and payments
+- **Usage Tracking**: Token consumption and analytics
+- **Multi-tenancy**: Support for multiple users and workspaces
+- **White-label Ready**: Customizable branding and themes
+
+## Documentation Structure
+
+### Getting Started
+- [Prerequisites](https://chatrag.ai/docs/prerequisites): System requirements and accounts needed
+- [Quick Start](https://chatrag.ai/docs/quick-start): 5-minute setup guide
+- [Database Setup](https://chatrag.ai/docs/database-setup): Supabase configuration
+- [Authentication](https://chatrag.ai/docs/authentication): User authentication setup
+- [API Keys](https://chatrag.ai/docs/api-keys): Configure LLM providers
+
+### Configuration
+- [Config UI](https://chatrag.ai/docs/config-ui): Visual configuration interface
+- [AI Models](https://chatrag.ai/docs/ai-models): Select and configure LLM providers
+- [System Prompt](https://chatrag.ai/docs/system-prompt): Customize chatbot behavior
+- [Branding](https://chatrag.ai/docs/branding): White-label customization
+
+### Features
+- [RAG System](https://chatrag.ai/docs/rag-system): Document indexing and retrieval
+- [Document Processing](https://chatrag.ai/docs/document-processing): Upload and process files
+- [Media Generation](https://chatrag.ai/docs/media-generation): AI image generation
+- [WhatsApp Integration](https://chatrag.ai/docs/whatsapp): Connect chatbot to WhatsApp
+
+### Advanced
+- [MCP Integration](https://chatrag.ai/docs/mcp-integration): Model Context Protocol
+- [Payments](https://chatrag.ai/docs/payments): Polar monetization setup
+- [Deployment](https://chatrag.ai/docs/deployment): Production deployment guide
+- [Troubleshooting](https://chatrag.ai/docs/troubleshooting): Common issues and solutions
+
+## Use Cases
+
+ChatRAG is ideal for building:
+- **Customer Support Bots**: AI assistants trained on documentation and help articles
+- **Knowledge Base Chatbots**: Internal company knowledge with natural language queries
+- **Document Analysis Tools**: Legal, financial, or research document Q&A systems
+- **Educational Assistants**: Course materials and textbook-based tutoring bots
+- **Sales & Lead Generation**: Product catalog search and recommendation engines
+- **Content Creation**: AI writing assistants trained on brand guidelines
+
+## Technology Details
+
+**Frontend:**
+- React 18+ with TypeScript
+- Tailwind CSS with shadcn/ui components
+- Framer Motion for animations
+- Dark mode support
+
+**Backend:**
+- Next.js Server Actions
+- PostgreSQL with pgvector extension
+- RESTful API routes
+- Webhook support
+
+**AI Infrastructure:**
+- Vector embeddings (text-embedding-3-small, etc.)
+- Semantic search with cosine similarity
+- Streaming responses
+- Function calling support
+
+**Developer Experience:**
+- Hot reload development
+- TypeScript strict mode
+- ESLint configuration
+- Environment-based configuration
+
+## Pricing & Licensing
+
+- **One-time Payment**: $99 (current price)
+- **Lifetime Updates**: Access to all future updates
+- **No Recurring Fees**: No subscriptions or hidden costs
+- **Commercial Use**: Build unlimited commercial projects
+
+## Support & Community
+
+- **Documentation**: Comprehensive guides at chatrag.ai/docs
+- **Email Support**: Direct developer support
+- **GitHub**: Issue tracking and feature requests
+- **Updates**: Regular feature additions and improvements
+
+## Technical Requirements
+
+- Node.js 18+
+- Supabase account (free tier available)
+- OpenAI API key (or alternative LLM provider)
+- Vercel/Netlify account for deployment (optional)
+
+## Quick Installation
+
+```bash
+git clone [repository]
+npm install
+cp .env.example .env.local
+# Configure environment variables
+npm run dev
+```
+
+## About ChatRAG
+
+Created by Carlos Marcial (@carlosmarcialt), ChatRAG emerged from the need for a production-ready boilerplate that handles the complex infrastructure of AI chatbots. Instead of spending months building RAG systems, authentication, database schemas, and payment integration, developers can launch in hours.
+
+**Mission**: Democratize AI chatbot development by providing enterprise-grade infrastructure as an affordable, easy-to-use boilerplate.
+
+## Related Keywords
+
+AI chatbot builder, RAG implementation, Next.js boilerplate, AI SDK, chatbot SaaS, vector database integration, OpenAI chatbot, Supabase pgvector, LlamaCloud, document Q&A, semantic search, AI monetization, chatbot white-label, Next.js AI starter

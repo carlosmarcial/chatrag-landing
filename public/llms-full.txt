@@ -1,0 +1,982 @@
+# ChatRAG - Complete Documentation
+
+> The Next.js & AI SDK boilerplate for building production-ready AI chatbots with RAG (Retrieval Augmented Generation). Build, launch, and monetize custom chatbot-based SaaS products in hours, not months.
+
+## Executive Summary
+
+ChatRAG is a comprehensive, production-ready Next.js boilerplate designed to eliminate months of development time when building AI-powered chatbots with document understanding capabilities. It combines enterprise-grade infrastructure with modern AI technologies to enable rapid deployment of custom chatbot SaaS products.
+
+**Core Value Proposition:** Instead of spending 3-6 months building authentication, database schemas, vector search, payment systems, and AI integrations from scratch, developers can launch in hours with ChatRAG's battle-tested infrastructure.
+
+**Target Audience:** Full-stack developers, SaaS entrepreneurs, agencies building client chatbots, and companies needing custom AI assistants trained on proprietary data.
+
+## Product Overview
+
+### What is ChatRAG?
+
+ChatRAG is a complete full-stack boilerplate that provides:
+- **RAG-powered AI chatbots** with document understanding
+- **Multiple LLM provider support** (OpenAI, Claude, Gemini, Llama, etc.)
+- **Production-ready infrastructure** with authentication, database, and storage
+- **Built-in monetization** via Stripe and Polar payment integration
+- **White-label capabilities** for branding and customization
+- **Developer-first experience** with TypeScript, hot reload, and comprehensive docs
+
+### What Problems Does ChatRAG Solve?
+
+1. **Infrastructure Complexity:** Eliminates the need to architect and build vector databases, authentication systems, and storage solutions from scratch
+2. **AI Integration Challenges:** Pre-configured connections to 100+ LLM models through OpenRouter, plus direct integrations with OpenAI, Anthropic, and Google
+3. **Document Processing:** Built-in PDF, DOCX, and web content parsing with intelligent chunking via LlamaCloud
+4. **Monetization Barriers:** Integrated payment systems (Stripe/Polar) with usage tracking and subscription management
+5. **Scalability Concerns:** Production-tested architecture with Row Level Security, HNSW vector indexes, and multi-tenant isolation
+6. **Time-to-Market:** Reduces development time from months to hours/days
+
+## Technology Stack
+
+### Frontend Technologies
+- **React 18+** with TypeScript for type-safe component development
+- **Next.js 14+ App Router** with Server Actions for modern full-stack architecture
+- **Tailwind CSS** with shadcn/ui component library for beautiful, accessible UI
+- **Framer Motion** for smooth animations and transitions
+- **Next Themes** for dark/light mode support
+- **Vercel AI SDK** for streaming AI responses and function calling
+
+### Backend & Infrastructure
+- **Next.js API Routes & Server Actions** for serverless backend logic
+- **PostgreSQL** via Supabase with pgvector extension for vector embeddings
+- **HNSW Indexes** providing 15-28x faster vector search than traditional methods
+- **Supabase Auth** with multiple provider support (email, Google, GitHub, etc.)
+- **Row Level Security (RLS)** for multi-tenant data isolation
+- **Storage Buckets** for images, videos, PDFs, and 3D models
+
+### AI & Machine Learning
+- **OpenAI GPT-4/3.5** for conversational AI and reasoning
+- **OpenAI Embeddings** (text-embedding-3-small/large) for semantic search
+- **Anthropic Claude** (Sonnet, Haiku) for advanced reasoning
+- **Google Gemini** (Pro, Flash) for multimodal capabilities
+- **Meta Llama** via OpenRouter for open-source models
+- **Groq** for ultra-fast inference
+- **OpenRouter** unified access to 200+ LLMs with competitive pricing
+
+### Document Processing & RAG
+- **LlamaCloud** for intelligent PDF/DOCX parsing and chunking
+- **Vector Embeddings** with 1536-dimensional semantic representations
+- **Semantic Search** using cosine similarity with HNSW optimization
+- **Adaptive Retrieval** with intelligent context selection
+- **Multi-pass Search** for improved accuracy
+- **Citation Support** with source attribution
+
+### Media Generation
+- **DALL-E 3** via OpenAI for AI image generation
+- **fal.ai** for fast, affordable image and video generation
+- **Replicate** for advanced models (voice cloning, style transfer, etc.)
+- **Stable Diffusion** via multiple providers
+
+### Payments & Monetization
+- **Stripe** for credit card processing and subscription management
+- **Polar** for digital product sales and distribution
+- **Usage Tracking** for token consumption and analytics
+- **Tiered Pricing** support with feature gating
+
+### Developer Tools & DevEx
+- **TypeScript 5.2+** with strict mode for type safety
+- **ESLint** with Next.js-optimized configuration
+- **Hot Module Replacement** for instant feedback during development
+- **Environment-based Configuration** with visual Config UI
+- **Comprehensive Documentation** with video walkthroughs
+
+## Core Features Deep Dive
+
+### 1. RAG (Retrieval-Augmented Generation) System
+
+**What it is:**
+RAG combines large language models with document retrieval to provide accurate, grounded responses based on your specific data. Instead of relying solely on the LLM's training data, RAG searches your documents and includes relevant context in every response.
+
+**How it works in ChatRAG:**
+1. **Document Upload:** Users upload PDFs, DOCX, TXT, HTML, or other supported formats
+2. **Intelligent Parsing:** LlamaCloud breaks documents into semantically meaningful chunks
+3. **Embedding Generation:** OpenAI creates 1536-dimensional vector embeddings for each chunk
+4. **Vector Storage:** Embeddings are stored in Supabase with HNSW indexes for fast search
+5. **Query Processing:** User questions are embedded and compared to document vectors
+6. **Context Retrieval:** Top-K most relevant chunks are retrieved using cosine similarity
+7. **Response Generation:** LLM generates answers using retrieved context
+
+**Performance Optimizations:**
+- **HNSW Indexes:** 15-28x faster than traditional vector search methods
+- **Adaptive Retrieval:** Automatically adjusts retrieval strategy based on query type
+- **Multi-pass Search:** Performs multiple search passes for complex queries
+- **Result Ranking:** Scores and ranks chunks by relevance before sending to LLM
+- **Configurable Chunk Count:** Adjust RAG_FINAL_RESULT_COUNT (default: 25) for optimal context
+
+**Configuration:**
+```bash
+RAG_ADAPTIVE_RETRIEVAL=true    # Smart retrieval strategy
+RAG_MULTI_PASS=true           # Multi-stage search
+RAG_FINAL_RESULT_COUNT=25     # Number of chunks
+RAG_SIMILARITY_THRESHOLD=0.7  # Minimum relevance score
+```
+
+**System Prompt Requirements:**
+The system prompt MUST include the `{{context}}` placeholder where retrieved documents will be injected:
+
+```
+You are a helpful AI assistant.
+
+Context:
+{{context}}
+
+Answer based on the context above. If the answer is not in the context, say so.
+```
+
+**Best Practices:**
+- Include clear instructions on how to use the context
+- Specify citation requirements in the system prompt
+- Test with various document types to ensure proper chunking
+- Monitor retrieval performance and adjust parameters as needed
+
+### 2. Multi-Provider LLM Support
+
+**OpenRouter Integration (Recommended):**
+ChatRAG uses OpenRouter as the primary LLM provider, offering:
+- **200+ Models:** Access to OpenAI, Anthropic, Google, Meta, Mistral, and more
+- **Unified API:** Single integration for all providers
+- **Competitive Pricing:** Often cheaper than direct provider APIs
+- **Automatic Fallbacks:** If one provider is down, automatically switch to alternatives
+- **Reasoning Models:** O1, O3, Claude 3.7+, DeepSeek R1 for complex tasks
+
+**Popular Models Available:**
+- OpenAI: GPT-4, GPT-4-Turbo, GPT-3.5-Turbo
+- Anthropic: Claude 3.5 Sonnet, Claude 3.5 Haiku, Claude 3 Opus
+- Google: Gemini Pro, Gemini Flash, Gemini Ultra
+- Meta: Llama 3.2, Llama 3.1 405B
+- Mistral: Mistral Large, Mistral Medium
+- DeepSeek: DeepSeek R1 (reasoning model)
+
+**Direct Provider APIs:**
+ChatRAG also supports direct API connections:
+- OpenAI: For GPT models and DALL-E image generation
+- Anthropic: For Claude models with enhanced security
+- Google: For Gemini models with multimodal capabilities
+
+**Model Selection UI:**
+Users can select their preferred model through:
+1. Config UI at http://localhost:3333
+2. In-app model selector (if enabled)
+3. Environment variables for default model
+
+### 3. Authentication & User Management
+
+**Supabase Auth Features:**
+- **Email/Password:** Traditional authentication with email verification
+- **OAuth Providers:** Google, GitHub, Azure, Apple, and more
+- **Magic Links:** Passwordless login via email
+- **Multi-factor Authentication (MFA):** Optional 2FA support
+- **Session Management:** Secure JWT-based sessions
+- **Password Reset:** Built-in password recovery flows
+
+**User Roles & Permissions:**
+- **Regular Users:** Can chat, upload documents (if enabled), and manage their own data
+- **Admin Users:** Access to Config UI, document management, and system settings
+- **Row Level Security (RLS):** Database-enforced data isolation per user
+
+**Admin Management:**
+- Admins are managed through the Config UI → Admin section
+- Add admin users by email (must match existing Supabase user)
+- Requires SUPABASE_SERVICE_ROLE_KEY to be configured
+
+### 4. Document Processing & Management
+
+**Supported File Formats:**
+- PDF documents (.pdf)
+- Microsoft Word (.docx)
+- Plain text (.txt)
+- HTML files (.html)
+- Rich Text Format (.rtf)
+- EPUB ebooks (.epub)
+- Web scraping (URL input)
+
+**Processing Pipeline:**
+1. **Upload:** User uploads file via web interface or API
+2. **Validation:** File type and size checks
+3. **Storage:** File stored in Supabase Storage bucket
+4. **Parsing:** LlamaCloud extracts and intelligently chunks content
+5. **Embedding:** OpenAI generates vector embeddings for each chunk
+6. **Indexing:** Chunks inserted into document_chunks table with HNSW indexes
+7. **Status Updates:** Processing status tracked in real-time
+
+**Document Management Options:**
+
+**Option 1: In-App Document Dashboard**
+- Location: Main app at http://localhost:3000
+- Best for: End-user document uploads
+- Configuration:
+  ```bash
+  NEXT_PUBLIC_HIDE_DOCUMENT_DASHBOARD=false  # Show dashboard
+  NEXT_PUBLIC_READ_ONLY_DOCUMENTS_ENABLED=false  # Allow uploads
+  ```
+- Features: Upload, view, delete documents with RLS-enforced permissions
+
+**Option 2: Config UI Document Manager**
+- Location: http://localhost:3333 (npm run config)
+- Best for: Admin document management
+- Requires: SUPABASE_SERVICE_ROLE_KEY
+- Features: Reprocess documents, view chunks, admin controls
+
+**Storage & Security:**
+- Documents stored in Supabase Storage with RLS policies
+- Each user can only access their own documents
+- Admin users can manage all documents (if authorized)
+
+### 5. Monetization & Payments
+
+**Stripe Integration:**
+- **One-time Payments:** Sell chatbot access as a product
+- **Subscriptions:** Monthly/annual recurring revenue
+- **Tiered Pricing:** Different feature levels (Basic, Pro, Enterprise)
+- **Usage-based Billing:** Charge per API call or token
+- **Webhook Support:** Automatic payment status updates
+
+**Polar Integration:**
+- **Digital Product Sales:** Sell boilerplate licenses and templates
+- **Quick Setup:** Faster integration than Stripe for simple products
+- **Creator-friendly:** Built for indie developers and content creators
+
+**Usage Tracking:**
+- Token consumption per user
+- API call counting
+- Cost estimation per query
+- Monthly usage reports
+- Feature usage analytics
+
+**Implementation Example:**
+```typescript
+// Check user subscription status before allowing premium features
+if (user.subscription_tier === 'pro') {
+  // Enable advanced RAG features
+  // Enable image generation
+  // Enable unlimited documents
+}
+```
+
+### 6. WhatsApp Integration
+
+**Overview:**
+Connect ChatRAG to WhatsApp for mobile chatbot experiences using Meta's Cloud API.
+
+**Features:**
+- Send/receive text messages
+- Support for media (images, PDFs, audio)
+- Quick reply buttons
+- Conversational message templates
+- Webhook handling for real-time message processing
+
+**Configuration:**
+```bash
+WHATSAPP_VERIFY_TOKEN=your_verify_token
+WHATSAPP_ACCESS_TOKEN=your_whatsapp_access_token
+WHATSAPP_PHONE_NUMBER_ID=your_phone_number_id
+WHATSAPP_BUSINESS_ACCOUNT_ID=your_business_account_id
+```
+
+**Special Optimizations:**
+- **whatsappConversational** system prompt template
+- Concise, mobile-friendly responses
+- Reduced token usage for cost efficiency
+- Emoji support for engaging conversations
+
+### 7. MCP (Model Context Protocol) Integration
+
+**What is MCP:**
+MCP is Anthropic's protocol for connecting AI assistants to external tools and data sources.
+
+**Supported MCP Servers:**
+- **Filesystem:** Access to local files and directories
+- **GitHub:** Repository information and code search
+- **Brave Search:** Web search capabilities
+- **PostgreSQL:** Database queries
+- **Custom Servers:** Build your own MCP integrations
+
+**Use Cases:**
+- Connect chatbot to live databases for real-time data
+- Enable web search within conversations
+- Access GitHub repositories for code assistance
+- File system operations and automation
+
+**Configuration:**
+Enable/disable MCP tools through the Config UI → Features → MCP Tools
+
+### 8. Media Generation
+
+**Image Generation:**
+- **DALL-E 3:** High-quality images via OpenAI ($0.040-0.120 per image)
+- **fal.ai:** Fast, affordable AI image generation ($0.003-0.015 per image)
+- **Stable Diffusion:** Multiple variants (SD 1.5, SDXL) via Replicate
+
+**Video Generation:**
+- **fal.ai:** Text-to-video generation
+- **Replicate:** Multiple video models
+- Custom aspect ratios and durations
+
+**Configuration:**
+```bash
+FAL_API_KEY=your_fal_api_key
+REPLICATE_API_TOKEN=your_replicate_token
+ENABLE_IMAGE_GENERATION=true
+ENABLE_VIDEO_GENERATION=true
+```
+
+### 9. Branding & White-Label
+
+**Customizable Elements:**
+- App name and tagline
+- Logo (text or image)
+- Primary colors and accent colors
+- Welcome messages
+- Footer text and links
+- Favicon and meta tags
+
+**Configuration Methods:**
+1. **Visual Config UI:** http://localhost:3333 → Branding tab
+2. **Environment Variables:** Direct .env.local editing
+3. **Code-level:** Modify components for advanced customization
+
+**White-Label Best Practices:**
+- Replace all ChatRAG branding with your own
+- Customize email templates
+- Update meta tags for SEO
+- Configure custom domain
+- Remove or replace default documentation links
+
+### 10. Advanced Features
+
+**Multi-language Support:**
+- Unicode support for international characters
+- RTL (right-to-left) layout capabilities
+- Language detection in queries
+- Localized system prompts
+
+**Voice Integration:**
+- Text-to-speech (TTS) via ElevenLabs or OpenAI
+- Speech-to-text (STT) for voice input
+- Voice cloning capabilities via Replicate
+
+**Analytics & Monitoring:**
+- Vercel Analytics integration
+- Custom event tracking
+- Error logging and monitoring
+- Performance metrics
+
+**Security Features:**
+- Row Level Security (RLS) for data isolation
+- Environment variable validation
+- API rate limiting
+- CORS configuration
+- Content Security Policy (CSP) headers
+
+## Database Schema
+
+ChatRAG includes a comprehensive database schema with 14 production tables:
+
+### Core Tables
+
+**users**
+- User profiles and metadata
+- Subscription information
+- Usage tracking
+
+**documents**
+- Uploaded document metadata
+- Processing status
+- User ownership (RLS enforced)
+
+**document_chunks**
+- Parsed document chunks
+- Vector embeddings (1536 dimensions)
+- Metadata and source references
+- HNSW indexes for fast search
+
+**conversations**
+- Chat conversation threads
+- User-specific conversations (RLS enforced)
+- Timestamps and metadata
+
+**messages**
+- Individual chat messages
+- AI and user messages
+- Token usage tracking
+- Citations and sources
+
+**api_keys**
+- User-specific API keys for external access
+- Rate limiting metadata
+- Scoped permissions
+
+### Feature Tables
+
+**generations**
+- Image and video generation history
+- Model parameters and prompts
+- Cost tracking
+
+**subscriptions**
+- Stripe/Polar subscription data
+- Billing cycle information
+- Feature access levels
+
+**usage_logs**
+- API call tracking
+- Token consumption
+- Cost attribution
+
+**admin_users**
+- Admin role assignments
+- Permission levels
+
+### Configuration Tables
+
+**system_config**
+- App-wide settings
+- Feature flags
+- System prompts
+
+**user_preferences**
+- Per-user settings
+- UI preferences
+- Notification settings
+
+### Storage Buckets
+
+**documents:** User-uploaded files (PDFs, DOCX, etc.)
+**images:** Generated AI images
+**videos:** Generated AI videos
+**models:** 3D models and assets
+
+All buckets have RLS policies for secure access control.
+
+## Installation & Setup Guide
+
+### Prerequisites
+
+Before starting, ensure you have:
+- Node.js 18+ and npm installed
+- Git for repository access
+- A code editor (VS Code recommended)
+
+**API Keys to Prepare:**
+- Supabase account (free tier works)
+- OpenAI API key (required for embeddings)
+- OpenRouter API key (for 100+ AI models)
+- LlamaCloud API key (for document processing)
+- Optional: Stripe, Polar, fal.ai, Replicate keys
+
+### Step 1: Clone Repository
+
+After purchase, you'll receive access to a private GitHub repository.
+
+```bash
+git clone <YOUR_PRIVATE_REPO_URL>
+cd chatrag
+```
+
+### Step 2: Install Dependencies
+
+```bash
+npm install
+```
+
+This installs all required packages including Next.js, Supabase client, AI SDKs, and UI libraries.
+
+### Step 3: Initial Development Server
+
+```bash
+npm run dev
+```
+
+On first run, ChatRAG automatically creates `.env.local` with a complete baseline template of all supported settings. You'll still need to add your own credentials.
+
+The app will start at http://localhost:3000
+
+### Step 4: Configure Database (Supabase)
+
+1. **Create Supabase Project:**
+   - Visit supabase.com
+   - Create new project
+   - Choose a region close to your users
+   - Wait ~2 minutes for initialization
+
+2. **Run Database Setup:**
+   - Open Supabase Dashboard → SQL Editor
+   - Copy contents of `supabase/complete_setup.sql` from your repo
+   - Paste and execute in SQL Editor
+   - This creates all 14 tables, indexes, RLS policies, storage buckets, and functions
+
+3. **Get Supabase Credentials:**
+   - Go to Project Settings → API
+   - Copy Project URL → `NEXT_PUBLIC_SUPABASE_URL`
+   - Copy Anon/Public Key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - Copy Service Role Key → `SUPABASE_SERVICE_ROLE_KEY` (keep secret!)
+
+### Step 5: Launch Config UI
+
+In a second terminal:
+
+```bash
+npm run config
+```
+
+This starts the visual configuration UI at http://localhost:3333
+
+### Step 6: Add API Keys via Config UI
+
+In the Config UI:
+
+1. **API Keys Tab:**
+   - Paste Supabase URL and keys
+   - Add OpenAI API key
+   - Add OpenRouter API key (recommended)
+   - Add LlamaCloud API key
+
+2. **Features Tab:**
+   - Enable RAG system
+   - Enable desired features (image generation, etc.)
+
+3. **Branding Tab:**
+   - Customize app name and colors
+
+4. **RAG System Prompt:**
+   - Choose a template or customize
+   - Ensure `{{context}}` placeholder is present
+   - Click Save
+
+### Step 7: Restart Development Server
+
+After saving configuration:
+1. Press Ctrl+C in the dev terminal
+2. Run `npm run dev` again
+3. Visit http://localhost:3000
+
+### Step 8: Create Admin User
+
+1. Sign up through the main app (http://localhost:3000)
+2. Note your email address
+3. In Config UI → Admin → Add Admin
+4. Enter your email
+5. Click Add Admin
+
+You now have full admin access!
+
+### Step 9: Test RAG System
+
+1. Upload a test PDF document
+2. Wait for processing to complete
+3. Ask the chatbot a question about content in the PDF
+4. Verify the response includes information from your document
+
+### Step 10: Deploy to Production
+
+**Vercel Deployment (Recommended):**
+
+```bash
+npm install -g vercel
+vercel
+```
+
+Follow prompts to deploy. Don't forget to add environment variables in Vercel dashboard!
+
+**Other Platforms:**
+- Netlify: Supports Next.js with some limitations
+- Railway: Good for self-hosted deployments
+- Docker: Dockerfile included for containerized deployments
+
+**Production Checklist:**
+- [ ] All environment variables configured
+- [ ] Supabase RLS policies verified
+- [ ] Payment webhooks configured (Stripe/Polar)
+- [ ] Custom domain configured
+- [ ] Analytics enabled
+- [ ] Error monitoring set up
+- [ ] Backup strategy for database
+
+## Configuration Reference
+
+### Minimum Required Variables
+
+```bash
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key  # Server-only!
+
+# OpenAI
+OPENAI_API_KEY=your_openai_key
+OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+
+# OpenRouter (Recommended)
+OPENROUTER_API_KEY=your_openrouter_key
+
+# LlamaCloud (for document processing)
+NEXT_PUBLIC_LLAMA_CLOUD_API_KEY=your_llamacloud_key
+```
+
+### Optional Enhancements
+
+```bash
+# Payments
+STRIPE_SECRET_KEY=your_stripe_key
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+POLAR_ACCESS_TOKEN=your_polar_token
+
+# Media Generation
+FAL_API_KEY=your_fal_key
+REPLICATE_API_TOKEN=your_replicate_token
+
+# WhatsApp
+WHATSAPP_VERIFY_TOKEN=your_verify_token
+WHATSAPP_ACCESS_TOKEN=your_whatsapp_token
+WHATSAPP_PHONE_NUMBER_ID=your_phone_number_id
+
+# Analytics
+NEXT_PUBLIC_VERCEL_ANALYTICS=true
+```
+
+### Feature Flags
+
+```bash
+# Document Management
+NEXT_PUBLIC_HIDE_DOCUMENT_DASHBOARD=false  # Show document UI
+NEXT_PUBLIC_READ_ONLY_DOCUMENTS_ENABLED=false  # Allow uploads
+
+# Features
+ENABLE_IMAGE_GENERATION=true
+ENABLE_VIDEO_GENERATION=true
+ENABLE_MCP_TOOLS=true
+ENABLE_WHATSAPP=false
+
+# RAG Configuration
+RAG_ADAPTIVE_RETRIEVAL=true
+RAG_MULTI_PASS=true
+RAG_FINAL_RESULT_COUNT=25
+RAG_SIMILARITY_THRESHOLD=0.7
+```
+
+## Use Cases & Examples
+
+### 1. Customer Support Bot
+
+**Scenario:** E-commerce company wants 24/7 support for common questions
+
+**Setup:**
+1. Upload product documentation, return policies, shipping info as PDFs
+2. Configure system prompt for friendly, helpful customer service tone
+3. Enable WhatsApp integration for mobile support
+4. Set up Stripe for premium support subscriptions
+
+**Result:** Automated responses to 80% of support tickets, with citations to relevant help articles
+
+### 2. Internal Knowledge Base
+
+**Scenario:** Tech company needs searchable access to internal docs, wikis, and procedures
+
+**Setup:**
+1. Upload company handbook, technical docs, SOPs
+2. Restrict access with Supabase Auth (employee emails only)
+3. Create admin-only document management
+4. White-label with company branding
+
+**Result:** Employees get instant answers to HR, IT, and process questions without searching through Confluence
+
+### 3. Legal Document Analysis
+
+**Scenario:** Law firm wants AI-powered case law and contract research
+
+**Setup:**
+1. Upload legal documents, case precedents, contracts
+2. Configure strict, formal system prompt with citation requirements
+3. Use Claude 3.5 Sonnet for advanced reasoning
+4. Enable document comparison features
+
+**Result:** Lawyers quickly find relevant precedents and contract clauses, saving hours of manual review
+
+### 4. Educational Tutor
+
+**Scenario:** Online course platform needs AI tutors for students
+
+**Setup:**
+1. Upload course materials, textbooks, lecture notes
+2. Configure encouraging, educational system prompt
+3. Enable multi-language support for international students
+4. Set up tiered pricing (free basic, paid advanced)
+
+**Result:** Students get instant help with homework and concept explanations, improving engagement and completion rates
+
+### 5. Sales Assistant
+
+**Scenario:** B2B company wants AI to qualify leads and answer product questions
+
+**Setup:**
+1. Upload product catalog, datasheets, pricing guides
+2. Configure sales-focused system prompt
+3. Integrate with CRM via MCP tools
+4. Track conversations for lead scoring
+
+**Result:** Sales team focuses on hot leads while AI handles initial qualification and product questions
+
+### 6. Content Creation Tool
+
+**Scenario:** Marketing agency needs AI writing assistant trained on brand guidelines
+
+**Setup:**
+1. Upload brand guidelines, style guides, previous content
+2. Configure creative, brand-aligned system prompt
+3. Enable image generation for social media
+4. Set up usage tracking for client billing
+
+**Result:** Faster content creation that stays on-brand, with AI-generated visuals
+
+## Performance & Optimization
+
+### Vector Search Performance
+
+**HNSW Index Advantages:**
+- 15-28x faster than traditional vector search
+- Sub-100ms query times on millions of vectors
+- Optimized for cosine similarity
+
+**Benchmark Results:**
+- 1,000 documents: ~20ms average query time
+- 10,000 documents: ~35ms average query time
+- 100,000 documents: ~50ms average query time
+
+### RAG Optimization Tips
+
+1. **Chunk Size:** Default 512 tokens works for most use cases
+2. **Overlap:** 50-100 token overlap prevents context loss
+3. **Result Count:** Start with 25, increase if responses lack detail
+4. **Similarity Threshold:** 0.7 filters irrelevant chunks
+5. **Multi-pass:** Enable for complex queries requiring multiple retrieval stages
+
+### Token Cost Management
+
+**Embedding Costs (OpenAI):**
+- text-embedding-3-small: $0.02 per 1M tokens (recommended)
+- text-embedding-3-large: $0.13 per 1M tokens (higher accuracy)
+
+**LLM Costs via OpenRouter:**
+- GPT-3.5-Turbo: $0.50-2.00 per 1M tokens
+- GPT-4-Turbo: $10-30 per 1M tokens
+- Claude 3.5 Sonnet: $3-15 per 1M tokens
+- Llama 3.2 70B: $0.50-1.00 per 1M tokens
+
+**Cost Reduction Strategies:**
+- Use cheaper models for simple queries
+- Reduce RAG_FINAL_RESULT_COUNT if possible
+- Cache common queries
+- Implement token limits per user
+- Stream responses to reduce perceived latency
+
+### Caching Strategies
+
+ChatRAG supports multiple caching layers:
+1. **Browser Cache:** Static assets and images
+2. **Redis/Upstash:** Query results and embeddings (optional)
+3. **Vercel Edge Cache:** API route responses
+4. **Supabase Cache:** Database query results
+
+## Troubleshooting
+
+### RAG Not Working
+
+**Problem:** Chatbot doesn't use uploaded documents
+
+**Solutions:**
+1. Verify `{{context}}` is in system prompt
+2. Check document processing status in Config UI
+3. Verify OpenAI embedding API key is valid
+4. Test with unique phrases from your documents
+5. Check RAG_SIMILARITY_THRESHOLD isn't too high
+
+### Document Processing Fails
+
+**Problem:** PDF upload gets stuck or fails
+
+**Solutions:**
+1. Verify LlamaCloud API key is correct
+2. Check file size (limit: 50MB)
+3. Ensure PDF is not password-protected or corrupted
+4. Check Supabase storage bucket permissions
+5. Review logs for specific error messages
+
+### Authentication Issues
+
+**Problem:** Users can't sign up or log in
+
+**Solutions:**
+1. Verify Supabase URL and keys are correct
+2. Check Supabase dashboard → Authentication → Providers
+3. Enable email provider in Supabase
+4. Verify email templates are configured
+5. Check browser console for specific errors
+
+### Deployment Issues
+
+**Problem:** App works locally but not in production
+
+**Solutions:**
+1. Verify ALL environment variables in hosting platform
+2. Check NEXT_PUBLIC_ prefix for client-side variables
+3. Verify Supabase RLS policies don't block production access
+4. Check build logs for errors
+5. Ensure Node.js version matches (18+)
+
+### Performance Issues
+
+**Problem:** Slow response times
+
+**Solutions:**
+1. Enable HNSW indexes on document_chunks table
+2. Reduce RAG_FINAL_RESULT_COUNT
+3. Use faster models (GPT-3.5 vs GPT-4)
+4. Enable caching for common queries
+5. Check database connection pooling settings
+6. Optimize system prompt length
+
+## Pricing & Licensing
+
+### ChatRAG License
+
+**One-time Payment:** $99 (current price)
+
+**What's Included:**
+- Full source code access
+- Private GitHub repository
+- Lifetime updates (all future versions)
+- Email support from creator
+- Commercial use license
+- Build unlimited projects
+- No recurring fees
+
+**What's NOT Included:**
+- Third-party API costs (OpenAI, Supabase, etc.)
+- Hosting costs (Vercel, Netlify, etc.)
+- Custom development or consulting
+- Priority support (available separately)
+
+### Ongoing Costs (Third-Party)
+
+**Supabase:**
+- Free tier: 500MB database, 1GB storage, 2GB bandwidth
+- Pro tier: $25/month for production use
+
+**OpenAI:**
+- Pay-as-you-go for embeddings and models
+- Typical cost: $5-50/month depending on usage
+
+**OpenRouter:**
+- Pay-as-you-go for LLM access
+- Often cheaper than direct provider APIs
+
+**Hosting:**
+- Vercel: Free hobby plan, $20/month Pro
+- Netlify: Similar pricing
+- Railway, Render: $5-20/month
+
+**Typical Monthly Cost for Small Project:**
+- Supabase Free + OpenAI $10 + Vercel Free = $10/month
+
+**Typical Monthly Cost for Production:**
+- Supabase Pro $25 + OpenAI $50 + Vercel Pro $20 = $95/month
+
+## Support & Resources
+
+### Documentation
+- **Online Docs:** https://chatrag.ai/docs
+- **Video Tutorials:** Step-by-step video walkthroughs
+- **README:** Comprehensive repository README
+- **Inline Comments:** Code is thoroughly documented
+
+### Getting Help
+- **Email Support:** Direct email to creator Carlos Marcial
+- **GitHub Issues:** Bug reports and feature requests
+- **Community:** Growing community of ChatRAG users
+- **Updates:** Regular feature additions and improvements
+
+### Useful Commands
+
+```bash
+# Development
+npm run dev          # Start development server (port 3000)
+npm run config       # Start config UI (port 3333)
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+
+# Database
+npm run db:setup     # Run Supabase setup SQL
+npm run db:migrate   # Run database migrations
+npm run db:seed      # Seed with sample data
+
+# Utilities
+npm run decode-rag   # Decode RAG prompt from .env
+npm run test         # Run tests (if configured)
+```
+
+### File Structure
+
+```
+chatrag/
+├── app/                 # Next.js App Router pages
+│   ├── api/            # API routes
+│   ├── docs/           # Documentation pages
+│   ├── layout.tsx      # Root layout with metadata
+│   └── page.tsx        # Homepage
+├── components/          # React components
+│   ├── ui/             # shadcn/ui components
+│   ├── chat/           # Chat interface
+│   └── sections/       # Page sections
+├── lib/                # Utility functions
+│   ├── supabase/       # Supabase client
+│   ├── openai/         # OpenAI integration
+│   └── rag/            # RAG logic
+├── supabase/           # Database setup
+│   └── complete_setup.sql
+├── scripts/            # Utility scripts
+├── public/             # Static files
+│   ├── images/
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   ├── llms.txt        # AI discovery file
+│   └── llms-full.txt   # Comprehensive AI content
+├── .env.local          # Environment variables (auto-generated)
+├── next.config.js      # Next.js configuration
+└── package.json        # Dependencies
+```
+
+## Keywords & SEO
+
+**Primary Keywords:**
+AI chatbot builder, RAG implementation, Next.js AI boilerplate, chatbot SaaS platform, vector database chatbot, OpenAI chatbot builder, document Q&A system, semantic search application
+
+**Technology Keywords:**
+Next.js 14, Vercel AI SDK, Supabase pgvector, LlamaCloud, OpenRouter, GPT-4, Claude 3.5, Anthropic, OpenAI embeddings, HNSW vector search, TypeScript chatbot, React AI application
+
+**Use Case Keywords:**
+customer support automation, knowledge base chatbot, internal wiki search, document analysis tool, legal AI assistant, educational chatbot, sales chatbot, AI content creation, white-label chatbot, chatbot monetization
+
+**Feature Keywords:**
+retrieval augmented generation, semantic search, vector embeddings, multi-tenant chatbot, authenticated chatbot, payment integration, Stripe chatbot, Polar payments, WhatsApp bot, MCP integration, AI image generation
+
+## About the Creator
+
+**Carlos Marcial** (@carlosmarcialt on X/Twitter) created ChatRAG after repeatedly building similar AI chatbot infrastructure for multiple projects. Recognizing that developers were spending months on the same foundational work, he distilled years of experience into a production-ready boilerplate.
+
+**Mission:** Democratize AI chatbot development by providing enterprise-grade infrastructure at an affordable price point, enabling developers to focus on unique features rather than rebuilding the same foundations.
+
+**Background:** Full-stack developer with expertise in Next.js, AI integration, and SaaS product development. Active in the AI developer community.
+
+## Conclusion
+
+ChatRAG eliminates the complexity of building AI chatbots from scratch by providing battle-tested infrastructure, integrations, and best practices in a single, affordable boilerplate. Whether you're building customer support automation, internal knowledge bases, or commercial AI products, ChatRAG accelerates development from months to hours.
+
+**Get Started:** Visit https://chatrag.ai for pricing, demos, and documentation.
+
+**Contact:** For questions, feature requests, or support, reach out via the website or X/Twitter (@carlosmarcialt).
