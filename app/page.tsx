@@ -53,6 +53,24 @@ export default function Home() {
   const isPausedRef = useRef(false);
   const [isPaused, setIsPaused] = useState(false);
 
+  // Handler for checkout button clicks - works better on mobile
+  const handleCheckout = async (productId: string) => {
+    try {
+      const response = await fetch(`/api/checkout?products=${productId}`);
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else if (data.error) {
+        console.error('Checkout error:', data.error);
+        alert('Failed to create checkout. Please try again.');
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      alert('Failed to create checkout. Please try again.');
+    }
+  };
+
   // Create logo set
   const logos = createLogoSet(techProviders);
 
@@ -288,14 +306,12 @@ export default function Home() {
             <Button
               size="lg"
               className="px-8 py-6 text-base md:text-lg font-semibold group hero-button-width bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200"
-              asChild
+              onClick={() => handleCheckout('c9cb30b2-3c43-44fc-9070-19c9cc02a24d')}
             >
-              <a href={`/api/checkout?products=c9cb30b2-3c43-44fc-9070-19c9cc02a24d`}>
-                <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
-                  <SmallLogo />
-                </div>
-                <span className="ml-2">Get ChatRAG</span>
-              </a>
+              <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
+                <SmallLogo />
+              </div>
+              <span className="ml-2">Get ChatRAG</span>
             </Button>
             {/* Secondary CTA - vivid electric blue outline */}
             <Button
@@ -484,13 +500,11 @@ export default function Home() {
                     Lifetime updates
                   </li>
                 </ul>
-                <Button className="w-full px-8 py-6 text-base font-semibold group bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200" size="lg" asChild>
-                  <a href={`/api/checkout?products=1fccb238-c09e-41fd-9875-d7eba1167467`}>
-                    <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
-                      <SmallLogo />
-                    </div>
-                    <span className="ml-2">Get ChatRAG</span>
-                  </a>
+                <Button className="w-full px-8 py-6 text-base font-semibold group bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200" size="lg" onClick={() => handleCheckout('1fccb238-c09e-41fd-9875-d7eba1167467')}>
+                  <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
+                    <SmallLogo />
+                  </div>
+                  <span className="ml-2">Get ChatRAG</span>
                 </Button>
                 <p className="text-center text-sm text-foreground font-medium mt-3">
                   Pay once. Build unlimited chatbots!
@@ -552,13 +566,11 @@ export default function Home() {
                     </div>
                   </li>
                 </ul>
-                <Button className="w-full px-8 py-6 text-base font-semibold group bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200" size="lg" variant="default" asChild>
-                  <a href={`/api/checkout?products=c9cb30b2-3c43-44fc-9070-19c9cc02a24d`}>
-                    <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
-                      <SmallLogo />
-                    </div>
-                    <span className="ml-2">Get ChatRAG</span>
-                  </a>
+                <Button className="w-full px-8 py-6 text-base font-semibold group bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200" size="lg" variant="default" onClick={() => handleCheckout('c9cb30b2-3c43-44fc-9070-19c9cc02a24d')}>
+                  <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
+                    <SmallLogo />
+                  </div>
+                  <span className="ml-2">Get ChatRAG</span>
                 </Button>
                 <p className="text-center text-sm text-foreground font-medium mt-3">
                   Pay once. Build unlimited chatbots!
@@ -809,14 +821,12 @@ export default function Home() {
               <Button
                 size="lg"
                 className="px-8 py-6 text-base md:text-lg font-semibold group bg-[#FF6417] text-black hover:bg-[#ff7a3a] focus-visible:ring-[#FF6417]/40 shadow-[0_10px_30px_-10px_rgba(255,100,23,0.6)] hover:shadow-[0_16px_40px_-12px_rgba(255,100,23,0.75)] transform-gpu gpu-smooth transition-[box-shadow,transform,background-color,color,border-color] duration-200"
-                asChild
+                onClick={() => handleCheckout('c9cb30b2-3c43-44fc-9070-19c9cc02a24d')}
               >
-                <a href={`/api/checkout?products=c9cb30b2-3c43-44fc-9070-19c9cc02a24d`}>
-                  <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
-                    <SmallLogo />
-                  </div>
-                  <span className="ml-2">Get ChatRAG Now</span>
-                </a>
+                <div className="group-hover:-rotate-12 transition-transform duration-200 transform-gpu">
+                  <SmallLogo />
+                </div>
+                <span className="ml-2">Get ChatRAG Now</span>
               </Button>
               <p className="text-sm text-muted-foreground mt-4">
                 Stop paying monthly fees. Own your chatbot infrastructure forever.

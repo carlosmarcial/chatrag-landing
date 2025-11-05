@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
     const productsParam = searchParams.get('products')
-    
+
     if (!productsParam) {
       return NextResponse.json({ error: 'Products parameter is required' }, { status: 400 })
     }
@@ -37,7 +37,8 @@ export async function GET(request: NextRequest) {
       },
     })
 
-    return NextResponse.redirect(checkout.url)
+    // Return JSON with checkout URL for client-side redirect (works better on mobile)
+    return NextResponse.json({ url: checkout.url })
   } catch (error) {
     console.error('Checkout creation error:', error)
     return NextResponse.json({ error: 'Failed to create checkout' }, { status: 500 })
