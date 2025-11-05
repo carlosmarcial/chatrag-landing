@@ -1,0 +1,13 @@
+{
+  "name": "chatrag-blog-generator",
+  "version": "1.0.0",
+  "description": "Automated blog post generator using AI",
+  "main": "generate-blog-post.js",
+  "scripts": {
+    "generate": "node generate-blog-post.js"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0",
+    "remark-gfm": "^4.0.1"
+  }
+}

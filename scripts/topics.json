@@ -1,0 +1,25 @@
+{
+  "topics": [
+    "RAG (Retrieval-Augmented Generation) best practices",
+    "Building AI chatbots for SaaS businesses",
+    "AI agent deployment strategies",
+    "Monetizing AI chatbots",
+    "Next.js for AI applications",
+    "Vector databases for RAG systems",
+    "Improving chatbot accuracy with RAG",
+    "Customer success with AI chatbots",
+    "Scaling AI infrastructure for production",
+    "Best practices for chatbot UI/UX design",
+    "Implementing authentication in AI applications",
+    "Prompt engineering techniques for better results",
+    "Comparing LLM providers for production use",
+    "Building multi-tenant AI SaaS applications",
+    "Cost optimization strategies for AI APIs",
+    "Security best practices for AI chatbots",
+    "Handling chatbot errors and edge cases",
+    "A/B testing strategies for AI features",
+    "Building voice-enabled AI assistants",
+    "Real-time streaming responses in AI chatbots"
+  ],
+  "usedTopics": []
+}
