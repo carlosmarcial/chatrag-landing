@@ -61,5 +61,7 @@
     "RAG for Museum Artifact Documentation",
     "RAG for Library Catalog Search and Discovery"
   ],
-  "usedTopics": []
+  "usedTopics": [
+    "RAG for Nonprofit Grant Writing and Research"
+  ]
 }
