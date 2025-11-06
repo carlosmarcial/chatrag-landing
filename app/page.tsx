@@ -962,19 +962,58 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t py-12 pb-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="flex items-center justify-center space-x-2 mb-2">
-              <Logo />
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              {/* Left side - Branding */}
+              <div>
+                <div className="flex items-center space-x-2 mb-3">
+                  <Logo />
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Ship AI chatbots in hours, not months
+                </p>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Made with <span className="animated-gradient-heart">❤️</span> by <a href="https://x.com/carlosmarcialt" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-200">Carlos Marcial</a>
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  © 2025 ChatRAG. All rights reserved.
+                </p>
+              </div>
+
+              {/* Right side - Links */}
+              <div className="grid grid-cols-2 gap-8 md:justify-end">
+                <div>
+                  <h3 className="font-semibold text-foreground mb-3">Product</h3>
+                  <ul className="space-y-2">
+                    <li>
+                      <a href="#pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+                        Pricing
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#faq" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+                        FAQ
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-3">Resources</h3>
+                  <ul className="space-y-2">
+                    <li>
+                      <a href="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+                        Blog
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://docs.chatrag.ai" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+                        Documentation
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground mb-4">
-              Ship AI chatbots in hours, not months
-            </p>
-            <p className="text-sm text-muted-foreground mb-4">
-              Made with <span className="animated-gradient-heart">❤️</span> by <a href="https://x.com/carlosmarcialt" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors duration-200">Carlos Marcial</a>
-            </p>
-            <p className="text-sm text-muted-foreground">
-              © 2025 ChatRAG. All rights reserved.
-            </p>
           </div>
         </div>
       </footer>
