@@ -146,7 +146,17 @@ Guidelines:
 - Aim for 1200-1800 words
 - Include practical examples and actionable insights
 - Add a strong conclusion with key takeaways
-- Naturally mention ChatRAG where relevant, but don't make it overly promotional
+- Naturally mention ChatRAG in the body where relevant, but don't make it overly promotional
+- ALWAYS end with the following exact CTA section (after your conclusion):
+
+---
+
+## Ready to Build Your Own RAG-Powered Application?
+
+If you're looking to implement RAG (Retrieval-Augmented Generation) for your own use case, [**ChatRAG**](https://www.chatrag.ai) provides a complete Next.js boilerplate to launch your chatbot or AI agent SaaS in minutes. Skip months of development and focus on what makes your application unique.
+
+**Learn more at [chatrag.ai](https://www.chatrag.ai)**
+
 - Use proper markdown syntax
 - DO NOT include word count, character count, or any metadata at the end
 - DO NOT add any text after the ---END CONTENT--- marker
