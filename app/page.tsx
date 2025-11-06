@@ -56,18 +56,26 @@ export default function Home() {
   // Handler for checkout button clicks - works better on mobile
   const handleCheckout = async (productId: string) => {
     try {
-      const response = await fetch(`/api/checkout?products=${productId}`);
+      const response = await fetch(`/api/checkout?products=${productId}`, { cache: 'no-store' });
+      // If server returned HTML (e.g. due to redirect logic), fall back to full-page nav
+      const contentType = response.headers.get('content-type') || '';
+      if (contentType.includes('text/html')) {
+        window.location.href = `/api/checkout?products=${productId}`;
+        return;
+      }
       const data = await response.json();
 
       if (data.url) {
-        window.location.href = data.url;
+        window.location.assign(data.url);
       } else if (data.error) {
         console.error('Checkout error:', data.error);
-        alert('Failed to create checkout. Please try again.');
+        // Fallback to server-side redirect path
+        window.location.href = `/api/checkout?products=${productId}`;
       }
     } catch (error) {
       console.error('Checkout error:', error);
-      alert('Failed to create checkout. Please try again.');
+      // Fallback to server-side redirect path if fetch/json parsing fails
+      window.location.href = `/api/checkout?products=${productId}`;
     }
   };
 

@@ -18,6 +18,9 @@ const polar = new Polar({
 
 export async function GET(request: NextRequest) {
   try {
+    const url = new URL(request.url)
+    const origin = `${url.protocol}//${url.host}`
+
     const searchParams = request.nextUrl.searchParams
     const productsParam = searchParams.get('products')
 
@@ -30,14 +33,21 @@ export async function GET(request: NextRequest) {
 
     const checkout = await polar.checkouts.create({
       products: productIds,
-      successUrl: process.env.SUCCESS_URL!,
+      // Use the current origin to ensure success URL always matches the domain the user is on (e.g. www vs apex)
+      successUrl: `${origin}/success`,
       metadata: {
         datafast_visitor_id: cookieStore.get('datafast_visitor_id')?.value || '',
         datafast_session_id: cookieStore.get('datafast_session_id')?.value || '',
       },
     })
 
-    // Return JSON with checkout URL for client-side redirect (works better on mobile)
+    // If this endpoint was navigated to directly (e.g. <a href>), redirect.
+    // If it was fetched via XHR/fetch, return JSON so client can navigate.
+    const accept = request.headers.get('accept') || ''
+    if (accept.includes('text/html')) {
+      return NextResponse.redirect(checkout.url, 302)
+    }
+
     return NextResponse.json({ url: checkout.url })
   } catch (error) {
     console.error('Checkout creation error:', error)
