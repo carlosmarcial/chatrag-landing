@@ -21,8 +21,5 @@
     "Building voice-enabled AI assistants",
     "Real-time streaming responses in AI chatbots"
   ],
-  "usedTopics": [
-    "Scaling AI infrastructure for production",
-    "Comparing LLM providers for production use"
-  ]
+  "usedTopics": []
 }
