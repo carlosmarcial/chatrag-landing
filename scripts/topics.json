@@ -21,5 +21,7 @@
     "Building voice-enabled AI assistants",
     "Real-time streaming responses in AI chatbots"
   ],
-  "usedTopics": []
+  "usedTopics": [
+    "Scaling AI infrastructure for production"
+  ]
 }
