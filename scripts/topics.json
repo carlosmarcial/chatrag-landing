@@ -22,6 +22,7 @@
     "Real-time streaming responses in AI chatbots"
   ],
   "usedTopics": [
-    "Scaling AI infrastructure for production"
+    "Scaling AI infrastructure for production",
+    "Comparing LLM providers for production use"
   ]
 }
