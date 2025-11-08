@@ -4,6 +4,8 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
+import rehypeRaw from 'rehype-raw';
+import rehypeExternalLinks from 'rehype-external-links';
 import rehypeStringify from 'rehype-stringify';
 
 const postsDirectory = path.join(process.cwd(), 'content/blog');
@@ -71,7 +73,9 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     // Convert markdown to HTML with GFM support (tables, etc.)
     const processedContent = await remark()
       .use(remarkGfm)
-      .use(remarkRehype)
+      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeRaw)
+      .use(rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] })
       .use(rehypeStringify)
       .process(content);
 
