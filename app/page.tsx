@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/accordion";
 import { FeaturesShowcase } from "@/components/sections/features-showcase";
 import { ChatWidgetCurvedTextOverlay } from "@/components/chat-widget-curved-text-overlay";
+import { LicenseModal } from "@/components/license-modal";
 import { Space_Grotesk } from 'next/font/google';
 import { useState, useRef, useEffect } from 'react';
 
@@ -994,6 +995,9 @@ export default function Home() {
                       <a href="#faq" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
                         FAQ
                       </a>
+                    </li>
+                    <li>
+                      <LicenseModal />
                     </li>
                   </ul>
                 </div>
