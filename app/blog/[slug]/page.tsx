@@ -232,7 +232,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
               prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
               prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6
-              prose-a:text-blue-500 prose-a:no-underline hover:prose-a:text-blue-400
+              prose-a:text-blue-500 prose-a:underline hover:prose-a:text-blue-400 prose-a:cursor-pointer
               prose-strong:text-white prose-strong:font-semibold
               prose-code:text-blue-400 prose-code:bg-gray-900 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
               prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-800 prose-pre:p-4 prose-pre:rounded prose-pre:overflow-x-auto
@@ -244,9 +244,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               prose-thead:border-b-2 prose-thead:border-gray-700
               prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-semibold prose-th:text-white prose-th:bg-gray-900
               prose-td:px-4 prose-td:py-3 prose-td:border-t prose-td:border-gray-800 prose-td:text-gray-300
-              prose-tr:border-b prose-tr:border-gray-800"
+              prose-tr:border-b prose-tr:border-gray-800
+              [&_a]:text-blue-500 [&_a]:underline [&_a]:cursor-pointer hover:[&_a]:text-blue-400 [&_a]:font-medium"
             dangerouslySetInnerHTML={{ __html: post.content || '' }}
           />
+
+          {/* CTA */}
+          <div className="mt-16 p-8 bg-gray-900 border border-gray-800 rounded-lg">
+            <h3 className="text-2xl font-bold mb-3">Ready to build your AI chatbot SaaS?</h3>
+            <p className="text-gray-400 mb-6">
+              ChatRAG provides the complete Next.js boilerplate to launch your chatbot-agent business in hours, not months.
+            </p>
+            <Link
+              href="/"
+              className="inline-block px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition"
+            >
+              Get ChatRAG
+            </Link>
+          </div>
 
           {/* Related Posts Section */}
           {postsToShow.length > 0 && (
@@ -291,20 +306,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             </div>
           )}
-
-          {/* CTA */}
-          <div className="mt-16 p-8 bg-gray-900 border border-gray-800 rounded-lg">
-            <h3 className="text-2xl font-bold mb-3">Ready to build your AI chatbot SaaS?</h3>
-            <p className="text-gray-400 mb-6">
-              ChatRAG provides the complete Next.js boilerplate to launch your chatbot-agent business in hours, not months.
-            </p>
-            <Link
-              href="/"
-              className="inline-block px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition"
-            >
-              Get ChatRAG
-            </Link>
-          </div>
         </article>
       </div>
     </>

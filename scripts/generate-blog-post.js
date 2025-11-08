@@ -4,12 +4,13 @@ const path = require('path');
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
+const EXA_API_KEY = process.env.EXA_API_KEY || 'adef5c67-4044-4897-bc44-ed0a89a142c2';
+const EXA_API_URL = 'https://api.exa.ai/search';
 const FAL_API_KEY = process.env.FAL_API_KEY;
 const FAL_API_URL = 'https://fal.run/fal-ai/bytedance/seedream/v4/text-to-image';
 
 // Configuration
 const CONFIG = {
-  researchModel: 'perplexity/sonar-pro-search', // Perplexity for research
   writingModel: 'x-ai/grok-4', // Grok 4 for writing
   blogContentPath: path.join(__dirname, '../content/blog'),
   blogImagesPath: path.join(__dirname, '../public/images/blog'),
@@ -69,7 +70,7 @@ async function selectTopic() {
 /**
  * Call OpenRouter API
  */
-async function callOpenRouter(model, messages, temperature = 0.7) {
+async function callOpenRouter(model, messages, temperature = 0.7, returnFullResponse = false) {
   const response = await fetch(OPENROUTER_API_URL, {
     method: 'POST',
     headers: {
@@ -91,42 +92,125 @@ async function callOpenRouter(model, messages, temperature = 0.7) {
   }
 
   const data = await response.json();
+
+  // Return full response if requested (to get citations)
+  if (returnFullResponse) {
+    return data;
+  }
+
   return data.choices[0].message.content;
 }
 
 /**
- * Research a topic using Perplexity
+ * Research a topic using Exa.ai
  */
 async function researchTopic(topic) {
-  console.log(`🔍 Researching: ${topic}`);
+  console.log(`🔍 Researching with Exa.ai: ${topic}`);
 
-  const messages = [
-    {
-      role: 'user',
-      content: `Research the following topic in depth and provide key insights, recent developments, best practices, and important facts. Focus on information that would be valuable for a technical blog post aimed at developers and SaaS founders.
+  try {
+    // Call Exa API for search with contents
+    const response = await fetch(EXA_API_URL, {
+      method: 'POST',
+      headers: {
+        'x-api-key': EXA_API_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query: `Latest research, best practices, and insights about: ${topic}`,
+        numResults: 10,
+        text: true,
+        highlights: true,
+        type: 'neural',
+        category: 'blog post'
+      })
+    });
 
-Topic: ${topic}
-
-Provide a comprehensive research summary with:
-- Key concepts and definitions
-- Recent trends and developments
-- Best practices and recommendations
-- Real-world examples or case studies
-- Common challenges and solutions
-- Technical details where relevant`
+    if (!response.ok) {
+      const error = await response.text();
+      throw new Error(`Exa API error: ${response.status} - ${error}`);
     }
-  ];
 
-  const research = await callOpenRouter(CONFIG.researchModel, messages, 0.3);
-  console.log('✅ Research completed');
-  return research;
+    const data = await response.json();
+    const results = data.results || [];
+
+    console.log(`✅ Found ${results.length} sources from Exa`);
+
+    // Extract content and URLs from results
+    let researchContent = `Research findings on "${topic}":\n\n`;
+    const sources = [];
+
+    results.forEach((result, index) => {
+      // Add to research content
+      researchContent += `\n## Source ${index + 1}: ${result.title}\n`;
+      researchContent += `URL: ${result.url}\n`;
+      if (result.author) {
+        researchContent += `Author: ${result.author}\n`;
+      }
+      if (result.publishedDate) {
+        researchContent += `Published: ${new Date(result.publishedDate).toLocaleDateString()}\n`;
+      }
+      researchContent += `\nContent:\n${result.text || result.highlights?.join('\n') || 'No content available'}\n`;
+      researchContent += '\n---\n';
+
+      // Store source URL
+      sources.push(result.url);
+    });
+
+    console.log(`📚 Compiled research from ${sources.length} verified sources`);
+
+    return {
+      content: researchContent,
+      sources: sources
+    };
+
+  } catch (error) {
+    console.error('❌ Exa research failed:', error.message);
+    throw error;
+  }
 }
 
 /**
  * Generate blog post using writing model
  */
-async function generateBlogPost(topic, research) {
+async function generateBlogPost(topic, researchData) {
   console.log(`✍️  Writing blog post about: ${topic}`);
+
+  const { content: research, sources } = researchData;
+
+  // Format sources for the prompt
+  let sourcesSection = '';
+  if (sources && sources.length > 0) {
+    sourcesSection = `\n\nSOURCE REFERENCES (VERIFIED URLS - incorporate these links naturally throughout your blog post):
+${sources.map((url, index) => `[${index + 1}] ${url}`).join('\n')}
+
+CRITICAL INSTRUCTIONS:
+- These URLs are VERIFIED and come directly from Exa's research - they are all real, working links
+- You MUST incorporate 5-8 of these source links naturally throughout your blog post
+- Use proper markdown link syntax: [descriptive anchor text](url)
+- Place them contextually where they add value to support your points
+- Use descriptive anchor text that indicates what the link is about
+- Distribute links throughout the article, not just at the end
+- These are the ONLY external links you should use (besides chatrag.ai)`;
+  } else {
+    // Fallback when Exa doesn't return results
+    sourcesSection = `\n\nCRITICAL LINKING REQUIREMENT:
+You MUST include 5-8 external source links to REAL, VERIFIED, WORKING websites in your blog post.
+
+STRICT RULES:
+- ONLY use URLs you are 100% CERTAIN exist and are accessible
+- Use well-known, established domains (github.com, medium.com, dev.to, official documentation sites)
+- For research papers, use arxiv.org, papers.neurips.cc, or ACL anthology
+- For tech blogs, use engineering.{company}.com (e.g., engineering.uber.com, netflixtechblog.com)
+- For documentation, use official docs sites (docs.python.org, react.dev, nextjs.org)
+- DO NOT make up URLs or guess at subdirectories
+- DO NOT create fake blog post URLs or non-existent pages
+- If unsure about a specific URL, use a more general domain URL instead
+
+BETTER TO HAVE 3 REAL LINKS THAN 8 FAKE ONES.
+
+Use proper markdown link syntax: [descriptive anchor text](url)
+Place links naturally where they support your points.`;
+  }
 
   const messages = [
     {
@@ -136,7 +220,7 @@ async function generateBlogPost(topic, research) {
 Topic: ${topic}
 
 Research:
-${research}
+${research}${sourcesSection}
 
 Guidelines:
 - Write a compelling headline (make it SEO-friendly and engaging)
@@ -147,16 +231,11 @@ Guidelines:
 - Include practical examples and actionable insights
 - Add a strong conclusion with key takeaways
 - Naturally mention ChatRAG in the body where relevant, but don't make it overly promotional
-- ALWAYS end with the following exact CTA section (after your conclusion):
-
----
-
-## Ready to Build Your Own RAG-Powered Application?
-
-If you're looking to implement RAG (Retrieval-Augmented Generation) for your own use case, [**ChatRAG**](https://www.chatrag.ai) provides a complete Next.js boilerplate to launch your chatbot or AI agent SaaS in minutes. Skip months of development and focus on what makes your application unique.
-
-**Learn more at [chatrag.ai](https://www.chatrag.ai)**
-
+- **CRITICAL**: Incorporate 5-8 external source links throughout the blog post using markdown syntax: [descriptive text](url)
+- Place links naturally where they support your points (e.g., when mentioning statistics, case studies, or best practices)
+- Use descriptive anchor text that indicates what the link is about (e.g., "according to recent research" or "industry best practices")
+- Distribute links throughout the article, not just at the end
+- **DO NOT** include any CTA sections at the end - the template will add a styled CTA automatically
 - Use proper markdown syntax
 - DO NOT include word count, character count, or any metadata at the end
 - DO NOT add any text after the ---END CONTENT--- marker
@@ -203,6 +282,33 @@ function parseBlogPost(content) {
     excerpt: excerptMatch ? excerptMatch[1].trim() : '',
     tags: tagsMatch ? tagsMatch[1].trim().split(',').map(t => t.trim()) : [],
     content: blogContent
+  };
+}
+
+/**
+ * Validate that blog post contains external links
+ */
+function validateBlogPostLinks(content) {
+  // Match markdown links [text](url) where url is http/https
+  const linkRegex = /\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g;
+  const links = [...content.matchAll(linkRegex)];
+
+  // Filter out chatrag.ai links (we want external links only)
+  const externalLinks = links.filter(match => !match[2].includes('chatrag.ai'));
+
+  const linkCount = externalLinks.length;
+
+  console.log(`🔗 Found ${linkCount} external links in blog post`);
+
+  if (linkCount < 3) {
+    console.warn(`⚠️  Warning: Blog post contains only ${linkCount} external links (recommended: 5-8)`);
+  } else {
+    console.log(`✅ Blog post has sufficient external links`);
+  }
+
+  return {
+    totalLinks: linkCount,
+    links: externalLinks.map(match => ({ text: match[1], url: match[2] }))
   };
 }
 
@@ -344,22 +450,31 @@ async function main() {
       throw new Error('OPENROUTER_API_KEY environment variable is not set');
     }
 
+    if (!EXA_API_KEY) {
+      throw new Error('EXA_API_KEY is not set');
+    }
+
     if (!FAL_API_KEY) {
       console.warn('⚠️  FAL_API_KEY not set - images will not be generated');
     }
+
+    console.log('🔧 Using Exa.ai for research and Grok 4 for writing\n');
 
     // Select a topic (non-repeating until all are used)
     const topic = await selectTopic();
     console.log(`\n🎯 Selected topic: ${topic}\n`);
 
     // Step 1: Research the topic
-    const research = await researchTopic(topic);
+    const researchData = await researchTopic(topic);
 
     // Step 2: Generate blog post
-    const blogPost = await generateBlogPost(topic, research);
+    const blogPost = await generateBlogPost(topic, researchData);
 
     // Step 3: Parse the post
     const parsedPost = parseBlogPost(blogPost);
+
+    // Step 3.5: Validate links in blog post
+    const linkValidation = validateBlogPostLinks(parsedPost.content);
 
     // Step 4: Generate image (if FAL_API_KEY is set)
     let imagePath = null;
@@ -374,8 +489,16 @@ async function main() {
 
     console.log(`\n✨ Successfully generated blog post: ${filename}`);
     if (imagePath) {
-      console.log(`🖼️  Hero image: ${imagePath}\n`);
+      console.log(`🖼️  Hero image: ${imagePath}`);
     }
+    console.log(`🔗 External links: ${linkValidation.totalLinks}`);
+    if (linkValidation.totalLinks > 0) {
+      console.log(`📚 Sample sources included:`);
+      linkValidation.links.slice(0, 3).forEach(link => {
+        console.log(`   - ${link.text}: ${link.url}`);
+      });
+    }
+    console.log('');
 
   } catch (error) {
     console.error('❌ Error generating blog post:', error.message);
