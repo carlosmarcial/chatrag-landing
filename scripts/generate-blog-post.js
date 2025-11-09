@@ -466,9 +466,9 @@ async function submitToIndexNow(url) {
         'Content-Type': 'application/json; charset=utf-8'
       },
       body: JSON.stringify({
-        host: 'chatrag.ai',
+        host: 'www.chatrag.ai',
         key: INDEXNOW_API_KEY,
-        keyLocation: `https://chatrag.ai/${INDEXNOW_API_KEY}.txt`,
+        keyLocation: `https://www.chatrag.ai/${INDEXNOW_API_KEY}.txt`,
         urlList: [url]
       })
     });
