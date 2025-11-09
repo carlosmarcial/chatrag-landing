@@ -337,13 +337,14 @@ Blog Excerpt: ${excerpt}
 
 Requirements:
 - Professional, modern, tech-focused aesthetic
-- Abstract or conceptual representation (NO text, NO people, NO faces)
+- Abstract or conceptual representation (NO text, NO people, NO faces, NO numbers, NO letters)
 - Clean, minimalist style suitable for a SaaS blog
 - Focus on technology, AI, data visualization, or abstract concepts
-- MUST incorporate the ChatRAG brand gradient colors: vibrant blue (#4080FF), warm orange/amber (#FFB001), and bold red (#F44335)
-- Use these gradient colors as the primary color scheme throughout the image
+- MUST incorporate the ChatRAG brand gradient colors: vibrant electric blue, warm orange-amber, and bold red tones
+- Use these gradient colors as the primary color scheme throughout the image creating a blue-to-orange-to-red gradient flow
 - Dark background with glowing gradient accents
 - Modern, sleek, and professional appearance
+- Absolutely NO TEXT or alphanumeric characters should appear in the image
 
 Respond with ONLY the image prompt, no other text. Make it detailed and specific (50-80 words).`
     }
