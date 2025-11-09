@@ -6,7 +6,8 @@
     "dev": "next dev -H localhost",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test:endpoints": "node scripts/test_endpoints.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

@@ -4,12 +4,6 @@ import { NextRequest, NextResponse } from 'next/server'
 
 // Next.js App Router route handler
 // GET /api/checkout?products=<PRODUCT_ID>[,PRODUCT_ID2]
-const server =
-  process.env.POLAR_SERVER === "sandbox"
-    ? "sandbox"
-    : process.env.POLAR_SERVER === "production"
-    ? "production"
-    : undefined
 
 // Map known Product IDs -> pre-generated Checkout Links as a safety net
 // Note: These NEXT_PUBLIC_* envs are safe to expose since they're only URLs
@@ -27,7 +21,8 @@ const CHECKOUT_LINKS: Record<string, string | undefined> = {
 const polar = new Polar({
   // If POLAR_ACCESS_TOKEN is missing we will fall back to static checkout links below
   accessToken: process.env.POLAR_ACCESS_TOKEN ?? "",
-  server,
+  // Force production server; no sandbox usage in this project
+  server: 'production',
 })
 
 export async function GET(request: NextRequest) {
