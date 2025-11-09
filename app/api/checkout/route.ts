@@ -97,7 +97,7 @@ export async function GET(request: NextRequest) {
           res.headers.set('X-Checkout-Mode', 'fallback')
           return res
         }
-        return NextResponse.json({ url: fallback, mode: 'fallback', warning: 'Fell back to static checkout link' })
+        return NextResponse.json({ url: fallback, mode: 'fallback', warning: 'Fell back to static checkout link', errorMessage: message })
       }
     } catch {}
 
