@@ -8,7 +8,7 @@ const EXA_API_KEY = process.env.EXA_API_KEY || 'adef5c67-4044-4897-bc44-ed0a89a1
 const EXA_API_URL = 'https://api.exa.ai/search';
 const FAL_API_KEY = process.env.FAL_API_KEY;
 const FAL_API_URL = 'https://fal.run/fal-ai/bytedance/seedream/v4/text-to-image';
-const INDEXNOW_API_KEY = '369d39197a5d4fc3bd84d2be0270e661';
+const INDEXNOW_API_KEY = '621d113283d442c3a7e0b270dcbcb8a9';
 const INDEXNOW_URL = 'https://www.bing.com/indexnow';
 
 // Configuration
