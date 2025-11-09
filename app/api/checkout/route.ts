@@ -48,14 +48,18 @@ export async function GET(request: NextRequest) {
         // Prefer redirect for direct navigations, otherwise return JSON
         const accept = request.headers.get('accept') || ''
         if (accept.includes('text/html')) {
-          return NextResponse.redirect(fallback, 302)
+          const res = NextResponse.redirect(fallback, 302)
+          res.headers.set('X-Checkout-Mode', 'fallback')
+          return res
         }
-        return NextResponse.json({ url: fallback })
+        return NextResponse.json({ url: fallback, mode: 'fallback' })
       }
     }
 
     const checkout = await polar.checkouts.create({
       products: productIds,
+      // Some orgs require billing address; default to US to satisfy validation when not collecting upfront
+      customerBillingAddress: { country: 'US' },
       // Use the current origin to ensure success URL always matches the domain the user is on (e.g. www vs apex)
       successUrl: `${origin}/success`,
       metadata: {
@@ -68,10 +72,12 @@ export async function GET(request: NextRequest) {
     // If it was fetched via XHR/fetch, return JSON so client can navigate.
     const accept = request.headers.get('accept') || ''
     if (accept.includes('text/html')) {
-      return NextResponse.redirect(checkout.url, 302)
+      const res = NextResponse.redirect(checkout.url, 302)
+      res.headers.set('X-Checkout-Mode', 'polar')
+      return res
     }
 
-    return NextResponse.json({ url: checkout.url })
+    return NextResponse.json({ url: checkout.url, mode: 'polar' })
   } catch (error: any) {
     // Try to surface Polar API error details if available
     const message = typeof error?.message === 'string' ? error.message : 'Unknown error'
@@ -87,9 +93,11 @@ export async function GET(request: NextRequest) {
       if (fallback) {
         const accept = request.headers.get('accept') || ''
         if (accept.includes('text/html')) {
-          return NextResponse.redirect(fallback, 302)
+          const res = NextResponse.redirect(fallback, 302)
+          res.headers.set('X-Checkout-Mode', 'fallback')
+          return res
         }
-        return NextResponse.json({ url: fallback, warning: 'Fell back to static checkout link' })
+        return NextResponse.json({ url: fallback, mode: 'fallback', warning: 'Fell back to static checkout link' })
       }
     } catch {}
 
