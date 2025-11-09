@@ -68,8 +68,7 @@ export async function GET(request: NextRequest) {
 
     const checkout = await polar.checkouts.create({
       products: productIds,
-      // Some orgs require billing address; default to US to satisfy validation when not collecting upfront
-      customerBillingAddress: { country: 'US' },
+      // Do not collect billing address unless configured in Polar UI; omit field to keep a lighter checkout
       // Use the current origin to ensure success URL always matches the domain the user is on (e.g. www vs apex)
       successUrl: `${origin}/success`,
       metadata,
