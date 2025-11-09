@@ -224,6 +224,15 @@ ${research}${sourcesSection}
 
 Guidelines:
 - Write a compelling headline (make it SEO-friendly and engaging)
+- **CRITICAL - TITLE CREATIVITY**: Vary your title structure and vocabulary. DO NOT use overused words like "Revolutionizing", "Revolutionizes", "Transforming", "Unlocking", etc. Be creative and unique with each title. Use different power words, formats, and approaches. Examples of diverse title styles:
+  * "How RAG is Changing [Industry]"
+  * "The Future of [Topic]: RAG Implementation Guide"
+  * "Beyond Traditional Methods: RAG for [Use Case]"
+  * "Why [Industry] Needs Retrieval-Augmented Generation"
+  * "Building Smarter [Solutions] with RAG"
+  * "From Data to Insights: RAG in [Field]"
+  * "The Complete Guide to RAG for [Application]"
+  * "Scaling [Process] with Retrieval-Augmented Generation"
 - Include a brief meta description (150-160 characters)
 - Write in a professional but approachable tone
 - Use markdown formatting (headers, lists, code blocks where appropriate)
