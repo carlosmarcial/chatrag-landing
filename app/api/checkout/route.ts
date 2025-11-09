@@ -40,6 +40,16 @@ export async function GET(request: NextRequest) {
     const productIds = productsParam.split(',')
     const cookieStore = await cookies()
 
+    // Build metadata only when values are present to satisfy Polar validation
+    const visitorId = cookieStore.get('datafast_visitor_id')?.value?.trim()
+    const sessionId = cookieStore.get('datafast_session_id')?.value?.trim()
+    const metadata: Record<string, string> | undefined = (() => {
+      const m: Record<string, string> = {}
+      if (visitorId) m.datafast_visitor_id = visitorId
+      if (sessionId) m.datafast_session_id = sessionId
+      return Object.keys(m).length ? m : undefined
+    })()
+
     // If we don't have a server-side access token, use the static checkout link as a resilient fallback
     const missingToken = !process.env.POLAR_ACCESS_TOKEN
     if (missingToken && productIds.length === 1) {
@@ -62,10 +72,7 @@ export async function GET(request: NextRequest) {
       customerBillingAddress: { country: 'US' },
       // Use the current origin to ensure success URL always matches the domain the user is on (e.g. www vs apex)
       successUrl: `${origin}/success`,
-      metadata: {
-        datafast_visitor_id: cookieStore.get('datafast_visitor_id')?.value || '',
-        datafast_session_id: cookieStore.get('datafast_session_id')?.value || '',
-      },
+      metadata,
     })
 
     // If this endpoint was navigated to directly (e.g. <a href>), redirect.
