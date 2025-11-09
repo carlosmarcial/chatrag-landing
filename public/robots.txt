@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://chatrag.ai/sitemap.xml
+Sitemap: https://www.chatrag.ai/sitemap.xml
 
 # Crawl delay (optional, helps prevent overloading your server)
 Crawl-delay: 1
