@@ -11,8 +11,22 @@ const server =
     ? "production"
     : undefined
 
+// Map known Product IDs -> pre-generated Checkout Links as a safety net
+// Note: These NEXT_PUBLIC_* envs are safe to expose since they're only URLs
+const CHECKOUT_LINKS: Record<string, string | undefined> = {
+  // ChatRAG Complete (PRO)
+  'c9cb30b2-3c43-44fc-9070-19c9cc02a24d':
+    process.env.NEXT_PUBLIC_POLAR_CHECKOUT_PRO ||
+    'https://buy.polar.sh/polar_cl_lvSS3wcGkuvr9eGbpntB8lpW9ZvkI6mQXpl7C4choiG',
+  // ChatRAG Starter
+  '1fccb238-c09e-41fd-9875-d7eba1167467':
+    process.env.NEXT_PUBLIC_POLAR_CHECKOUT_STARTER ||
+    'https://buy.polar.sh/polar_cl_xdoxgTeLqJ9s5T7dO6yZ8nyYhKK62oYmTynyv2DtBMH',
+}
+
 const polar = new Polar({
-  accessToken: process.env.POLAR_ACCESS_TOKEN!,
+  // If POLAR_ACCESS_TOKEN is missing we will fall back to static checkout links below
+  accessToken: process.env.POLAR_ACCESS_TOKEN ?? "",
   server,
 })
 
@@ -30,6 +44,20 @@ export async function GET(request: NextRequest) {
 
     const productIds = productsParam.split(',')
     const cookieStore = await cookies()
+
+    // If we don't have a server-side access token, use the static checkout link as a resilient fallback
+    const missingToken = !process.env.POLAR_ACCESS_TOKEN
+    if (missingToken && productIds.length === 1) {
+      const fallback = CHECKOUT_LINKS[productIds[0]]
+      if (fallback) {
+        // Prefer redirect for direct navigations, otherwise return JSON
+        const accept = request.headers.get('accept') || ''
+        if (accept.includes('text/html')) {
+          return NextResponse.redirect(fallback, 302)
+        }
+        return NextResponse.json({ url: fallback })
+      }
+    }
 
     const checkout = await polar.checkouts.create({
       products: productIds,
@@ -49,8 +77,27 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json({ url: checkout.url })
-  } catch (error) {
-    console.error('Checkout creation error:', error)
-    return NextResponse.json({ error: 'Failed to create checkout' }, { status: 500 })
+  } catch (error: any) {
+    // Try to surface Polar API error details if available
+    const message = typeof error?.message === 'string' ? error.message : 'Unknown error'
+    const status = typeof error?.status === 'number' ? error.status : 500
+    console.error('Checkout creation error:', message, error)
+
+    // Final fallback: if we know the product and have a static link, use it so customers can still pay
+    try {
+      const url = new URL(request.url)
+      const productsParam = new URL(url).searchParams.get('products')
+      const productId = productsParam?.split(',')[0]
+      const fallback = productId ? CHECKOUT_LINKS[productId] : undefined
+      if (fallback) {
+        const accept = request.headers.get('accept') || ''
+        if (accept.includes('text/html')) {
+          return NextResponse.redirect(fallback, 302)
+        }
+        return NextResponse.json({ url: fallback, warning: 'Fell back to static checkout link' })
+      }
+    } catch {}
+
+    return NextResponse.json({ error: 'Failed to create checkout' }, { status })
   }
 }
