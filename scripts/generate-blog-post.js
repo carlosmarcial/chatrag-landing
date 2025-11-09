@@ -8,6 +8,8 @@ const EXA_API_KEY = process.env.EXA_API_KEY || 'adef5c67-4044-4897-bc44-ed0a89a1
 const EXA_API_URL = 'https://api.exa.ai/search';
 const FAL_API_KEY = process.env.FAL_API_KEY;
 const FAL_API_URL = 'https://fal.run/fal-ai/bytedance/seedream/v4/text-to-image';
+const INDEXNOW_API_KEY = '036a6688af5f409eb174b2d0f3bf7a1d';
+const INDEXNOW_URL = 'https://www.bing.com/indexnow';
 
 // Configuration
 const CONFIG = {
@@ -452,6 +454,44 @@ published: true
 }
 
 /**
+ * Submit URL to Bing via IndexNow
+ */
+async function submitToIndexNow(url) {
+  console.log(`🔔 Submitting to Bing IndexNow: ${url}`);
+
+  try {
+    const response = await fetch(INDEXNOW_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+      body: JSON.stringify({
+        host: 'chatrag.ai',
+        key: INDEXNOW_API_KEY,
+        keyLocation: `https://chatrag.ai/${INDEXNOW_API_KEY}.txt`,
+        urlList: [url]
+      })
+    });
+
+    if (response.ok) {
+      console.log('✅ Successfully submitted to Bing IndexNow');
+      return true;
+    } else if (response.status === 202) {
+      console.log('✅ URL accepted by Bing IndexNow (202)');
+      return true;
+    } else {
+      const errorText = await response.text();
+      console.warn(`⚠️  IndexNow submission warning: ${response.status} - ${errorText}`);
+      return false;
+    }
+  } catch (error) {
+    console.error('⚠️  Failed to submit to IndexNow:', error.message);
+    console.log('⚠️  Continuing without IndexNow submission...');
+    return false;
+  }
+}
+
+/**
  * Main function
  */
 async function main() {
@@ -495,9 +535,14 @@ async function main() {
     }
 
     // Step 5: Save the post
-    const { filename } = await saveBlogPost(parsedPost, imagePath);
+    const { filename, slug } = await saveBlogPost(parsedPost, imagePath);
+
+    // Step 6: Submit to Bing IndexNow
+    const blogUrl = `https://chatrag.ai/blog/${slug}`;
+    await submitToIndexNow(blogUrl);
 
     console.log(`\n✨ Successfully generated blog post: ${filename}`);
+    console.log(`🌐 Blog URL: ${blogUrl}`);
     if (imagePath) {
       console.log(`🖼️  Hero image: ${imagePath}`);
     }
