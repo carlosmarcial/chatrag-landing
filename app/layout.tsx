@@ -31,13 +31,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://chatrag.ai',
+    url: 'https://www.chatrag.ai',
     siteName: 'ChatRAG',
     title: 'Build AI chatbots in hours, not months | ChatRAG',
     description: 'The Next.js & AI SDK boilerplate for turning data into profit with RAG (Retrieval Augmented Generation). Build, launch, and monetize custom chatbot-based SaaS products.',
     images: [
       {
-        url: 'https://chatrag.ai/images/heroChatRag.png?v=2',
+        url: 'https://www.chatrag.ai/images/heroChatRag.png?v=2',
         width: 2166,
         height: 2017,
         alt: 'ChatRAG - AI Chatbot Builder Platform with RAG Technology',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     creator: '@carlosmarcialt',
     title: 'Build AI chatbots in hours, not months | ChatRAG',
     description: 'The Next.js & AI SDK boilerplate for turning data into profit with RAG (Retrieval Augmented Generation).',
-    images: ['https://chatrag.ai/images/heroChatRag.png?v=2'],
+    images: ['https://www.chatrag.ai/images/heroChatRag.png?v=2'],
   },
   icons: {
     icon: [
@@ -65,9 +65,9 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.svg', sizes: '180x180', type: 'image/svg+xml' },
     ],
   },
-  metadataBase: new URL('https://chatrag.ai'),
+  metadataBase: new URL('https://www.chatrag.ai'),
   alternates: {
-    canonical: 'https://chatrag.ai',
+    canonical: 'https://www.chatrag.ai',
   },
   category: 'technology',
 };
@@ -82,8 +82,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "ChatRAG",
-    "url": "https://chatrag.ai",
-    "logo": "https://chatrag.ai/favicon.svg",
+    "url": "https://www.chatrag.ai",
+    "logo": "https://www.chatrag.ai/favicon.svg",
     "description": "The Next.js & AI SDK boilerplate for building production-ready AI chatbots with RAG (Retrieval Augmented Generation). Build, launch, and monetize custom chatbot-based SaaS products.",
     "founder": {
       "@type": "Person",
@@ -97,7 +97,7 @@ export default function RootLayout({
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "Customer Support",
-      "url": "https://chatrag.ai"
+      "url": "https://www.chatrag.ai"
     }
   };
 
@@ -107,7 +107,7 @@ export default function RootLayout({
     "name": "ChatRAG",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Cross-platform",
-    "url": "https://chatrag.ai",
+    "url": "https://www.chatrag.ai",
     "description": "Next.js & AI SDK boilerplate for building RAG-powered AI chatbots with document understanding, multi-LLM support, vector search, and built-in monetization.",
     "offers": {
       "@type": "Offer",
@@ -130,7 +130,7 @@ export default function RootLayout({
       "TypeScript support",
       "Production-ready infrastructure"
     ],
-    "screenshot": "https://chatrag.ai/images/heroChatRag.png",
+    "screenshot": "https://www.chatrag.ai/images/heroChatRag.png",
     "creator": {
       "@type": "Person",
       "name": "Carlos Marcial",
@@ -142,11 +142,11 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "ChatRAG",
-    "url": "https://chatrag.ai",
+    "url": "https://www.chatrag.ai",
     "description": "Build AI chatbots in hours, not months. Complete Next.js boilerplate with RAG, vector search, multi-LLM support, and monetization.",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://chatrag.ai/docs?search={search_term_string}",
+      "target": "https://www.chatrag.ai/docs?search={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };
@@ -159,19 +159,19 @@ export default function RootLayout({
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://chatrag.ai"
+        "item": "https://www.chatrag.ai"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Documentation",
-        "item": "https://chatrag.ai/docs"
+        "item": "https://www.chatrag.ai/docs"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Pricing",
-        "item": "https://chatrag.ai/#pricing"
+        "item": "https://www.chatrag.ai/#pricing"
       }
     ]
   };

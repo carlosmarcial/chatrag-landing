@@ -28,24 +28,45 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     };
   }
 
+  const canonicalUrl = `https://www.chatrag.ai/blog/${slug}`;
+  const imageUrl = post.image?.startsWith('http')
+    ? post.image
+    : `https://www.chatrag.ai${post.image || '/images/heroChatRag.png'}`;
+
   return {
     title: `${post.title} | ChatRAG Blog`,
     description: post.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
+      url: canonicalUrl,
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
-      images: post.image ? [{ url: post.image }] : [],
+      images: [{ url: imageUrl }],
+      siteName: 'ChatRAG',
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: post.image ? [post.image] : [],
+      images: [imageUrl],
       creator: '@carlosmarcialt',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   };
 }

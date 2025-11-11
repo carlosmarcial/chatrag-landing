@@ -5,6 +5,27 @@ import { getAllPosts } from '@/lib/blog';
 export const metadata = {
   title: 'Blog | ChatRAG',
   description: 'Latest insights on AI chatbots, RAG systems, and building successful SaaS businesses with ChatRAG.',
+  alternates: {
+    canonical: 'https://www.chatrag.ai/blog',
+  },
+  openGraph: {
+    title: 'Blog | ChatRAG',
+    description: 'Latest insights on AI chatbots, RAG systems, and building successful SaaS businesses with ChatRAG.',
+    url: 'https://www.chatrag.ai/blog',
+    siteName: 'ChatRAG',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default async function BlogPage() {
