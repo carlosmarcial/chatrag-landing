@@ -1010,7 +1010,7 @@ export default function Home() {
                       </a>
                     </li>
                     <li>
-                      <a href="https://docs.chatrag.ai" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+                      <a href="https://www.chatrag.ai/docs" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
                         Documentation
                       </a>
                     </li>
