@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /llms.txt
+Disallow: /llms-full.txt
 
 # Sitemap location
 Sitemap: https://www.chatrag.ai/sitemap.xml

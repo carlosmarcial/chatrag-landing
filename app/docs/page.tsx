@@ -7,6 +7,27 @@ import { Rocket, Database, Settings, Zap, Code, HelpCircle } from "lucide-react"
 export const metadata: Metadata = {
   title: "Documentation - ChatRAG",
   description: "Complete documentation for ChatRAG - Build AI chatbots in hours, not months",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs',
+  },
+  openGraph: {
+    title: 'Documentation - ChatRAG',
+    description: 'Complete documentation for ChatRAG - Build AI chatbots in hours, not months',
+    url: 'https://www.chatrag.ai/docs',
+    siteName: 'ChatRAG',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function DocsPage() {

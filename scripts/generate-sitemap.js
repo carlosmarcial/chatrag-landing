@@ -39,9 +39,8 @@ const staticPages = [
   { loc: '/docs/troubleshooting', changefreq: 'weekly', priority: '0.7' },
   { loc: '/docs/faq', changefreq: 'monthly', priority: '0.7' },
 
-  // AI Discovery Files
-  { loc: '/llms.txt', changefreq: 'monthly', priority: '0.8' },
-  { loc: '/llms-full.txt', changefreq: 'monthly', priority: '0.8' },
+  // AI Discovery Files (llms.txt, llms-full.txt) are excluded from sitemap
+  // They are served via API routes with noindex headers for AI crawlers only
 ];
 
 /**
