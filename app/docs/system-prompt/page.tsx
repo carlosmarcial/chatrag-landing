@@ -4,7 +4,28 @@ import { FileText, AlertTriangle, Info, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "System Prompt - ChatRAG Documentation",
-  description: "Configure how ChatRAG's AI uses your documents for retrieval-augmented generation",
+  description: "Configure how ChatRAG's AI uses your documents for retrieval-augmented generation. Customize AI behavior and response formatting.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/system-prompt',
+  },
+  openGraph: {
+    title: 'System Prompt - ChatRAG Documentation',
+    description: 'Configure how ChatRAG\'s AI uses your documents for retrieval-augmented generation. Customize AI behavior and response formatting.',
+    url: 'https://www.chatrag.ai/docs/system-prompt',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function SystemPromptPage() {

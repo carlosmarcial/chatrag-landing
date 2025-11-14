@@ -4,7 +4,28 @@ import { Settings, Info, Lightbulb, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Configuration UI - ChatRAG Documentation",
-  description: "Visual configuration dashboard for managing ChatRAG settings without code",
+  description: "Visual configuration dashboard for managing ChatRAG settings, API keys, models, and features without editing code.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/config-ui',
+  },
+  openGraph: {
+    title: 'Configuration UI - ChatRAG Documentation',
+    description: 'Visual configuration dashboard for managing ChatRAG settings, API keys, models, and features without editing code.',
+    url: 'https://www.chatrag.ai/docs/config-ui',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function ConfigUIPage() {

@@ -4,7 +4,28 @@ import { Palette, Info, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Branding & UI - ChatRAG Documentation",
-  description: "Customize ChatRAG's appearance with your brand identity, logos, and colors",
+  description: "Customize ChatRAG's appearance with your brand identity, logos, colors, and white-label features. No code required.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/branding',
+  },
+  openGraph: {
+    title: 'Branding & UI - ChatRAG Documentation',
+    description: 'Customize ChatRAG\'s appearance with your brand identity, logos, colors, and white-label features. No code required.',
+    url: 'https://www.chatrag.ai/docs/branding',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function BrandingPage() {

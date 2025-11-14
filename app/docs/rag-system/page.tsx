@@ -4,7 +4,28 @@ import { Brain, Info, CheckCircle2, Zap, TrendingUp } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "RAG System - ChatRAG Documentation",
-  description: "Understanding ChatRAG's high-performance RAG system with HNSW vector search",
+  description: "Understanding ChatRAG's high-performance RAG system with HNSW vector search. 15-28x faster than traditional IVFFlat indexes.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/rag-system',
+  },
+  openGraph: {
+    title: 'RAG System - ChatRAG Documentation',
+    description: 'Understanding ChatRAG\'s high-performance RAG system with HNSW vector search. 15-28x faster than traditional IVFFlat indexes.',
+    url: 'https://www.chatrag.ai/docs/rag-system',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RAGSystemPage() {

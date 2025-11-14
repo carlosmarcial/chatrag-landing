@@ -4,7 +4,28 @@ import { CheckCircle2, CreditCard, Info, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Payment Integration - ChatRAG Documentation",
-  description: "Configure Polar and Stripe payments for your ChatRAG application",
+  description: "Configure Polar and Stripe subscription payments for your ChatRAG SaaS application. Simple integration with webhook support.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/payments',
+  },
+  openGraph: {
+    title: 'Payment Integration - ChatRAG Documentation',
+    description: 'Configure Polar and Stripe subscription payments for your ChatRAG SaaS application. Simple integration with webhook support.',
+    url: 'https://www.chatrag.ai/docs/payments',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function PaymentsPage() {

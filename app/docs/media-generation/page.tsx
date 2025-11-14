@@ -4,7 +4,28 @@ import { Image, Video, Box, Info, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Media Generation - ChatRAG Documentation",
-  description: "Configure image, video, and 3D model generation capabilities in ChatRAG",
+  description: "Configure AI image, video, and 3D model generation in ChatRAG using Replicate, Fal.ai, and other providers.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/media-generation',
+  },
+  openGraph: {
+    title: 'Media Generation - ChatRAG Documentation',
+    description: 'Configure AI image, video, and 3D model generation in ChatRAG using Replicate, Fal.ai, and other providers.',
+    url: 'https://www.chatrag.ai/docs/media-generation',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function MediaGenerationPage() {

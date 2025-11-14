@@ -4,7 +4,28 @@ import { Rocket, Info, CheckCircle2, AlertTriangle, ExternalLink } from "lucide-
 
 export const metadata: Metadata = {
   title: "Deployment - ChatRAG Documentation",
-  description: "Deploy ChatRAG to production on Vercel or other platforms",
+  description: "Deploy ChatRAG to production on Vercel, Coolify, Docker, or VPS. Step-by-step deployment guide with environment variables.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/deployment',
+  },
+  openGraph: {
+    title: 'Deployment - ChatRAG Documentation',
+    description: 'Deploy ChatRAG to production on Vercel, Coolify, Docker, or VPS. Step-by-step deployment guide with environment variables.',
+    url: 'https://www.chatrag.ai/docs/deployment',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function DeploymentPage() {

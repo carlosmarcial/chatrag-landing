@@ -4,7 +4,28 @@ import { CheckCircle2, Database, AlertTriangle, Info } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Database Setup - ChatRAG Documentation",
-  description: "Configure your Supabase database with vector search capabilities for ChatRAG",
+  description: "Configure your Supabase database with vector search capabilities for ChatRAG. Set up pgvector, HNSW indexes, and production-ready tables.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/database-setup',
+  },
+  openGraph: {
+    title: 'Database Setup - ChatRAG Documentation',
+    description: 'Configure your Supabase database with vector search capabilities for ChatRAG. Set up pgvector, HNSW indexes, and production-ready tables.',
+    url: 'https://www.chatrag.ai/docs/database-setup',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function DatabaseSetupPage() {

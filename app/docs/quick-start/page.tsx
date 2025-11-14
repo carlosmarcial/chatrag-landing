@@ -4,7 +4,28 @@ import { CheckCircle2, Info, Lightbulb } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Quick Start - ChatRAG Documentation",
-  description: "Step-by-step guide to set up a basic RAG-powered AI chatbot with ChatRAG",
+  description: "Step-by-step guide to set up a basic RAG-powered AI chatbot with ChatRAG in 12 simple steps",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/quick-start',
+  },
+  openGraph: {
+    title: 'Quick Start - ChatRAG Documentation',
+    description: 'Step-by-step guide to set up a basic RAG-powered AI chatbot with ChatRAG in 12 simple steps',
+    url: 'https://www.chatrag.ai/docs/quick-start',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function QuickStartPage() {

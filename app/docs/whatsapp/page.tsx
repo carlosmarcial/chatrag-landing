@@ -4,7 +4,28 @@ import { MessageCircle, Info, CheckCircle2, AlertTriangle, Lightbulb, ExternalLi
 
 export const metadata: Metadata = {
   title: "WhatsApp Integration - ChatRAG Documentation",
-  description: "Connect ChatRAG to WhatsApp using Bailey's on Fly.io or Koyeb for messaging capabilities",
+  description: "Connect ChatRAG to WhatsApp using Bailey's on Fly.io or Koyeb. Enable AI-powered WhatsApp messaging for your business.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/whatsapp',
+  },
+  openGraph: {
+    title: 'WhatsApp Integration - ChatRAG Documentation',
+    description: 'Connect ChatRAG to WhatsApp using Bailey\'s on Fly.io or Koyeb. Enable AI-powered WhatsApp messaging for your business.',
+    url: 'https://www.chatrag.ai/docs/whatsapp',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function WhatsAppIntegrationPage() {

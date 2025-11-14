@@ -4,7 +4,28 @@ import { Brain, Info, CheckCircle2, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "AI Models - ChatRAG Documentation",
-  description: "Configure and manage AI models for ChatRAG including reasoning models",
+  description: "Configure and manage 100+ AI models for ChatRAG including GPT-4, Claude, Gemini, and reasoning models like o1 and DeepSeek R1.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/ai-models',
+  },
+  openGraph: {
+    title: 'AI Models - ChatRAG Documentation',
+    description: 'Configure and manage 100+ AI models for ChatRAG including GPT-4, Claude, Gemini, and reasoning models like o1 and DeepSeek R1.',
+    url: 'https://www.chatrag.ai/docs/ai-models',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function AIModelsPage() {

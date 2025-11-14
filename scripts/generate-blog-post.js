@@ -78,7 +78,7 @@ async function callOpenRouter(model, messages, temperature = 0.7, returnFullResp
     headers: {
       'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
       'Content-Type': 'application/json',
-      'HTTP-Referer': 'https://chatrag.ai',
+      'HTTP-Referer': 'https://www.chatrag.ai',
       'X-Title': 'ChatRAG Blog Generator'
     },
     body: JSON.stringify({
@@ -538,7 +538,7 @@ async function main() {
     const { filename, slug } = await saveBlogPost(parsedPost, imagePath);
 
     // Step 6: Submit to Bing IndexNow
-    const blogUrl = `https://chatrag.ai/blog/${slug}`;
+    const blogUrl = `https://www.chatrag.ai/blog/${slug}`;
     await submitToIndexNow(blogUrl);
 
     console.log(`\n✨ Successfully generated blog post: ${filename}`);

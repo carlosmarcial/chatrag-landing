@@ -4,7 +4,28 @@ import { FileText, Info, CheckCircle2, Upload, Settings } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Document Processing - ChatRAG Documentation",
-  description: "Upload and manage documents for RAG-powered AI responses",
+  description: "Upload and manage PDF, DOCX, and TXT documents for RAG-powered AI responses. Automatic chunking and vector embedding.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/document-processing',
+  },
+  openGraph: {
+    title: 'Document Processing - ChatRAG Documentation',
+    description: 'Upload and manage PDF, DOCX, and TXT documents for RAG-powered AI responses. Automatic chunking and vector embedding.',
+    url: 'https://www.chatrag.ai/docs/document-processing',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function DocumentProcessingPage() {

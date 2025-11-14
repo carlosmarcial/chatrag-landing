@@ -4,7 +4,28 @@ import { Plug, Info, CheckCircle2, AlertTriangle, Lightbulb } from "lucide-react
 
 export const metadata: Metadata = {
   title: "MCP Integration - ChatRAG Documentation",
-  description: "Connect external tools and services using Model Context Protocol with Zapier and custom servers",
+  description: "Connect external tools and services to ChatRAG using Model Context Protocol (MCP) with Zapier for Gmail, Calendar, Drive, and custom servers.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/mcp-integration',
+  },
+  openGraph: {
+    title: 'MCP Integration - ChatRAG Documentation',
+    description: 'Connect external tools and services to ChatRAG using Model Context Protocol (MCP) with Zapier for Gmail, Calendar, Drive, and custom servers.',
+    url: 'https://www.chatrag.ai/docs/mcp-integration',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function MCPIntegrationPage() {

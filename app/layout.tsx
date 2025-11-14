@@ -146,7 +146,10 @@ export default function RootLayout({
     "description": "Build AI chatbots in hours, not months. Complete Next.js boilerplate with RAG, vector search, multi-LLM support, and monetization.",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://www.chatrag.ai/docs?search={search_term_string}",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.chatrag.ai/docs?search={search_term_string}"
+      },
       "query-input": "required name=search_term_string"
     }
   };

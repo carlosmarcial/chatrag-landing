@@ -4,7 +4,28 @@ import { HelpCircle, Info, CheckCircle2, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "FAQ - ChatRAG Documentation",
-  description: "Frequently asked questions about ChatRAG features, setup, and usage",
+  description: "Frequently asked questions about ChatRAG features, setup, licensing, pricing, customization, and technical requirements.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/faq',
+  },
+  openGraph: {
+    title: 'FAQ - ChatRAG Documentation',
+    description: 'Frequently asked questions about ChatRAG features, setup, licensing, pricing, customization, and technical requirements.',
+    url: 'https://www.chatrag.ai/docs/faq',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function FAQPage() {

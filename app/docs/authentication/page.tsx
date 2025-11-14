@@ -4,7 +4,28 @@ import { Shield, Info, CheckCircle2, Github } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Authentication - ChatRAG Documentation",
-  description: "Configure authentication providers and user management for ChatRAG",
+  description: "Configure authentication providers and user management for ChatRAG using Supabase Auth with OAuth, magic links, and email/password.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/authentication',
+  },
+  openGraph: {
+    title: 'Authentication - ChatRAG Documentation',
+    description: 'Configure authentication providers and user management for ChatRAG using Supabase Auth with OAuth, magic links, and email/password.',
+    url: 'https://www.chatrag.ai/docs/authentication',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function AuthenticationPage() {

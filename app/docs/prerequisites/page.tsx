@@ -4,7 +4,28 @@ import { CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Prerequisites - ChatRAG Documentation",
-  description: "Required software and API keys before starting with ChatRAG",
+  description: "Required software and API keys before starting with ChatRAG. Learn about Node.js, Supabase, OpenAI, and other essential tools.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/prerequisites',
+  },
+  openGraph: {
+    title: 'Prerequisites - ChatRAG Documentation',
+    description: 'Required software and API keys before starting with ChatRAG. Learn about Node.js, Supabase, OpenAI, and other essential tools.',
+    url: 'https://www.chatrag.ai/docs/prerequisites',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function PrerequisitesPage() {

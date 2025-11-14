@@ -91,8 +91,8 @@ export default function Home() {
     "description": "The Next.js & AI SDK boilerplate for turning data into profit with RAG (Retrieval Augmented Generation). Build, launch, and monetize custom chatbot-based SaaS products.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Any",
-    "url": "https://chatrag.ai",
-    "screenshot": "https://chatrag.ai/images/heroChatRag.png",
+    "url": "https://www.chatrag.ai",
+    "screenshot": "https://www.chatrag.ai/images/heroChatRag.png",
     "softwareVersion": "1.0",
     "offers": {
       "@type": "Offer",
@@ -110,7 +110,7 @@ export default function Home() {
     "publisher": {
       "@type": "Organization",
       "name": "ChatRAG",
-      "url": "https://chatrag.ai"
+      "url": "https://www.chatrag.ai"
     },
     "featureList": [
       "Next.js full-stack framework",

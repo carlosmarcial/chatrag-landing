@@ -4,7 +4,28 @@ import { CheckCircle2, Key, AlertTriangle, Info } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "API Keys - ChatRAG Documentation",
-  description: "Essential API keys and configuration for ChatRAG functionality",
+  description: "Essential API keys and configuration for ChatRAG functionality including OpenAI, Supabase, OpenRouter, and LlamaCloud.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/api-keys',
+  },
+  openGraph: {
+    title: 'API Keys - ChatRAG Documentation',
+    description: 'Essential API keys and configuration for ChatRAG functionality including OpenAI, Supabase, OpenRouter, and LlamaCloud.',
+    url: 'https://www.chatrag.ai/docs/api-keys',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function APIKeysPage() {

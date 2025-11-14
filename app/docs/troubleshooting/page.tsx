@@ -4,7 +4,28 @@ import { Wrench, Info, AlertTriangle, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Troubleshooting - ChatRAG Documentation",
-  description: "Common issues and solutions for ChatRAG setup and operation",
+  description: "Common issues and solutions for ChatRAG setup, configuration, RAG system, authentication, and deployment problems.",
+  alternates: {
+    canonical: 'https://www.chatrag.ai/docs/troubleshooting',
+  },
+  openGraph: {
+    title: 'Troubleshooting - ChatRAG Documentation',
+    description: 'Common issues and solutions for ChatRAG setup, configuration, RAG system, authentication, and deployment problems.',
+    url: 'https://www.chatrag.ai/docs/troubleshooting',
+    siteName: 'ChatRAG',
+    type: 'article',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function TroubleshootingPage() {
