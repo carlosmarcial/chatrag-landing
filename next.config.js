@@ -6,7 +6,7 @@ const nextConfig = {
       bodySizeLimit: '2mb',
     },
   },
-  images: { 
+  images: {
     unoptimized: true,
     formats: ['image/webp', 'image/avif'],
   },
@@ -15,6 +15,17 @@ const nextConfig = {
   reactStrictMode: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Redirects to handle trailing slash and URL variations
+  async redirects() {
+    return [
+      // Redirect trailing slashes to non-trailing slash (except root)
+      {
+        source: '/:path+/',
+        destination: '/:path+',
+        permanent: true,
+      },
+    ];
   },
   // Note: Security headers can be configured at the hosting level (Vercel, Netlify, etc.)
   // async headers() {

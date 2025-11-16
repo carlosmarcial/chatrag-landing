@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /llms.txt
 Disallow: /llms-full.txt
+Disallow: /_next/static/
+Disallow: /api/checkout
 
 # Sitemap location
 Sitemap: https://www.chatrag.ai/sitemap.xml
