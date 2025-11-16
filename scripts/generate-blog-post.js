@@ -361,14 +361,17 @@ Blog Excerpt: ${excerpt}
 
 Requirements:
 - Professional, modern, tech-focused aesthetic
-- Abstract or conceptual representation (NO text, NO people, NO faces, NO numbers, NO letters)
-- Clean, minimalist style suitable for a SaaS blog
-- Focus on technology, AI, data visualization, or abstract concepts
+- **CRITICAL - 50/50 BALANCE**: Image MUST combine both:
+  * 50% ABSTRACT ELEMENTS: Geometric shapes, gradient flows, glowing particles, light rays, digital grids, wave patterns
+  * 50% TANGIBLE SUBJECT ELEMENTS: Recognizable objects/icons directly related to the blog topic (e.g., healthcare = medical symbols/stethoscope, manufacturing = factory/machinery, sports = equipment/field, education = books/learning, etc.)
+- The tangible elements should be stylized and modern, NOT photorealistic, but clearly recognizable
+- Clean, minimalist style suitable for a SaaS blog (NO text, NO people, NO faces, NO numbers, NO letters)
 - MUST incorporate the ChatRAG brand gradient colors: vibrant electric blue, warm orange-amber, and bold red tones
 - Use these gradient colors as the primary color scheme throughout the image creating a blue-to-orange-to-red gradient flow
 - Dark background with glowing gradient accents
 - Modern, sleek, and professional appearance
 - Absolutely NO TEXT or alphanumeric characters should appear in the image
+- The subject-specific elements should be integrated naturally with the abstract elements, not separated
 
 Respond with ONLY the image prompt, no other text. Make it detailed and specific (50-80 words).`
     }
