@@ -1,14 +1,14 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const response = NextResponse.next();
-  
+
   // Add noindex header for llms.txt files
   if (request.nextUrl.pathname === '/llms.txt' || request.nextUrl.pathname === '/llms-full.txt') {
     response.headers.set('X-Robots-Tag', 'noindex, nofollow');
   }
-  
+
   // Ensure trailing slash consistency (remove trailing slash)
   if (
     request.nextUrl.pathname.endsWith('/') &&
@@ -18,7 +18,7 @@ export function middleware(request: NextRequest) {
     url.pathname = url.pathname.slice(0, -1);
     return NextResponse.redirect(url, 301);
   }
-  
+
   return response;
 }
 
