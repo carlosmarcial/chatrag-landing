@@ -226,17 +226,39 @@ ${research}${sourcesSection}
 
 Guidelines:
 - Write a compelling headline (make it SEO-friendly and engaging)
-- **CRITICAL - TITLE CREATIVITY**: Vary your title structure and vocabulary. DO NOT use overused words like "Revolutionizing", "Revolutionizes", "Transforming", "Unlocking", etc. Be creative and unique with each title. Use different power words, formats, and approaches. Examples of diverse title styles:
-  * "How RAG is Changing [Industry]"
-  * "The Future of [Topic]: RAG Implementation Guide"
-  * "Beyond Traditional Methods: RAG for [Use Case]"
-  * "Why [Industry] Needs Retrieval-Augmented Generation"
-  * "Building Smarter [Solutions] with RAG"
-  * "From Data to Insights: RAG in [Field]"
-  * "The Complete Guide to RAG for [Application]"
-  * "Scaling [Process] with Retrieval-Augmented Generation"
+
+**🚫 FORBIDDEN TITLE WORDS (NEVER USE THESE):**
+Revolutionizing, Revolutionize, Revolutionizes, Transforming, Transform, Transforms, Unlocking, Unlock, Elevating, Elevate, Elevates, Streamlining, Streamline, Navigating, Navigate, Decoding, Decode, Mastering, Master, Harnessing, Harness, Powering, Power
+
+**✅ REQUIRED TITLE DIVERSITY:**
+Each title MUST use a different structure. Rotate between these styles:
+1. Question Format: "Can RAG Solve [Problem] in [Industry]?"
+2. Benefit-Driven: "Three Ways RAG Improves [Process]"
+3. Comparison: "RAG vs Traditional [Method]: A [Industry] Perspective"
+4. Case Study: "How [Industry] Uses RAG for [Outcome]"
+5. Technical Deep Dive: "Building [Solution] with Retrieval-Augmented Generation"
+6. Problem-Solution: "The [Industry] Challenge RAG Was Built to Solve"
+7. Future-Focused: "What RAG Means for the Future of [Field]"
+8. Practical Guide: "Implementing RAG in [Industry]: A Developer's Guide"
+9. Data-Driven: "Why [X%] of [Industry] Leaders Are Adopting RAG"
+10. Story-Driven: "From [Problem] to [Solution]: RAG in [Context]"
+
 - Include a brief meta description (150-160 characters)
-- Write in a professional but approachable tone
+
+**🚫 FORBIDDEN OPENING PHRASES (NEVER START WITH THESE):**
+"In the fast-paced world of...", "In an era where...", "In today's...", "In the evolving...", "In the competitive...", "is emerging as a game-changer", "is stepping in to", "offers a game-changing", "stands out as"
+
+**✅ REQUIRED OPENING DIVERSITY:**
+Vary your opening paragraphs. Use these approaches:
+- Start with a specific statistic or data point
+- Begin with a real-world scenario or problem
+- Open with a provocative question
+- Lead with an industry expert quote
+- Start with a concrete example
+- Begin with historical context
+- Open with a surprising fact
+
+- Write in a professional but approachable tone, varying sentence structure and length
 - Use markdown formatting (headers, lists, code blocks where appropriate)
 - Aim for 1200-1800 words
 - Include practical examples and actionable insights
