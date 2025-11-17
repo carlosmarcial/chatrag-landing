@@ -105,6 +105,14 @@ async function callOpenRouter(model, messages, temperature = 0.7, returnFullResp
 }
 
 /**
+ * Truncate text to a maximum character count (safety measure)
+ */
+function truncateText(text, maxChars = 3000) {
+  if (!text || text.length <= maxChars) return text;
+  return text.substring(0, maxChars) + '...';
+}
+
+/**
  * Research a topic using Exa.ai
  */
 async function researchTopic(topic) {
@@ -120,8 +128,10 @@ async function researchTopic(topic) {
       },
       body: JSON.stringify({
         query: `Latest research, best practices, and insights about: ${topic}`,
-        numResults: 10,
-        text: true,
+        numResults: 6,
+        text: {
+          maxCharacters: 3000
+        },
         highlights: true,
         type: 'neural',
         category: 'blog post'
@@ -152,7 +162,10 @@ async function researchTopic(topic) {
       if (result.publishedDate) {
         researchContent += `Published: ${new Date(result.publishedDate).toLocaleDateString()}\n`;
       }
-      researchContent += `\nContent:\n${result.text || result.highlights?.join('\n') || 'No content available'}\n`;
+
+      // Truncate text as safety measure (Exa should already limit to 3000 chars, but this ensures it)
+      const content = result.text || result.highlights?.join('\n') || 'No content available';
+      researchContent += `\nContent:\n${truncateText(content, 3000)}\n`;
       researchContent += '\n---\n';
 
       // Store source URL
