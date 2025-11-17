@@ -72,7 +72,7 @@ async function selectTopic() {
 /**
  * Call OpenRouter API
  */
-async function callOpenRouter(model, messages, temperature = 0.7, returnFullResponse = false) {
+async function callOpenRouter(model, messages, temperature = 0.7, returnFullResponse = false, maxTokens = 4000) {
   const response = await fetch(OPENROUTER_API_URL, {
     method: 'POST',
     headers: {
@@ -84,7 +84,8 @@ async function callOpenRouter(model, messages, temperature = 0.7, returnFullResp
     body: JSON.stringify({
       model,
       messages,
-      temperature
+      temperature,
+      max_tokens: maxTokens
     })
   });
 
@@ -288,7 +289,7 @@ IMPORTANT: Do not add anything after ---END CONTENT---. No word counts, no notes
     }
   ];
 
-  const blogPost = await callOpenRouter(CONFIG.writingModel, messages, 0.8);
+  const blogPost = await callOpenRouter(CONFIG.writingModel, messages, 0.8, false, 3000);
   console.log('✅ Blog post written');
   return blogPost;
 }
@@ -377,7 +378,7 @@ Respond with ONLY the image prompt, no other text. Make it detailed and specific
     }
   ];
 
-  const prompt = await callOpenRouter(CONFIG.writingModel, messages, 0.7);
+  const prompt = await callOpenRouter(CONFIG.writingModel, messages, 0.7, false, 200);
   console.log('✅ Image prompt generated');
   return prompt.trim();
 }
