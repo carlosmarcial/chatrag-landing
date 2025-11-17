@@ -7,6 +7,11 @@ on:
     - cron: '0 18 * * *' # 6 PM UTC
   workflow_dispatch: # Allows manual trigger
 
+# Prevent concurrent runs to avoid git conflicts
+concurrency:
+  group: blog-generation
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
