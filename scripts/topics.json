@@ -84,6 +84,7 @@
     "RAG for Academic Research Paper Discovery",
     "RAG for Wine and Spirits Pairing Recommendations",
     "RAG for Automotive Parts Inventory Search",
-    "RAG for Government Policy Document Analysis"
+    "RAG for Government Policy Document Analysis",
+    "RAG for Restaurant Menu and Recipe Management"
   ]
 }
