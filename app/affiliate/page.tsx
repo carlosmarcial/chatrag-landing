@@ -41,7 +41,7 @@ export default function AffiliatePage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            Earn recurring commissions by recommending the best AI chatbot boilerplate to your audience
+            Earn commissions on every sale by recommending the best AI chatbot boilerplate to your audience
           </p>
         </div>
       </section>
