@@ -43,10 +43,12 @@ export async function GET(request: NextRequest) {
     // Build metadata only when values are present to satisfy Polar validation
     const visitorId = cookieStore.get('datafast_visitor_id')?.value?.trim()
     const sessionId = cookieStore.get('datafast_session_id')?.value?.trim()
+    const refCode = cookieStore.get('refgrow_ref_code')?.value?.trim()
     const metadata: Record<string, string> | undefined = (() => {
       const m: Record<string, string> = {}
       if (visitorId) m.datafast_visitor_id = visitorId
       if (sessionId) m.datafast_session_id = sessionId
+      if (refCode) m.referral_code = refCode
       return Object.keys(m).length ? m : undefined
     })()
 

@@ -242,6 +242,15 @@ export default function RootLayout({
           src="https://datafa.st/js/script.js"
           strategy="afterInteractive"
         />
+
+        {/* Refgrow Tracking Script */}
+        <Script
+          src="https://scripts.refgrowcdn.com/latest.js"
+          data-project-id="490"
+          async
+          defer
+          strategy="afterInteractive"
+        />
       </head>
       <body className="overflow-y-auto" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>

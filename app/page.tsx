@@ -999,6 +999,11 @@ export default function Home() {
                     <li>
                       <LicenseModal />
                     </li>
+                    <li>
+                      <a href="/affiliate" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200">
+                        Affiliates — Earn 30% per sale
+                      </a>
+                    </li>
                   </ul>
                 </div>
                 <div>
