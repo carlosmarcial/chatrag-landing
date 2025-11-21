@@ -4,7 +4,7 @@ date: "2025-11-07T09:22:23.427Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) empowers nonprofits to streamline grant research, craft data-driven proposals, and boost funding success. Explore key concepts, trends, and technical insights for building AI-powered tools."
 excerpt: "In the competitive world of nonprofit funding, Retrieval-Augmented Generation (RAG) is a game-changer, blending AI language models with real-time data retrieval to enhance grant writing and research. This post dives into practical applications, best practices, and technical details for developers creating SaaS solutions. Learn how RAG can automate workflows, ensure accuracy, and drive impact in the nonprofit sector."
 tags: ["RAG", "Nonprofit Grant Writing", "AI for Nonprofits", "Retrieval-Augmented Generation", "SaaS Development"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/revolutionizing-nonprofit-grant-writing-with-rag-a-technical-deep-dive.png"
 published: true
 ---

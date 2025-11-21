@@ -4,7 +4,7 @@ date: "2025-11-08T18:19:55.070Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) is transforming agriculture by enhancing crop and soil analysis with AI-driven insights, improving yields and sustainability for farmers worldwide. (142 characters)"
 excerpt: "In the evolving world of precision agriculture, Retrieval-Augmented Generation (RAG) is emerging as a game-changer for crop and soil analysis. By combining large language models with adaptive retrieval techniques, RAG enables intelligent decision-making for pest management, disease detection, and soil health optimization. This blog explores practical applications, backed by recent research, to help agrotech innovators leverage AI for sustainable farming."
 tags: ["RAG", "Agriculture AI", "Crop Analysis", "Soil Health", "Precision Farming"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/revolutionizing-agriculture-harnessing-rag-for-advanced-crop-and-soil-analysis.png"
 published: true
 ---

@@ -4,7 +4,7 @@ date: "2025-11-09T08:20:07.324Z"
 description: "Explore how Retrieval-Augmented Generation (RAG) is enhancing aviation maintenance by improving access to documentation, boosting efficiency, and ensuring safety in aircraft operations. Discover practical applications and insights for the industry."
 excerpt: "In the high-stakes world of aviation maintenance, quick access to accurate documentation can mean the difference between safety and disaster. Retrieval-Augmented Generation (RAG) is emerging as a game-changer, combining AI with vast knowledge bases to streamline troubleshooting and decision-making. This post delves into how RAG frameworks are being applied to aviation, drawing from recent research and real-world examples."
 tags: ["RAG", "aviation maintenance", "AI in aerospace", "knowledge retrieval", "chatbot agents"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/revolutionizing-aviation-maintenance-how-rag-transforms-documentation-and-knowledge-retrieval.png"
 published: true
 ---

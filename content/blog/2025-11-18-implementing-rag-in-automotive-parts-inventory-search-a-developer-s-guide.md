@@ -4,7 +4,7 @@ date: "2025-11-18T08:24:26.277Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) enhances automotive parts inventory searches. This guide covers implementation steps, benefits, and real-world applications for developers building efficient chatbot systems. (148 characters)"
 excerpt: "Automotive parts inventory management often involves sifting through vast databases to find the right component quickly. Retrieval-Augmented Generation (RAG) combines AI retrieval with generation to make searches more accurate and contextual. In this guide, we'll explore how developers can implement RAG to streamline inventory queries in the automotive sector."
 tags: ["RAG", "automotive inventory", "AI search", "Next.js boilerplate", "chatbot development"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/implementing-rag-in-automotive-parts-inventory-search-a-developer-s-guide.png"
 published: true
 ---

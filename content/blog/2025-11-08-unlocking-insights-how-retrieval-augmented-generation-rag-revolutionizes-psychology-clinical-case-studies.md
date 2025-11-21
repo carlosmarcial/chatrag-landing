@@ -4,7 +4,7 @@ date: "2025-11-08T01:06:24.230Z"
 description: "Explore how RAG technology is transforming psychology by enhancing clinical case studies with AI-driven insights, improving diagnostics, and supporting mental health professionals in real-world applications."
 excerpt: "In the evolving landscape of mental health care, Retrieval-Augmented Generation (RAG) is emerging as a game-changer for psychology clinical case studies. By combining large language models with targeted data retrieval, RAG enables more accurate, context-aware analyses of patient histories and symptoms. This blog post delves into practical implementations, recent research, and how tools like ChatRAG can help build innovative chatbot solutions for psychological applications."
 tags: ["RAG", "Psychology", "AI in Healthcare", "Clinical Studies", "Chatbots"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/unlocking-insights-how-retrieval-augmented-generation-rag-revolutionizes-psychology-clinical-case-studies.png"
 published: true
 ---

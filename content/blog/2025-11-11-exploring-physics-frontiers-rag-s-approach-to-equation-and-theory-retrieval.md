@@ -4,7 +4,7 @@ date: "2025-11-11T08:23:52.783Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) enhances physics research by improving searches for equations and theories, blending AI with vast knowledge bases for precise, context-aware results in scientific workflows."
 excerpt: "In the complex world of physics, finding the right equation or theory can be a daunting task. Retrieval-Augmented Generation (RAG) is stepping in to streamline this process, combining large language models with targeted retrieval for more accurate and efficient searches. This blog post delves into how RAG is reshaping physics equation and theory discovery, offering practical insights for researchers and developers alike."
 tags: ["RAG", "physics research", "AI in science", "equation search", "theory retrieval"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/exploring-physics-frontiers-rag-s-approach-to-equation-and-theory-retrieval.png"
 published: true
 ---

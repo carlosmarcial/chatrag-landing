@@ -4,7 +4,7 @@ date: "2025-11-21T08:25:55.557Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) addresses critical challenges in food safety and quality compliance, enhancing accuracy and efficiency in the industry. Explore practical implementations and future trends in this comprehensive guide. (152 characters)"
 excerpt: "Food safety compliance remains a daunting task for many in the industry, plagued by vast regulations and the need for quick, accurate information. Retrieval-Augmented Generation (RAG) emerges as a powerful solution, combining AI with real-time data retrieval to streamline processes. This post delves into how RAG can transform compliance efforts, backed by recent research and practical examples."
 tags: ["RAG technology", "food safety", "quality compliance", "AI in food industry", "chatbot applications"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/the-food-safety-compliance-challenge-rag-was-built-to-solve.png"
 published: true
 ---

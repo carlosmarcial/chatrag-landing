@@ -110,9 +110,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     datePublished: post.date,
     dateModified: post.date,
     author: {
-      '@type': 'Organization',
+      '@type': 'Person',
       name: post.author,
-      url: 'https://www.chatrag.ai',
+      url: 'https://www.chatrag.ai/content-methodology',
     },
     publisher: {
       '@type': 'Organization',
@@ -180,9 +180,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               })}
             </time>
             {post.author && (
-              <span className="text-sm text-gray-500 ml-4">
+              <Link
+                href="/content-methodology"
+                className="text-sm text-gray-500 ml-4 hover:text-gray-300 transition"
+              >
                 By {post.author}
-              </span>
+              </Link>
             )}
           </div>
 

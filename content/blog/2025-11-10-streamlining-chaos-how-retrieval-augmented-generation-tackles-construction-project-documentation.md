@@ -4,7 +4,7 @@ date: "2025-11-10T18:22:10.517Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) transforms construction project documentation, improving accuracy and efficiency in managing vast data. Learn practical implementations and insights for modern building projects. (148 characters)"
 excerpt: "In the fast-paced world of construction, managing project documentation can be overwhelming with endless blueprints, contracts, and reports. Retrieval-Augmented Generation (RAG) offers a smart solution by combining AI retrieval with generation to provide precise, context-aware answers. This post explores how RAG enhances efficiency and reduces errors in construction workflows."
 tags: ["RAG technology", "construction AI", "project documentation", "AI in building", "chatbot solutions"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/streamlining-chaos-how-retrieval-augmented-generation-tackles-construction-project-documentation.png"
 published: true
 ---

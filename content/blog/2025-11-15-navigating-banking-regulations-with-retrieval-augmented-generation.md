@@ -4,7 +4,7 @@ date: "2025-11-15T18:19:37.643Z"
 description: "Explore how Retrieval-Augmented Generation (RAG) enhances regulatory compliance in banking, offering accurate, efficient solutions for financial institutions facing complex rules. (138 characters)"
 excerpt: "In the fast-paced world of banking, staying compliant with ever-changing regulations is a constant challenge. Retrieval-Augmented Generation (RAG) emerges as a powerful tool, combining AI with precise data retrieval to streamline compliance processes. This post delves into practical applications, benefits, and implementation strategies for RAG in banking compliance."
 tags: ["RAG in banking", "regulatory compliance", "AI for finance", "financial workflows", "data governance"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/navigating-banking-regulations-with-retrieval-augmented-generation.png"
 published: true
 ---

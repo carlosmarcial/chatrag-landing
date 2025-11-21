@@ -4,7 +4,7 @@ date: "2025-11-18T18:23:16.581Z"
 description: "Explore how Retrieval-Augmented Generation (RAG) is enhancing government policy analysis, from extracting insights in legal texts to meta-analyzing evaluations, with practical examples and source-backed strategies. (148 characters)"
 excerpt: "Governments worldwide grapple with vast troves of policy documents, making timely analysis a daunting task. Retrieval-Augmented Generation (RAG) steps in as a powerful tool, combining AI retrieval with generation to deliver accurate, context-rich insights. This post dives into real-world applications, backed by recent research, showing how RAG simplifies complex policy workflows."
 tags: ["RAG", "Government Policy", "AI Analysis", "Document Extraction", "ChatRAG"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/how-governments-leverage-rag-for-streamlined-policy-document-analysis.png"
 published: true
 ---

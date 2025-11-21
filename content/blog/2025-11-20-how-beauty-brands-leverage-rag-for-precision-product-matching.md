@@ -4,7 +4,7 @@ date: "2025-11-20T08:25:14.351Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) enhances product matching in the beauty industry, enabling personalized recommendations and boosting customer satisfaction. Explore real-world applications and technical insights for implementing RAG in cosmetics e-commerce. (152 characters)"
 excerpt: "In the competitive beauty market, finding the perfect product match can make or break a customer's experience. Retrieval-Augmented Generation (RAG) is changing this by combining AI retrieval with generation for accurate, personalized suggestions. This post dives into how beauty brands are using RAG to improve product matching and drive sales."
 tags: ["RAG technology", "beauty industry", "product matching", "AI recommendations", "cosmetics e-commerce"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/how-beauty-brands-leverage-rag-for-precision-product-matching.png"
 published: true
 ---

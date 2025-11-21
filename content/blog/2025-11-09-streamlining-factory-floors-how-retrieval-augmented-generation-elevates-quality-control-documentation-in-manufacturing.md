@@ -4,7 +4,7 @@ date: "2025-11-09T18:19:16.729Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) transforms manufacturing quality control by enhancing documentation accuracy and efficiency. This guide explores practical implementations, real-world examples, and strategies to integrate RAG into your operations for better decision-making and compliance."
 excerpt: "In the fast-paced world of manufacturing, maintaining top-notch quality control documentation is crucial yet challenging. Retrieval-Augmented Generation (RAG) offers a game-changing approach by combining AI-driven retrieval with generative capabilities to make sense of vast document repositories. This blog post delves into how RAG can streamline processes, reduce errors, and boost overall efficiency in quality control."
 tags: ["RAG", "Manufacturing", "Quality Control", "AI Documentation", "Industrial AI"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/streamlining-factory-floors-how-retrieval-augmented-generation-elevates-quality-control-documentation-in-manufacturing.png"
 published: true
 ---

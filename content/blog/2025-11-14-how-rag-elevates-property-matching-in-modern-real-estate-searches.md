@@ -4,7 +4,7 @@ date: "2025-11-14T20:04:18.751Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) enhances real estate property search and matching, making processes more accurate and efficient. Learn practical implementations and insights for building smarter AI-driven tools in this dynamic industry."
 excerpt: "In the fast-paced world of real estate, finding the perfect property match can be a challenge. Retrieval-Augmented Generation (RAG) is stepping in to streamline searches by combining AI with targeted data retrieval. This blog explores how RAG improves accuracy, personalization, and efficiency in property matching."
 tags: ["RAG", "Real Estate AI", "Property Search", "AI Matching", "Chatbot Agents"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/how-rag-elevates-property-matching-in-modern-real-estate-searches.png"
 published: true
 ---

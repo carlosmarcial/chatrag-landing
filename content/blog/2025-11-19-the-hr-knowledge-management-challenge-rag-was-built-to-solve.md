@@ -4,7 +4,7 @@ date: "2025-11-19T18:22:36.501Z"
 description: "Explore how Retrieval-Augmented Generation (RAG) addresses key issues in HR knowledge management, from efficient information retrieval to personalized employee support, with practical insights for implementation."
 excerpt: "Human resources teams often struggle with vast amounts of scattered information, leading to inefficiencies and employee frustration. Retrieval-Augmented Generation (RAG) offers a targeted solution by combining AI retrieval with generation for accurate, context-aware responses. This post delves into how RAG can streamline HR processes and enhance knowledge accessibility."
 tags: ["RAG", "HR Knowledge Management", "AI in HR", "Retrieval-Augmented Generation", "Chatbot SaaS"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/the-hr-knowledge-management-challenge-rag-was-built-to-solve.png"
 published: true
 ---

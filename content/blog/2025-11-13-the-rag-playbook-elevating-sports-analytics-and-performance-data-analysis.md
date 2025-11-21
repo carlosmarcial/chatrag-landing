@@ -4,7 +4,7 @@ date: "2025-11-13T18:22:12.396Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) is transforming sports analytics by integrating real-time data retrieval with AI insights, offering coaches and analysts powerful tools for performance optimization. (148 characters)"
 excerpt: "In the fast-paced world of sports, data is king, but making sense of it requires more than raw numbers. Retrieval-Augmented Generation (RAG) bridges the gap by combining AI language models with targeted data retrieval, enabling deeper insights into player performance and game strategies. This post explores practical applications of RAG in sports analytics, from soccer tactics to Olympic training regimens."
 tags: ["RAG", "Sports Analytics", "AI Performance Data", "Athlete Optimization", "Chatbot AI"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/the-rag-playbook-elevating-sports-analytics-and-performance-data-analysis.png"
 published: true
 ---

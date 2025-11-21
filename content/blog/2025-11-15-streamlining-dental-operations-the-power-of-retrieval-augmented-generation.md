@@ -4,7 +4,7 @@ date: "2025-11-15T08:21:25.872Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) is enhancing dental practice management, from patient care to diagnostics. Learn practical implementations and insights for building AI-driven solutions in dentistry. (148 characters)"
 excerpt: "In the fast-evolving world of dental care, Retrieval-Augmented Generation (RAG) is emerging as a key tool for improving efficiency and accuracy. This blog explores how RAG integrates with dental workflows, offering real-world examples and expert insights. Whether you're a practitioner or tech enthusiast, see how RAG can elevate practice management."
 tags: ["RAG in dentistry", "AI for dental management", "chatbot SaaS", "healthcare AI", "dental tech innovations"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/streamlining-dental-operations-the-power-of-retrieval-augmented-generation.png"
 published: true
 ---

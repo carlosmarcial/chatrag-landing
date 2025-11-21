@@ -4,7 +4,7 @@ date: "2025-11-16T18:20:11.033Z"
 description: "Explore how Retrieval-Augmented Generation (RAG) enhances academic research by improving paper discovery, with insights into architectures, benchmarks, and practical implementations for developers. (148 characters)"
 excerpt: "Academic researchers often drown in vast seas of publications, struggling to find relevant papers quickly. Retrieval-Augmented Generation (RAG) addresses this by combining search precision with generative AI, making discovery more efficient. This post dives into building such systems, drawing from recent studies and tools."
 tags: ["RAG", "academic research", "paper discovery", "AI tools", "retrieval systems"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/building-academic-paper-discovery-systems-with-retrieval-augmented-generation.png"
 published: true
 ---

@@ -4,7 +4,7 @@ date: "2025-11-19T08:24:26.136Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) addresses key challenges in restaurant menu and recipe management, from dynamic updates to personalized recommendations. Learn practical implementations for better efficiency."
 excerpt: "Restaurants often struggle with keeping menus current and recipes consistent amid changing ingredients and customer preferences. Retrieval-Augmented Generation (RAG) offers a smart solution by combining AI retrieval with generation for accurate, real-time management. This post explores how RAG can streamline operations and enhance customer experiences in the food industry."
 tags: ["RAG technology", "restaurant AI", "menu management", "recipe generation", "chatbot SaaS"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/the-restaurant-menu-management-challenge-rag-was-built-to-solve.png"
 published: true
 ---

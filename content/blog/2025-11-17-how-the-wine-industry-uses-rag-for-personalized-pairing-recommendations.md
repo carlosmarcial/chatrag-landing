@@ -4,7 +4,7 @@ date: "2025-11-17T18:22:23.615Z"
 description: "Explore how Retrieval-Augmented Generation (RAG) enhances wine and spirits pairing recommendations, blending AI with sensory data for tailored suggestions. Discover practical implementations and future trends in this 1500-word guide."
 excerpt: "In the wine industry, pairing recommendations have evolved from expert intuition to AI-driven precision. Retrieval-Augmented Generation (RAG) integrates vast databases of flavors and cultural preferences to deliver personalized suggestions. This post examines real-world applications, from apps to research, showing how RAG transforms user experiences."
 tags: ["RAG", "wine pairing", "AI recommendations", "spirits", "chatbot SaaS"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/how-the-wine-industry-uses-rag-for-personalized-pairing-recommendations.png"
 published: true
 ---

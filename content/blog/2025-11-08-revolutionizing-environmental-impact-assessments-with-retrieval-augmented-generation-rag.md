@@ -4,7 +4,7 @@ date: "2025-11-08T08:21:07.883Z"
 description: "Explore how Retrieval-Augmented Generation (RAG) is transforming environmental impact assessments by combining AI with domain-specific data for more accurate, efficient, and sustainable decision-making in a changing world."
 excerpt: "In an era where environmental challenges demand precise and timely assessments, Retrieval-Augmented Generation (RAG) emerges as a game-changer. This AI technique enhances large language models by retrieving relevant information from vast datasets, enabling more informed environmental impact evaluations. Discover how RAG is being integrated into global assessments to tackle climate pressures and improve sustainability outcomes."
 tags: ["RAG", "Environmental Impact Assessment", "AI Sustainability", "Retrieval-Augmented Generation", "Climate Tech"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/revolutionizing-environmental-impact-assessments-with-retrieval-augmented-generation-rag.png"
 published: true
 ---

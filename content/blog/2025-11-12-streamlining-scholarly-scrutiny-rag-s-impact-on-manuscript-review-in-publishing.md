@@ -4,7 +4,7 @@ date: "2025-11-12T19:06:00.144Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) is transforming manuscript reviews in publishing, offering tools for efficient literature checks, feedback generation, and revision support. This guide explores practical applications and insights for researchers and publishers."
 excerpt: "In the fast-paced world of academic publishing, reviewing manuscripts can be a daunting task fraught with information overload. Retrieval-Augmented Generation (RAG) emerges as a game-changer, combining AI's generative power with targeted data retrieval to enhance accuracy and efficiency. This post delves into how RAG streamlines the review process, from literature verification to constructive feedback."
 tags: ["RAG", "Manuscript Review", "AI in Publishing", "Retrieval-Augmented Generation", "Scholarly Workflows"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/streamlining-scholarly-scrutiny-rag-s-impact-on-manuscript-review-in-publishing.png"
 published: true
 ---

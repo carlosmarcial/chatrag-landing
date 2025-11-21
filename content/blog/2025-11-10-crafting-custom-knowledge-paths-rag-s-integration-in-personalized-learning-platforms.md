@@ -4,7 +4,7 @@ date: "2025-11-10T08:26:27.587Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) is reshaping educational tools into adaptive, personalized experiences. This post explores practical implementations, real-world examples, and insights for developers building AI-driven learning platforms with tools like ChatRAG."
 excerpt: "In the evolving landscape of education, Retrieval-Augmented Generation (RAG) stands out as a game-changer for creating personalized learning platforms. By combining large language models with targeted data retrieval, RAG enables tailored educational experiences that adapt to individual student needs. This blog delves into the mechanics, benefits, and implementation strategies for integrating RAG into educational tech."
 tags: ["RAG", "Personalized Learning", "AI Education", "Adaptive Platforms", "EdTech"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/crafting-custom-knowledge-paths-rag-s-integration-in-personalized-learning-platforms.png"
 published: true
 ---

@@ -4,7 +4,7 @@ date: "2025-11-14T08:24:16.744Z"
 description: "Explore how Retrieval-Augmented Generation (RAG) is transforming patent search and prior art analysis, offering precise insights and efficiency for innovators and legal experts in a data-rich landscape. (148 characters)"
 excerpt: "In the fast-paced world of intellectual property, finding relevant prior art can be a daunting task. Retrieval-Augmented Generation (RAG) combines AI retrieval with generation to streamline patent searches, uncovering hidden connections and insights. This blog delves into practical applications and strategies for leveraging RAG in patent workflows."
 tags: ["RAG", "Patent Search", "Prior Art Analysis", "AI in IP", "Innovation Tools"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/navigating-complex-innovations-how-rag-elevates-patent-search-and-prior-art-analysis.png"
 published: true
 ---

@@ -18,6 +18,8 @@ const staticPages = [
   { loc: '/', changefreq: 'weekly', priority: '1.0' },
   { loc: '/docs', changefreq: 'weekly', priority: '0.9' },
   { loc: '/blog', changefreq: 'daily', priority: '0.9' },
+  { loc: '/content-methodology', changefreq: 'monthly', priority: '0.7' },
+  { loc: '/author/carlos-marcial', changefreq: 'weekly', priority: '0.7' },
 
   // Documentation pages
   { loc: '/docs/quick-start', changefreq: 'weekly', priority: '0.9' },

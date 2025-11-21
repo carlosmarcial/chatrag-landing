@@ -4,7 +4,7 @@ date: "2025-11-12T08:25:35.262Z"
 description: "Discover how Retrieval-Augmented Generation (RAG) is enhancing patient record management in healthcare, offering accurate insights and improved decision-making. This guide explores implementations, benefits, and ethical considerations for building efficient RAG systems."
 excerpt: "In the fast-paced world of healthcare, managing patient records efficiently is crucial for quality care. Retrieval-Augmented Generation (RAG) combines large language models with real-time data retrieval to provide contextually accurate information. This post delves into how RAG can transform record management, backed by recent research and practical examples."
 tags: ["RAG", "healthcare", "patient records", "AI in medicine", "data management"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/streamlining-patient-records-the-power-of-rag-in-modern-healthcare-management.png"
 published: true
 ---

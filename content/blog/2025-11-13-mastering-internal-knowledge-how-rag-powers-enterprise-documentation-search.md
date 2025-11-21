@@ -4,7 +4,7 @@ date: "2025-11-13T08:24:42.531Z"
 description: "Explore how Retrieval-Augmented Generation (RAG) enhances enterprise internal documentation search, offering precise, context-aware answers to boost productivity and decision-making in large organizations. (148 characters)"
 excerpt: "In today's data-driven enterprises, sifting through vast internal documentation can be a major bottleneck. Retrieval-Augmented Generation (RAG) emerges as a game-changer, combining AI retrieval with generation to deliver accurate, relevant responses. This guide dives into implementing RAG for efficient knowledge management."
 tags: ["RAG", "enterprise AI", "documentation search", "knowledge base", "retrieval-augmented generation"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/mastering-internal-knowledge-how-rag-powers-enterprise-documentation-search.png"
 published: true
 ---

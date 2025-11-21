@@ -4,7 +4,7 @@ date: "2025-11-16T08:22:11.864Z"
 description: "Explore how Retrieval-Augmented Generation (RAG) enhances library catalog systems, making searches more intuitive and discoveries more efficient. Dive into practical applications, benefits, and implementation tips for modern libraries. (148 characters)"
 excerpt: "In an era where information overload challenges even the most organized libraries, Retrieval-Augmented Generation (RAG) emerges as a game-changer for catalog search and discovery. By combining retrieval mechanisms with generative AI, RAG enables more accurate, context-aware results that go beyond traditional keyword matching. This post delves into its applications, benefits, and how tools like ChatRAG can help build such systems."
 tags: ["RAG", "library search", "AI discovery", "catalog systems", "generative AI"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/navigating-vast-knowledge-how-rag-elevates-library-catalog-search-and-discovery.png"
 published: true
 ---
