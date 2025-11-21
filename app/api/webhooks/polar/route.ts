@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
       const refgrowWebhookUrl = `https://refgrow.com/webhook/polar/${refgrowProjectId}`
 
       // Extract referral code from metadata
-      const referralCode = payload.data.order.metadata?.referral_code
+      const referralCode = payload.data.metadata?.referral_code
 
       // Only forward to Refgrow if there's a referral code
       if (referralCode) {
