@@ -38,7 +38,8 @@ export async function POST(request: NextRequest) {
     console.log("Received Polar webhook:", payload.type)
 
     // Forward order.paid events to Refgrow (one-time purchases only)
-    if (payload.type === "order.paid") {
+    // TEMP: Also handle checkout.created for testing purposes
+    if (payload.type === "order.paid" || payload.type === "checkout.created") {
       const refgrowProjectId = "490"
       const refgrowWebhookUrl = `https://refgrow.com/webhook/polar/${refgrowProjectId}`
 
@@ -47,7 +48,7 @@ export async function POST(request: NextRequest) {
 
       // Only forward to Refgrow if there's a referral code
       if (referralCode) {
-        console.log(`Forwarding ${payload.type} to Refgrow with referral_code:`, referralCode)
+        console.log(`[TEST MODE] Forwarding ${payload.type} to Refgrow with referral_code:`, referralCode)
 
         try {
           const refgrowResponse = await fetch(refgrowWebhookUrl, {
