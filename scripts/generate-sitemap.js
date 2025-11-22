@@ -22,6 +22,8 @@ const staticPages = [
   { loc: '/author/carlos-marcial', changefreq: 'weekly', priority: '0.7' },
 
   // Documentation pages
+  { loc: '/docs/deployment-mode', changefreq: 'weekly', priority: '0.9' },
+  { loc: '/docs/multi-tenant', changefreq: 'weekly', priority: '0.9' },
   { loc: '/docs/quick-start', changefreq: 'weekly', priority: '0.9' },
   { loc: '/docs/prerequisites', changefreq: 'monthly', priority: '0.7' },
   { loc: '/docs/database-setup', changefreq: 'monthly', priority: '0.8' },
