@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Bot, Menu, X, Database, CreditCard, Cpu, Settings, Code, Palette, FileText, Zap, Users, Workflow, Star, Gift, Globe, Video, Share, Mic, Smartphone, FileDown, History, Languages, Type, Code2, Crown, GraduationCap } from "lucide-react";
+import { Bot, Menu, X, Database, CreditCard, Cpu, Settings, Code, Palette, FileText, Zap, Users, Workflow, Star, Gift, Globe, Video, Share, Mic, Smartphone, FileDown, History, Languages, Type, Code2, Crown, GraduationCap, User, Building2, Shield, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -450,6 +450,113 @@ export default function Home() {
 
       {/* Features Showcase Section */}
       <FeaturesShowcase />
+
+      {/* Deployment Modes Section */}
+      <section id="deployment-modes" className="py-12 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
+              Two Modes, <span className="animate-pulse-glow-light">One Codebase</span>
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              Deploy as a shared knowledge base or build a full SaaS with isolated workspaces. Same codebase, your choice.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="grid gap-6 md:gap-8 md:grid-cols-2">
+              {/* Single-Tenant Card */}
+              <Card className="p-6 md:p-8 border-2 hover:border-blue-500 transition-colors bg-[#0a1628] dark:bg-[#0a1628]">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-blue-900/50 flex items-center justify-center">
+                    <User className="w-7 h-7 text-blue-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white">Single-Tenant</h3>
+                    <p className="text-sm text-blue-400">Shared Knowledge Base</p>
+                  </div>
+                </div>
+
+                <p className="text-gray-300 mb-6">
+                  All users share the same documents. Perfect for AI assistants, product docs, and customer support bots.
+                </p>
+
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-3 text-sm text-white">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>Shared documents for all users</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>Private chat history per user</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>Simple setup in minutes</span>
+                  </li>
+                </ul>
+
+                <div className="pt-6 border-t border-gray-700">
+                  <p className="text-base text-gray-300">
+                    <strong className="text-white">Best for:</strong> AI Twins, Product Documentation, Customer Support Bots
+                  </p>
+                </div>
+              </Card>
+
+              {/* Multi-Tenant Card */}
+              <Card className="p-6 md:p-8 border-2 hover:border-[#FF6417] transition-colors bg-[#0a1628] dark:bg-[#0a1628]">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-[#FF6417]/20 flex items-center justify-center">
+                    <Building2 className="w-7 h-7 text-[#FF6417]" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white">Multi-Tenant</h3>
+                    <p className="text-sm text-[#FF6417]">Isolated Workspaces</p>
+                  </div>
+                </div>
+
+                <p className="text-gray-300 mb-6">
+                  Each user/team gets private workspaces. Build NotebookLM-style SaaS products with complete data isolation.
+                </p>
+
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-3 text-sm text-white">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>Isolated knowledge bases per workspace</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>Team collaboration with roles</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                    <span>Subscription tiers & quotas</span>
+                  </li>
+                </ul>
+
+                <div className="pt-6 border-t border-gray-700">
+                  <p className="text-base text-gray-300">
+                    <strong className="text-white">Best for:</strong> SaaS RAG Products, Enterprise, Agencies
+                  </p>
+                </div>
+              </Card>
+            </div>
+
+            <div className="text-center mt-10">
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-8 py-6 text-base font-semibold border-2"
+                asChild
+              >
+                <a href="/docs/deployment-mode">
+                  Learn More About Deployment Modes →
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Pricing Section */}
       <section id="pricing" className="py-12 md:py-24 bg-background">

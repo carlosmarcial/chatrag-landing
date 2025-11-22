@@ -1,6 +1,7 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { CheckCircle2, Info, Lightbulb } from "lucide-react";
+import { CheckCircle2, Info, Lightbulb, AlertTriangle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Quick Start - ChatRAG Documentation",
@@ -37,6 +38,18 @@ export default function QuickStartPage() {
           Set up a basic RAG-powered AI chatbot with ChatRAG in 12 simple steps
         </p>
       </div>
+
+      <Alert className="border-2 border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-950">
+        <AlertTriangle className="h-4 w-4 text-orange-600 dark:text-orange-400" />
+        <AlertTitle className="text-orange-900 dark:text-orange-100">First: Choose Your Deployment Mode</AlertTitle>
+        <AlertDescription className="text-orange-800 dark:text-orange-200">
+          Before starting, decide between <strong>Single-Tenant</strong> (shared knowledge base) or <strong>Multi-Tenant</strong> (isolated workspaces).
+          This affects which database schema you'll use.{" "}
+          <Link href="/docs/deployment-mode" className="underline font-medium">
+            Learn about deployment modes →
+          </Link>
+        </AlertDescription>
+      </Alert>
 
       <Alert>
         <Info className="h-4 w-4" />
@@ -133,6 +146,14 @@ export default function QuickStartPage() {
             <p className="text-sm">
               This opens a visual configuration dashboard where you can input and manage API keys and toggle features.
             </p>
+            <div className="bg-purple-50 dark:bg-purple-950 border border-purple-200 dark:border-purple-800 rounded-lg p-3 mt-3">
+              <p className="text-sm font-medium text-purple-900 dark:text-purple-100">
+                Important: Choose Your Deployment Mode
+              </p>
+              <p className="text-xs text-purple-800 dark:text-purple-200 mt-1">
+                The first tab is <strong>Deployment Mode</strong>. Select either <strong>Single-Tenant</strong> (shared knowledge base) or <strong>Multi-Tenant</strong> (isolated workspaces) before configuring other settings.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -203,8 +224,14 @@ export default function QuickStartPage() {
                 </a>{" "}
                 and create a new project
               </li>
-              <li>Locate the SQL file in the repository's <code className="bg-muted px-1 py-0.5 rounded">supabase</code> folder</li>
-              <li>Copy its contents</li>
+              <li>
+                <strong>Choose the correct SQL file based on your deployment mode:</strong>
+                <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+                  <li><code className="bg-blue-100 dark:bg-blue-900 px-1.5 py-0.5 rounded text-xs">supabase/single-tenant-setup.sql</code> for Single-Tenant</li>
+                  <li><code className="bg-purple-100 dark:bg-purple-900 px-1.5 py-0.5 rounded text-xs">supabase/multi-tenant-setup.sql</code> for Multi-Tenant</li>
+                </ul>
+              </li>
+              <li>Copy the contents of your chosen SQL file</li>
               <li>Go to your Supabase project's SQL Editor, paste the code, and run it to create the necessary tables</li>
               <li>Once successful, retrieve your Supabase project URL, <code className="bg-muted px-1 py-0.5 rounded">anon</code> public key, and service role key from the API section</li>
               <li>Paste these values into the configuration dashboard</li>

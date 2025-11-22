@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { DocsThemeToggle } from "@/components/docs-theme-toggle";
 import { cn } from "@/lib/utils";
-import { BookOpen, Database, Settings, Zap, Rocket, HelpCircle, Code, Cloud, FileText } from "lucide-react";
+import { BookOpen, Database, Settings, Zap, Rocket, HelpCircle, Code, Cloud, FileText, Building2, Users } from "lucide-react";
 
 const navigation = [
   {
@@ -15,6 +15,7 @@ const navigation = [
     icon: Rocket,
     items: [
       { title: "Introduction", href: "/docs" },
+      { title: "Deployment Modes", href: "/docs/deployment-mode" },
       { title: "Prerequisites", href: "/docs/prerequisites" },
       { title: "Quick Start", href: "/docs/quick-start" },
     ],
@@ -38,6 +39,13 @@ const navigation = [
       { title: "AI Models", href: "/docs/ai-models" },
       { title: "Authentication", href: "/docs/authentication" },
       { title: "Media Generation", href: "/docs/media-generation" },
+    ],
+  },
+  {
+    title: "Multi-Tenant",
+    icon: Building2,
+    items: [
+      { title: "Multi-Tenant Setup", href: "/docs/multi-tenant" },
     ],
   },
   {

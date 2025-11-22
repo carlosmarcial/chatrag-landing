@@ -1,6 +1,7 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { CheckCircle2, Database, AlertTriangle, Info } from "lucide-react";
+import { CheckCircle2, Database, AlertTriangle, Info, User, Building2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Database Setup - ChatRAG Documentation",
@@ -37,6 +38,17 @@ export default function DatabaseSetupPage() {
           Configure your Supabase database with vector search capabilities. This section is crucial for a working installation.
         </p>
       </div>
+
+      <Alert className="border-2 border-orange-200 dark:border-orange-800 bg-orange-50 dark:bg-orange-950">
+        <AlertTriangle className="h-4 w-4 text-orange-600 dark:text-orange-400" />
+        <AlertTitle className="text-orange-900 dark:text-orange-100">Choose Your SQL File Based on Deployment Mode</AlertTitle>
+        <AlertDescription className="text-orange-800 dark:text-orange-200">
+          You must use the correct SQL file for your deployment mode. Using the wrong schema will cause issues.{" "}
+          <Link href="/docs/deployment-mode" className="underline font-medium">
+            Not sure which mode? Learn more →
+          </Link>
+        </AlertDescription>
+      </Alert>
 
       <Alert>
         <Database className="h-4 w-4" />
@@ -84,13 +96,40 @@ export default function DatabaseSetupPage() {
             </div>
           </div>
           <div className="space-y-3 text-muted-foreground">
-            <p>ChatRAG includes a complete database setup file that creates all required tables, indexes, and security policies.</p>
+            <p>ChatRAG includes deployment-mode specific database setup files that create all required tables, indexes, and security policies.</p>
+
+            {/* Mode-specific SQL files */}
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4 bg-blue-50/50 dark:bg-blue-950/50">
+                <div className="flex items-center gap-2 mb-3">
+                  <User className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  <h3 className="font-semibold text-blue-900 dark:text-blue-100">Single-Tenant Mode</h3>
+                </div>
+                <p className="text-sm mb-2">Shared knowledge base, user-isolated chats</p>
+                <code className="block bg-blue-100 dark:bg-blue-900 px-3 py-2 rounded text-xs font-mono">
+                  supabase/single-tenant-setup.sql
+                </code>
+                <p className="text-xs mt-2 text-blue-700 dark:text-blue-300">~1,383 lines</p>
+              </div>
+
+              <div className="border-2 border-purple-200 dark:border-purple-800 rounded-lg p-4 bg-purple-50/50 dark:bg-purple-950/50">
+                <div className="flex items-center gap-2 mb-3">
+                  <Building2 className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <h3 className="font-semibold text-purple-900 dark:text-purple-100">Multi-Tenant Mode</h3>
+                </div>
+                <p className="text-sm mb-2">Isolated workspaces, team collaboration, RBAC</p>
+                <code className="block bg-purple-100 dark:bg-purple-900 px-3 py-2 rounded text-xs font-mono">
+                  supabase/multi-tenant-setup.sql
+                </code>
+                <p className="text-xs mt-2 text-purple-700 dark:text-purple-300">~1,143 lines + organizations</p>
+              </div>
+            </div>
 
             <div className="bg-muted p-4 rounded-lg space-y-2">
               <p className="font-semibold text-foreground">Follow these steps:</p>
               <ol className="list-decimal list-inside space-y-2 ml-2">
                 <li><strong>Open SQL Editor</strong> in your Supabase dashboard</li>
-                <li><strong>Copy the entire contents</strong> of <code className="bg-background px-1.5 py-0.5 rounded">supabase/complete_setup.sql</code> from your repository</li>
+                <li><strong>Copy the entire contents</strong> of the SQL file matching your deployment mode</li>
                 <li><strong>Paste and execute</strong> the SQL in the editor</li>
               </ol>
             </div>
@@ -104,11 +143,11 @@ export default function DatabaseSetupPage() {
             </Alert>
 
             <div className="border rounded-lg p-4 mt-4">
-              <h3 className="font-semibold text-foreground mb-3">What This Creates:</h3>
+              <h3 className="font-semibold text-foreground mb-3">What Both Modes Create:</h3>
               <ul className="space-y-2">
                 <li className="flex items-start">
                   <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span><strong>14 production tables</strong> with Row Level Security (RLS) for multi-tenant isolation</span>
+                  <span><strong>Core tables</strong> with Row Level Security (RLS) for data isolation</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-green-500 flex-shrink-0" />
@@ -122,9 +161,31 @@ export default function DatabaseSetupPage() {
                   <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-green-500 flex-shrink-0" />
                   <span><strong>Database functions</strong> for semantic search operations</span>
                 </li>
+              </ul>
+            </div>
+
+            <div className="border-2 border-purple-200 dark:border-purple-800 rounded-lg p-4 mt-4">
+              <h3 className="font-semibold text-purple-900 dark:text-purple-100 mb-3">Multi-Tenant Mode Adds:</h3>
+              <ul className="space-y-2">
                 <li className="flex items-start">
-                  <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-green-500 flex-shrink-0" />
-                  <span><strong>Security policies</strong> for secure multi-tenant data access</span>
+                  <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-purple-500 flex-shrink-0" />
+                  <span><strong>organizations</strong> table with subscription tiers & quotas</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-purple-500 flex-shrink-0" />
+                  <span><strong>organization_members</strong> with role-based access (owner/admin/member/viewer)</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-purple-500 flex-shrink-0" />
+                  <span><strong>team_invitations</strong> for email-based invitations</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-purple-500 flex-shrink-0" />
+                  <span><strong>organization_id</strong> columns on documents, chats, and chunks for isolation</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-purple-500 flex-shrink-0" />
+                  <span><strong>Auto-personal org</strong> trigger (creates workspace on user signup)</span>
                 </li>
               </ul>
             </div>

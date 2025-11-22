@@ -1,6 +1,7 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Rocket, Info, CheckCircle2, AlertTriangle, ExternalLink } from "lucide-react";
+import { Rocket, Info, CheckCircle2, AlertTriangle, ExternalLink, Building2, User } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Deployment - ChatRAG Documentation",
@@ -91,7 +92,7 @@ git push origin main`}</code>
                 <p>Add all environment variables from your local <code className="bg-muted px-1 py-0.5 rounded">.env.local</code> to Vercel:</p>
 
                 <div className="border rounded-lg p-3 bg-muted">
-                  <p className="font-semibold text-foreground mb-2">Required Variables:</p>
+                  <p className="font-semibold text-foreground mb-2">Required Variables (Both Modes):</p>
                   <ul className="list-disc list-inside space-y-1 text-xs">
                     <li><code>NEXT_PUBLIC_SUPABASE_URL</code></li>
                     <li><code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code></li>
@@ -100,6 +101,20 @@ git push origin main`}</code>
                     <li><code>OPENROUTER_API_KEY</code></li>
                     <li><code>NEXT_PUBLIC_LLAMA_CLOUD_API_KEY</code></li>
                     <li><code>NEXT_PUBLIC_SITE_URL</code> (your production domain)</li>
+                  </ul>
+                </div>
+
+                <div className="border-2 border-purple-200 dark:border-purple-800 rounded-lg p-3 bg-purple-50 dark:bg-purple-950">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Building2 className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                    <p className="font-semibold text-purple-900 dark:text-purple-100">Multi-Tenant Mode Variables:</p>
+                  </div>
+                  <ul className="list-disc list-inside space-y-1 text-xs text-purple-800 dark:text-purple-200">
+                    <li><code>NEXT_PUBLIC_CHATRAG_DEPLOYMENT_MODE=multi-tenant</code></li>
+                    <li><code>ENABLE_ORGANIZATIONS=true</code></li>
+                    <li><code>ENABLE_TEAM_INVITES=true</code></li>
+                    <li><code>ENABLE_STORAGE_QUOTAS=true</code></li>
+                    <li><code>ENABLE_USAGE_ANALYTICS=true</code> (optional)</li>
                   </ul>
                 </div>
 
@@ -380,14 +395,22 @@ git push origin main`}</code>
         <CheckCircle2 className="h-4 w-4 text-green-600 dark:text-green-400" />
         <AlertTitle className="text-green-900 dark:text-green-100">Deployment Checklist</AlertTitle>
         <AlertDescription className="text-green-800 dark:text-green-200">
-          <ul className="list-disc list-inside space-y-1 text-sm mt-2">
+          <p className="text-sm font-medium mb-2">All Deployments:</p>
+          <ul className="list-disc list-inside space-y-1 text-sm">
             <li>✓ All environment variables configured in Vercel</li>
             <li>✓ Production domain set in NEXT_PUBLIC_SITE_URL</li>
             <li>✓ Supabase redirect URLs updated</li>
             <li>✓ OAuth providers configured with production callback URLs</li>
-            <li>✓ Database schema applied (complete_setup.sql)</li>
+            <li>✓ Correct database schema applied (single-tenant OR multi-tenant SQL)</li>
             <li>✓ Email provider configured for production</li>
             <li>✓ API usage monitoring enabled</li>
+          </ul>
+          <p className="text-sm font-medium mt-4 mb-2 text-purple-700 dark:text-purple-300">Multi-Tenant Mode Additional:</p>
+          <ul className="list-disc list-inside space-y-1 text-sm">
+            <li>✓ NEXT_PUBLIC_CHATRAG_DEPLOYMENT_MODE=multi-tenant set</li>
+            <li>✓ ENABLE_ORGANIZATIONS=true set</li>
+            <li>✓ ENABLE_TEAM_INVITES=true set (for collaboration)</li>
+            <li>✓ Stripe/Polar configured (if using subscriptions)</li>
           </ul>
         </AlertDescription>
       </Alert>
