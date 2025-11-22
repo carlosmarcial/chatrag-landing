@@ -4,7 +4,7 @@ date: "2025-11-22T08:22:23.496Z"
 description: "Explore how Retrieval-Augmented Generation (RAG) addresses the complexities of automotive technical documentation, enhancing accuracy and efficiency for mechanics and engineers in a data-heavy industry. (148 characters)"
 excerpt: "Automotive technical documentation is vast and complex, often leaving mechanics buried in manuals. Retrieval-Augmented Generation (RAG) offers a solution by combining AI retrieval with generation for precise, context-aware responses. This post dives into how RAG tackles these challenges in the automotive sector."
 tags: ["RAG", "Automotive Industry", "Technical Documentation", "AI Retrieval", "Chatbot Agents"]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "/images/blog/the-automotive-technical-documentation-challenge-rag-was-built-to-solve.png"
 published: true
 ---

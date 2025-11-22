@@ -477,7 +477,7 @@ date: "${new Date().toISOString()}"
 description: "${parsedPost.description}"
 excerpt: "${parsedPost.excerpt}"
 tags: [${parsedPost.tags.map(t => `"${t}"`).join(', ')}]
-author: "ChatRAG AI"
+author: "Carlos Marcial"
 image: "${imagePath || ''}"
 published: true
 ---
