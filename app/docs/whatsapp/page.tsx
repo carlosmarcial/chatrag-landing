@@ -44,8 +44,8 @@ export default function WhatsAppIntegrationPage() {
         <AlertTitle>Ready-to-Deploy Bailey's</AlertTitle>
         <AlertDescription>
           ChatRAG has prepared a Bailey's implementation specifically configured to work seamlessly with the platform.
-          Available at: <a href="https://github.com/areia-ai/chatrag" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center">
-            github.com/areia-ai/chatrag <ExternalLink className="w-3 h-3 ml-1" />
+          Available at: <a href="https://github.com/areia-ai/Baileys" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center">
+            github.com/areia-ai/Baileys <ExternalLink className="w-3 h-3 ml-1" />
           </a>
         </AlertDescription>
       </Alert>
@@ -196,8 +196,8 @@ flyctl auth login`}</code>
               <div className="ml-11 space-y-3 text-sm text-muted-foreground">
                 <p>Clone the ready-to-deploy Bailey's implementation:</p>
                 <pre className="bg-muted p-3 rounded-lg overflow-x-auto">
-                  <code>{`git clone https://github.com/areia-ai/chatrag.git
-cd chatrag`}</code>
+                  <code>{`git clone https://github.com/areia-ai/Baileys.git
+cd Baileys`}</code>
                 </pre>
                 <Alert className="mt-2">
                   <CheckCircle2 className="h-4 w-4" />
