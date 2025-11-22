@@ -571,7 +571,7 @@ export default function Home() {
                     <span className="text-green-500 mr-2">✓</span>
                     Lifetime updates
                     <div className="inline-flex items-center bg-[#FE6416] text-white px-2.5 py-1 rounded-full text-xs font-medium ml-3">
-                      Updated 2 days ago
+                      Updated Today!
                     </div>
                   </li>
                 </ul>
